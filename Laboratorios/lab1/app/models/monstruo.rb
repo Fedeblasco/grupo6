@@ -1,0 +1,2 @@
+class Monstruo < ApplicationRecord
+end
