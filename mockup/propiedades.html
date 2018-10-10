@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Mockup | Home</title>
+
+	<meta charset="utf-8" /> 
+
+	<!-- Impoprt Bootstrap CSS -->
+	<link rel="stylesheet" href="css/bootstrap.css">
+
+	<style type="text/css">.container-fluid {
+		margin-right: auto;
+		margin-left: auto;
+		max-width: 1600px; /* or 950px */
+	}
+</style>
+<!-- Import Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</head>
+<body>
+
+	<!-- Navbar -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">
+			<img src="img/logo.png" width="30" height="30" class="d-inline-block align-top" alt="">
+			HomeSwitchHome
+		</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+				<li class="nav-item">
+					<a class="nav-link" href="#">Inicio</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Propiedades
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="#">Argentina</a>
+						<a class="dropdown-item" href="#">Colombia</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Francia</a>
+						<a class="dropdown-item" href="#">Rumania</a>
+						<div class="dropdown-divider"></div>
+						<a class="dropdown-item" href="#">Ver todas</a>
+					</div>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Registrarse</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Iniciar Sesión</a>
+				</li>
+			</ul>
+			<form class="form-inline my-2 my-lg-0">
+				<input class="form-control mr-sm-2" type="search" placeholder="Buscar Propiedades" aria-label="Buscar Propiedades">
+				<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Buscar</button>
+			</form>
+		</div>
+
+	</nav>
+
+
+	<!-- Propieadades -->
+	<div style="max-width: 1200px; margin: 0 auto; padding: 40px 20px 0 20px">
+		<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups" style="margin-bottom: 40px">
+			<div class="btn-group btn-group-toggle mr-2" data-toggle="buttons">
+				<label class="btn btn-secondary active">
+					<input type="radio" name="options" id="option1" autocomplete="off" checked>Argentina
+				</label>
+				<label class="btn btn-secondary">
+					<input type="radio" name="options" id="option2" autocomplete="off">Colombia
+				</label>
+			</div>
+			<div class="btn-group btn-group-toggle mr-2" data-toggle="buttons">
+				<label class="btn btn-secondary ">
+					<input type="radio" name="options" id="option1" autocomplete="off">Francia
+				</label>
+				<label class="btn btn-secondary">
+					<input type="radio" name="options" id="option2" autocomplete="off">Rumania
+				</label>
+			</div>
+			<div class="btn-group btn-group-toggle" data-toggle="buttons">
+				<label class="btn btn-secondary ">
+					<input type="radio" name="options" id="option1" autocomplete="off"> Ver Todas
+				</label>
+			</div>
+		</div>
+		<div class="card-deck">
+			<div class="card" >
+				<img class="card-img-top" src="img/car1.png" style="size: 362px 180px" alt="Card image cap">
+				<div class="card-body">
+					<h5 class="card-title">Card title</h5>
+					<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+				</div>
+				<div class="card-footer">
+					<small class="text-muted">Last updated 3 mins ago</small>
+				</div>
+			</div>
+			<div class="card" >
+				<img class="card-img-top" src="img/car1.png" style="size: 362px 180px" alt="Card image cap">
+				<div class="card-body">
+					<h5 class="card-title">Card title</h5>
+					<p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+				</div>
+				<div class="card-footer">
+					<small class="text-muted">Last updated 3 mins ago</small>
+				</div>
+			</div>
+			<div class="card" >
+				<img class="card-img-top" src="img/car1.png" style="size: 362px 180px" alt="Card image cap">
+				<div class="card-body">
+					<h5 class="card-title">Card title</h5>
+					<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+				</div>
+				<div class="card-footer">
+					<small class="text-muted">Last updated 3 mins ago</small>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+</body>
+</html>
