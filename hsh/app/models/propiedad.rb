@@ -1,0 +1,2 @@
+class Propiedad < ApplicationRecord
+end
