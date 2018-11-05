@@ -17,9 +17,9 @@ class PropsController < ApplicationController
   end
 
   def show
-    @prop = Porp.find(param(:id))
+    @prop = Prop.find(params[:id])
   end
-  
+
   def index
     @props = Prop.all
   end
