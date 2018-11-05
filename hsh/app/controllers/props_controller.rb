@@ -6,7 +6,7 @@ class PropsController < ApplicationController
 
   def create
     @prop = Prop.create(
-      params.requiere(:prop).permit(:nombre, :ubicacion)
+      params.require(:prop).permit(:nombre, :ubicacion)
       )
 
     if @prop.save
