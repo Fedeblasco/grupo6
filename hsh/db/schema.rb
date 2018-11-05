@@ -10,9 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_04_235933) do
+ActiveRecord::Schema.define(version: 2018_11_05_004953) do
 
-  create_table "propiedads", force: :cascade do |t|
+  create_table "props", force: :cascade do |t|
     t.string "nombre"
     t.string "ubicacion"
     t.datetime "created_at", null: false

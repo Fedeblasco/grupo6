@@ -1,0 +1,2 @@
+class Prop < ApplicationRecord
+end

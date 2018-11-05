@@ -1,6 +1,6 @@
-class CreatePropiedads < ActiveRecord::Migration[5.2]
+class CreateProps < ActiveRecord::Migration[5.2]
   def change
-    create_table :propiedads do |t|
+    create_table :props do |t|
       t.string :nombre
       t.string :ubicacion
 
