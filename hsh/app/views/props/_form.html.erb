@@ -1,5 +1,7 @@
 <%= form_for @prop do |p| %>
   <%= p.text_field :nombre %>
   <%= p.text_field :ubicacion %>
+
+  <%= p.text_field :images, multiple: true %>
   <%= p.submit 'Cargar propiedad' %>
 <% end %>
