@@ -31,8 +31,13 @@ class PropsController < ApplicationController
   end
 
   def index
-    @props = Prop.all
-  end
+    @props =
+    if params[:ubicacion]
+      Prop.where('ubicacion LIKE ?', "%#{params[:ubicacion]}%").where('capacidad >= ?', "#{params[:capacidad]}")
+    else
+      Prop.all
+    end
+end
 
   def update
     if Prop.find(params[:id]).update(params.require(:prop).permit(:nombre, :ubicacion, :oculto))

@@ -36,9 +36,18 @@ ActiveRecord::Schema.define(version: 2018_11_06_031547) do
   create_table "props", force: :cascade do |t|
     t.string "nombre"
     t.string "ubicacion"
+    t.integer "capacidad"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "oculto"
+  end
+
+  create_table "reserva", force: :cascade do |t|
+    t.string "nombre"
+    t.datetime "entrada", null: false
+    t.datetime "salida", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end
