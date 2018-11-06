@@ -1,8 +1,11 @@
 <%= form_for @prop do |p| %>
-  <%= p.text_field :nombre %>
-  <%= p.text_field :ubicacion %>
-  <%= p.file_field :images, multiple: true %>
+  <%= p.text_field :nombre, required: true %><br>
+  <%= p.text_field :ubicacion, required: true %><br>
+
   <%= p.check_box :oculto %>
   <span>Oculto</span>
+  
+  <%= p.file_field :imgprincipal, multiple: false, required: true %><br>
+  <%= p.file_field :images, multiple: true %><br>
   <%= p.submit 'Cargar propiedad' %>
 <% end %>

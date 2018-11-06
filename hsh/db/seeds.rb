@@ -7,15 +7,38 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts 'Reestableciendo la base de datos'
 Prop.destroy_all
-Prop.create(nombre:'Hotel sol bariloche',ubicacion:'Bariloche, Argentina');
-Prop.create(nombre:'Hotel ausonia',ubicacion:'Bariloche, Argentina')
-Prop.create(nombre:'Rodeo ski',ubicacion:'Bariloche, Argentina')
-Prop.create(nombre:'Shinta mani resort',ubicacion:'Siem reap, Cambodia')
-Prop.create(nombre:'Bellevue syrene',ubicacion:'Sorrento, Italia')
-Prop.create(nombre:'Hanoi hotel y spa',ubicacion:'Hanoi, Vietnam')
-Prop.create(nombre:'Achtis hotel',ubicacion:'Afitos, Grecia')
-Prop.create(nombre:'Mirihi island resort',ubicacion:'Mirihi, Maldivas')
-Prop.create(nombre:'Bucuti & tara beach resort',ubicacion:'Eagle beach, Aruba')
-Prop.create(nombre:'Calabash luxury',ubicacion:'Saint Georges, Grenada')
-Prop.create(nombre:'Hotel Ritta Hoppener',ubicacion:'Rio grande do sul, Brasil')
+
+p = Prop.create(nombre:'Hotel sol bariloche',ubicacion:'Bariloche, Argentina')
+p.imgprincipal.attach(io: File.open('seedaux/hotelsol.jpeg'), filename: 'file.png')
+
+p = Prop.create(nombre:'Hotel ausonia',ubicacion:'Bariloche, Argentina')
+p.imgprincipal.attach(io: File.open('seedaux/hotelausonia.jpeg'), filename: 'file.png')
+
+p = Prop.create(nombre:'Rodeo ski',ubicacion:'Bariloche, Argentina')
+p.imgprincipal.attach(io: File.open('seedaux/rodeoski.jpeg'), filename: 'file.png')
+
+p = Prop.create(nombre:'Shinta mani resort',ubicacion:'Siem reap, Cambodia')
+p.imgprincipal.attach(io: File.open('seedaux/shintamani.jpeg'), filename: 'file.png')
+
+p = Prop.create(nombre:'Bellevue syrene',ubicacion:'Sorrento, Italia')
+p.imgprincipal.attach(io: File.open('seedaux/bellevue.jpeg'), filename: 'file.png')
+
+p = Prop.create(nombre:'Hanoi hotel y spa',ubicacion:'Hanoi, Vietnam')
+p.imgprincipal.attach(io: File.open('seedaux/hanoi.jpeg'), filename: 'file.png')
+
+p = Prop.create(nombre:'Achtis hotel',ubicacion:'Afitos, Grecia')
+p.imgprincipal.attach(io: File.open('seedaux/achtis.jpeg'), filename: 'file.png')
+
+p = Prop.create(nombre:'Mirihi island resort',ubicacion:'Mirihi, Maldivas')
+p.imgprincipal.attach(io: File.open('seedaux/mirihi.jpeg'), filename: 'file.png')
+
+p = Prop.create(nombre:'Bucuti & tara beach resort',ubicacion:'Eagle beach, Aruba')
+p.imgprincipal.attach(io: File.open('seedaux/bucuti.jpeg'), filename: 'file.png')
+
+p = Prop.create(nombre:'Calabash luxury',ubicacion:'Saint Georges, Grenada')
+p.imgprincipal.attach(io: File.open('seedaux/calabash.jpeg'), filename: 'file.png')
+
+p = Prop.create(nombre:'Hotel Ritta Hoppener',ubicacion:'Rio grande do sul, Brasil')
+p.imgprincipal.attach(io: File.open('seedaux/ritta.jpeg'), filename: 'file.png')
+
 puts 'La base de datos fue reestablecida correctamente'
