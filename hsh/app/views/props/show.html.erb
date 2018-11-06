@@ -1,2 +1,6 @@
 <h1>Propiedad <%= @prop.nombre%></h1>
 <h3><%= @prop.ubicacion %></h3>
+<% @prop.images.each do |i| %>
+	<%= image_tag image %>
+	<br>
+<% end %>
