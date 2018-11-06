@@ -1,5 +1,5 @@
 <div class="card card-custom mx-2 mb-3">
-	<img class="card-img-top" src="..." alt="Card image cap">
+	<%= image_tag url_for(prop.images.first) , :class=>"card-img-top", :alt=>prop.nombre %>
 	<div class="card-body">
 		<h5 class="card-title"><%= prop.nombre %></h5>
 		<p class="card-text"><%= prop.ubicacion %></p>
