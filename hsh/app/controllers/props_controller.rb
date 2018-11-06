@@ -9,6 +9,8 @@ class PropsController < ApplicationController
       params.require(:prop).permit(:nombre, :ubicacion)
       )
 
+    @prop.images.attach(params[:prop][:images])
+
     if @prop.save
       redirect_to @prop
     else
