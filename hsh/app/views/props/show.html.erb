@@ -1,9 +1,10 @@
 <h1>Propiedad <%= @prop.nombre%></h1>
 <h3><%= @prop.ubicacion %></h3>
 
+<%= image_tag url_for(@prop.imgprincipal), :alt=>@prop.nombre %>
+	<br>
 <% @prop.images.each do |i| %>
 	<%= image_tag i %>
-	<br>
 <% end %>
 
 <%= link_to "Editar propiedad", edit_prop_path, class: 'btn btn-info btn-sm' %>
