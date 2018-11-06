@@ -1,6 +1,2 @@
-<%= form_for @prop do |p| %>
-  <%= p.text_field :nombre %><br>
-  <%= p.text_field :ubicacion %><br>
-  <%= p.file_field :image, multiple: true %><br>
-  <%= p.submit 'Cargar propiedad' %>
-<% end %>
+<h3> Nueva propiedad </h3>
+<%= render 'form' %>

@@ -1,3 +1,10 @@
-<li>
-	<%= link_to prop.nombre, prop %>
-</li>
+<div class="card card-custom mx-2 mb-3">
+	<img class="card-img-top" src="..." alt="Card image cap">
+	<div class="card-body">
+		<h5 class="card-title"><%= prop.nombre %></h5>
+		<p class="card-text"><%= prop.ubicacion %></p>
+	</div>
+	<div class="card-footer">
+		<small class="text-muted"><%= link_to "Ver más",prop %></small>
+	</div>
+</div>

@@ -16,6 +16,10 @@ class PropsController < ApplicationController
     end
   end
 
+  def edit
+    @prop = Prop.find(params[:id])
+  end
+
   def show
     @prop = Prop.find(params[:id])
   end
@@ -23,4 +27,13 @@ class PropsController < ApplicationController
   def index
     @props = Prop.all
   end
+
+  def update
+    if Prop.find(params[:id]).update(params.require(:prop).permit(:nombre, :ubicacion))
+      redirect_to prop_path
+    else
+      render :edit
+    end
+  end
+
 end
