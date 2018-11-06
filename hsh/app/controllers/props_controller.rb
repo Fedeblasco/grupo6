@@ -6,7 +6,7 @@ class PropsController < ApplicationController
 
   def create
     @prop = Prop.create(
-      params.require(:prop).permit(:nombre, :ubicacion)
+      params.require(:prop).permit(:nombre, :ubicacion, :oculto)
       )
 
     if @prop.save
@@ -29,7 +29,7 @@ class PropsController < ApplicationController
   end
 
   def update
-    if Prop.find(params[:id]).update(params.require(:prop).permit(:nombre, :ubicacion))
+    if Prop.find(params[:id]).update(params.require(:prop).permit(:nombre, :ubicacion, :oculto))
       redirect_to prop_path
     else
       render :edit
