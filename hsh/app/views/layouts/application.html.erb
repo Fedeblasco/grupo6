@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hsh</title>
+  <title>HomeSwitchHome</title>
   <%= csrf_meta_tags %>
   <%= csp_meta_tag %>
 
@@ -22,8 +22,8 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
     <!-- Reemplaza el link por el / -->
-    <a class="navbar-brand" href="<%= root_path %>">Navbar</a>
-    
+    <a class="navbar-brand" href="<%= root_path %>">HomeSwitchHome</a>
+
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -35,7 +35,7 @@
         <li class="nav-item <%= current_page?(props_path) ? 'active' : '' %>">
           <%= link_to "Lista de propiedades", props_path, { :class=>"nav-link" } %>
         </li>
-        
+
         <!-- Agrega la clase "active" solo si esta parado en el mismo path -->
         <li class="nav-item <%= current_page?(new_prop_path) ? 'active' : '' %>">
           <%= link_to "Agregar propiedad", new_prop_path, { :class=>"nav-link" } %>
