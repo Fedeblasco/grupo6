@@ -54,15 +54,35 @@
           </div>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
+      <p class="navbar-text pull-right">
+      <% if I18n.locale == I18n.default_locale %>
+        <%= link_to "English", { :locale=>'en' } %>
+      <% else %>
+        <%= link_to "Français", { :locale=>'fr' } %>
+
+      <%end%>
+      <% if user_signed_in? %>
+        Conectado como <strong><%= current_user.email %></strong>.
+        <%= link_to "Editar perfil", edit_user_registration_path, :class => 'navbar-link' %> |
+        <%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
+      <% else %>
+        <%= link_to "Inscripción", new_user_registration_path, :class => 'navbar-link' %> |
+        <%= link_to "Conexión", new_user_session_path, :class => 'navbar-link' %>
+      <% end %>
+      </p>
     </div>
   </nav>
 
   <!-- Bloque principal -->
   <div id="main">
+
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
+
     <%= yield %>
   </div>
 
