@@ -9,7 +9,7 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -53,14 +53,23 @@
 
           </div>
         </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Cambiar Idioma
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+            <%= link_to "Español", { :locale=>'es' }, :class=>"dropdown-item" %>
+            <%= link_to "English", { :locale=>'en' }, :class=>"dropdown-item" %>
+            <%= link_to "Français", { :locale=>'fr' }, :class=>"dropdown-item" %>
+
+          </div>
+        </li>
+
+
       </ul>
       <p class="navbar-text pull-right">
-      <% if I18n.locale == I18n.default_locale %>
-        <%= link_to "English", { :locale=>'en' } %>
-      <% else %>
-        <%= link_to "Français", { :locale=>'fr' } %>
-
-      <%end%>
       <% if user_signed_in? %>
         Conectado como <strong><%= current_user.email %></strong>.
         <%= link_to "Editar perfil", edit_user_registration_path, :class => 'navbar-link' %> |

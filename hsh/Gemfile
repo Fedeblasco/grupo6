@@ -63,6 +63,9 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'hirb'
 
+# Add i18n for translation management
+gem 'rails-i18n'
+
 # Add boostrap and jquery
 gem 'bootstrap-sass'
 gem 'jquery-rails'
