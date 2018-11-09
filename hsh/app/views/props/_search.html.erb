@@ -1,9 +1,9 @@
 <%= form_tag(props_path, method: :get) do %>
   <div class="input-group mb-3">
     <div class="input-group-prepend">
-      <span class="input-group-text">Lugar</span>
+      <span class="input-group-text">Busqueda</span>
     </div>
-    <%= text_field_tag :ubicacion, params[:ubicacion], class: "form-control", placeholder: "Lugar" %>
+    <%= text_field_tag :busq, params[:busq], class: "form-control", placeholder: "Ingrese aquí..." %>
 
     <div class="input-group-prepend">
       <span class="input-group-text">Fechas</span>
