@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_06_031547) do
+ActiveRecord::Schema.define(version: 2018_11_09_004038) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -36,16 +36,23 @@ ActiveRecord::Schema.define(version: 2018_11_06_031547) do
   create_table "props", force: :cascade do |t|
     t.string "nombre"
     t.string "ubicacion"
-    t.integer "capacidad"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "oculto"
   end
 
-  create_table "reserva", force: :cascade do |t|
-    t.string "nombre"
-    t.datetime "entrada", null: false
-    t.datetime "salida", null: false
+  create_table "reservas", force: :cascade do |t|
+    t.date "fecha"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "usuario_id"
+    t.integer "prop_id"
+    t.index ["prop_id"], name: "index_reservas_on_prop_id"
+    t.index ["usuario_id"], name: "index_reservas_on_usuario_id"
+  end
+
+  create_table "usuarios", force: :cascade do |t|
+    t.string "mail"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

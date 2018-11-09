@@ -1,3 +1,4 @@
 class Reserva < ApplicationRecord
-	has_one_attached :prop
+	belongs_to :prop
+	belongs_to :usuario
 end
