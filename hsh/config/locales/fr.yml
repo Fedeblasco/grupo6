@@ -30,7 +30,35 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 fr:
-  hello: "Bonjour le monde"
+  layouts:
+    header:
+      add: "Ajouter une Propriété"
+      top: "Propiété Récentes"
+      language: "Changer la Langue"
+      register: "Inscription"
+      login: "Connexion"
+      user_email: "Connecté comme"
+      edit_account: "Modifier compte"
+      logout: "Deconnexion"
   props:
     index:
       title: "Liste des propriétés"
+    edit:
+      title: "Modifier la propriété"
+    new:
+      title: "Ajouter une propriété"
+    form:
+      hidded: "Caché"
+      save: "Enregister la propriété"
+    prop:
+      read_more: "Plus d'information"
+    search:
+      place: "Lieu"
+      dates : "Dates"
+      start_date: "Date de début"
+      end_date: "Date de fin"
+      adultes : "Adultes"
+      search: "Chercher"
+    show:
+      title: "Propriété : "
+      edit: "Modifier la propriété"

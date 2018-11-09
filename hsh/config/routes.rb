@@ -6,6 +6,6 @@ Rails.application.routes.draw do
   end
   resources :props
 
-  root 'main#index'
+  root 'props#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

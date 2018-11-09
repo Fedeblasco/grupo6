@@ -1,28 +1,28 @@
 <%= form_tag(props_path, method: :get) do %>
   <div class="input-group mb-3">
     <div class="input-group-prepend">
-      <span class="input-group-text">Lugar</span>
+      <span class="input-group-text"><%= t('.place') %></span>
     </div>
-    <%= text_field_tag :ubicacion, params[:ubicacion], class: "form-control", placeholder: "Lugar" %>
+    <%= text_field_tag :ubicacion, params[:ubicacion], class: "form-control", placeholder: t('.place') %>
 
     <div class="input-group-prepend">
-      <span class="input-group-text">Fechas</span>
+      <span class="input-group-text"><%= t('.dates') %></span>
     </div>
-    <%= text_field_tag :entrada, params[:entrada], class: "form-control", placeholder: "Fecha de entrada" %>
-    <%= text_field_tag :salida, params[:salida], class: "form-control", placeholder: "Fecha de salida" %>
+    <%= text_field_tag :entrada, params[:entrada], class: "form-control", placeholder: t('.start_date') %>
+    <%= text_field_tag :salida, params[:salida], class: "form-control", placeholder: t('.end_date') %>
 
     <div class="input-group-prepend">
-      <span class="input-group-text">Adultos</span>
+      <span class="input-group-text"><%= t('.adultes') %></span>
     </div>
 
     <%= select_tag(
       :capacidad,
-      options_for_select([['Adultos', 0],['1 adulto', 1],['2 adultos', 2],['3 adultos', 3],['4 adultos', 4],['5 adultos', 5],['6 adultos', 6]], params[:capacidad]),
+      options_for_select([[t('.adultes'), 0],['1', 1],['2', 2],['3', 3],['4', 4],['5', 5],['6', 6]], params[:capacidad]),
       class: "custom-select",
     ) %>
 
     <div class="input-group-append">
-      <%= submit_tag 'Buscar', name: nil, class:"btn btn-success" %>
+      <%= submit_tag t('.search'), name: nil, class:"btn btn-success" %>
     </div>
   </div>
 <% end %>

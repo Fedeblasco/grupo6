@@ -30,7 +30,35 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 es:
-  hello: "Hola mundo"
+  layouts:
+    header:
+      add: "Agregar propiedad"
+      top: "Mas reciente"
+      language: "Cambiar Idioma"
+      register: "Inscripción"
+      login: "Conexión"
+      user_email: "Conectado como"
+      edit_account: "Editar perfil"
+      logout: "Cerrar sesión"
   props:
     index:
       title: "Lista de propiedades"
+    edit:
+      title: "Editar propiedad"
+    new:
+      title: "Nueva propiedad"
+    form:
+      hidded: "Oculto"
+      save: "Cargar propiedad"
+    prop:
+      read_more: "Ver más"
+    search:
+      place: "Lugar"
+      dates : "Fechas"
+      start_date: "Fecha de entrada"
+      end_date: "Fecha de salida"
+      adultes : "Adultos"
+      search: "Buscar"
+    show:
+      title: "Propiedad : "
+      edit: "Editar propiedad"
