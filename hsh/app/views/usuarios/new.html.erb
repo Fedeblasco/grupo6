@@ -1,2 +1,9 @@
-<h1>Usuarios#new</h1>
-<p>Find me in app/views/usuarios/new.html.erb</p>
+<h1>Agregar nuevo usuario</h1>
+
+<%= form_for @usuario do |u| %>
+	<%= u.label :mail %>
+	<%= u.text_field :mail %>
+
+	<%= u.submit 'Cargar' %>
+
+<% end %>
