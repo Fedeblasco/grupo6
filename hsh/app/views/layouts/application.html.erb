@@ -43,13 +43,12 @@
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Lista Rapida
+            Acciones
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-            <% Prop.first(5).each do |p| %>
-            <%= link_to p.nombre, p, { :class=>"dropdown-item" } %>
-            <% end %>
+            <%= link_to "Ver usuarios", usuarios_path, { :class=>"dropdown-item" } %>
+            <%= link_to "Ver reservas", reservas_path, { :class=>"dropdown-item" } %>
 
           </div>
         </li>

@@ -7,4 +7,20 @@
 	<%= image_tag i %>
 <% end %>
 
+
+<table class="table">
+	<thead>
+		<th scope="col">ID</th>
+		<th scope="col">Fecha</th>
+		<th scope="col">Propiedad</th>
+		<th scope="col">Cliente</th>
+	</thead>
+
+	<tbody>
+		<%= render partial: "reservas/reserva", collection: @prop.reserva %>
+	</tbody>
+	
+</table>
+
+
 <%= link_to "Editar propiedad", edit_prop_path, class: 'btn btn-info btn-sm' %>

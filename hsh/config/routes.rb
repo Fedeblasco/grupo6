@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :usuarios
+  resources :reservas
   resources :props
 
   root 'main#index'
