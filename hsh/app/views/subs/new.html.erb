@@ -1,0 +1,8 @@
+<%= form_for @sub do |d| %>
+
+	<%= d.date_field :fecha_inicio %><br><br>
+	<%= d.date_field :fecha_fin %><br><br>
+	<%= d.number_field :prop_id %><br><br>
+
+	<%= d.submit 'Agregar subasta' %>
+<% end %>
