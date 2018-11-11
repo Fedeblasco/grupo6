@@ -70,6 +70,9 @@ en:
   reservas:
     index:
       title: "Bookings list"
+      fecha: "Date"
+      propiedad: "Property"
+      cliente: "Customer"
     new:
       title: "New booking"
     form:
@@ -77,6 +80,9 @@ en:
   subs:
     index:
       title: "Auctions list"
+      fecha_inicio: "Start date"
+      fecha_fin: "End date"
+      propriedad: "Property"
     new:
       title: "New auction"
     form:

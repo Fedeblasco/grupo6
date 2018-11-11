@@ -70,6 +70,9 @@ fr:
   reservas:
     index:
       title: "Liste des réservations"
+      fecha: "Date"
+      propiedad: "Propriété"
+      cliente: "Client"
     new:
       title: "Nouvelle réservation"
     form:
@@ -77,6 +80,9 @@ fr:
   subs:
     index:
       title: "Liste des enchères"
+      fecha_inicio: "Date de début"
+      fecha_fin: "Date de fin"
+      propriedad: "Propriété"
     new:
       title: "Nouvelle enchère"
     form:

@@ -70,6 +70,9 @@ es:
   reservas:
     index:
       title: "Lista de reservas"
+      fecha: "Fecha"
+      propiedad: "Propiedad"
+      cliente: "Cliente"
     new:
       title: "Nueva reserva"
     form:
@@ -77,6 +80,9 @@ es:
   subs:
     index:
       title: "Lista de subastas"
+      fecha_inicio: "Fecha inicio"
+      fecha_fin: "Fecha fin"
+      propriedad: "Propriedad"
     new:
       title: "Nueva subasta"
     form:
