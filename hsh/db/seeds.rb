@@ -73,7 +73,7 @@ Reserva.create(
 	prop_id: Prop.where('nombre like ?', '%Calabash%').first.id)
 
 Reserva.create(
-	fecha: Date.new(2018, 11, 11),
+	fecha: Date.new(2018, 11, 18),
 	usuario_id: Usuario.where(mail: 'juan@hotmail.com').first.id,
 	prop_id: Prop.where('nombre like ?', '%Ritta%').first.id)
 

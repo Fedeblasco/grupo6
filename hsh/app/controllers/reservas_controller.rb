@@ -10,16 +10,24 @@ class ReservasController < ApplicationController
 
   def create
 
-  	@reserva = Reserva.create(params.require(:reserva).permit(:fecha, :usuario_id, :prop_id))
+  	@reserva = Reserva.new(params.require(:reserva).permit(:fecha, :usuario_id, :prop_id))
 
     # La fecha guardada va a ser el principio de la semana, domingo
   	@reserva.fecha = @reserva.fecha - @reserva.fecha.wday
 
-  	if @reserva.save
+    # Si hay una reserva en esa fecha, da un error
+    if Prop.find(params[:reserva][:prop_id]).reserva.where(fecha: @reserva.fecha).any?
+      flash[:notice] = "Ya hay una reserva en esta fecha"
+      redirect_to new_reserva_path
+
+    # Trata de guardar, si no puede, muestra una alerta
+    elsif @reserva.save
   		redirect_to reservas_path
   	else
+      flash[:notice] = "Error al guardar"
   		render :new
   	end
+
   end
 
 end
