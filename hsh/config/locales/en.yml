@@ -33,7 +33,13 @@ en:
   layouts:
     header:
       add: "Add Property"
+      add_reserva: "Add Booking"
       top: "Most recents"
+      top_usuarios: "Users list"
+      top_reservas: "Bookings list"
+      subastas: "Auctions"
+      list_subastas: "Auctions list"
+      add_subastas: "New auction"
       language: "Change language"
       register: "Register"
       login: "Login"

@@ -33,7 +33,13 @@ es:
   layouts:
     header:
       add: "Agregar propiedad"
+      add_reserva: "Agregar reserva"
       top: "Mas reciente"
+      top_usuarios: "Ver usuarios"
+      top_reservas: "Ver reservas"
+      subastas: "Subastas"
+      list_subastas: "Lista de subastas"
+      add_subastas: "Nueva subasta"
       language: "Cambiar Idioma"
       register: "Inscripción"
       login: "Conexión"

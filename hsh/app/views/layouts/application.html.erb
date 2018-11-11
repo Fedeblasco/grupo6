@@ -1,27 +1,13 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>HomeSwitchHome</title>
-  <%= csrf_meta_tags %>
-  <%= csp_meta_tag %>
 
-  <meta charset="utf-8">
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
-</head>
+<%= render "layouts/header" %>
 
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
     <!-- Reemplaza el link por el / -->
-    <a class="navbar-brand" href="<%= root_path %>">HomeSwitchHome</a>
+    <%= link_to image_tag("HSH-Complete.svg", :height => "60px"), root_path, { :class=>"navbar-brand" } %>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -29,24 +15,26 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <!-- Agrega la clase "active" solo si esta parado en el mismo path -->
         <li class="nav-item <%= current_page?(new_prop_path) ? 'active' : '' %>">
           <%= link_to t('layouts.header.add'), new_prop_path, { :class=>"nav-link" } %>
         </li>
 
+        <li class="nav-item <%= current_page?(new_prop_path) ? 'active' : '' %>">
+          <%= link_to t('layouts.header.add_reserva'), new_reserva_path, { :class=>"nav-link" } %>
+        </li>
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Subastas
+            <%= t('layouts.header.subastas') %>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-            <%= link_to "Lista de subastas", subs_path, { :class=>"dropdown-item" } %>
-            <%= link_to "Nueva subasta", new_sub_path, { :class=>"dropdown-item" } %>
+            <%= link_to t('layouts.header.list_subastas'), subs_path, { :class=>"dropdown-item" } %>
+            <%= link_to t('layouts.header.add_subastas'), new_sub_path, { :class=>"dropdown-item" } %>
 
           </div>
         </li>
-        
+
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -54,9 +42,8 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-            <%= link_to "Ver usuarios", usuarios_path, { :class=>"dropdown-item" } %>
-            <%= link_to "Ver reservas", reservas_path, { :class=>"dropdown-item" } %>
-            <%= link_to "Agregar reserva", new_reserva_path, { :class=>"dropdown-item"} %>
+            <%= link_to t('layouts.header.top_usuarios'), usuarios_path, { :class=>"dropdown-item" } %>
+            <%= link_to t('layouts.header.top_reservas'), reservas_path, { :class=>"dropdown-item" } %>
 
           </div>
         </li>
@@ -93,4 +80,7 @@
   </div>
 
 </body>
+
+<%= render "layouts/footer" %>
+
 </html>
