@@ -37,7 +37,6 @@ en:
       language: "Change language"
       register: "Register"
       login: "Login"
-      user_email: "Logged as"
       edit_account: "Edit account"
       logout: "Logout"
   props:

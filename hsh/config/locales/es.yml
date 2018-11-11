@@ -37,7 +37,6 @@ es:
       language: "Cambiar Idioma"
       register: "Inscripción"
       login: "Conexión"
-      user_email: "Conectado como"
       edit_account: "Editar perfil"
       logout: "Cerrar sesión"
   props:

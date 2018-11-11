@@ -69,6 +69,3 @@ gem 'rails-i18n'
 # Add boostrap and jquery
 gem 'bootstrap-sass'
 gem 'jquery-rails'
-
-# Add devise for user management
-gem 'devise'

@@ -34,15 +34,29 @@
           <%= link_to t('layouts.header.add'), new_prop_path, { :class=>"nav-link" } %>
         </li>
 
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Subastas
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+            <%= link_to "Lista de subastas", subs_path, { :class=>"dropdown-item" } %>
+            <%= link_to "Nueva subasta", new_sub_path, { :class=>"dropdown-item" } %>
+
+          </div>
+        </li>
+        
+
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= t('layouts.header.top') %>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-            <% Prop.first(5).each do |p| %>
-            <%= link_to p.nombre, p, { :class=>"dropdown-item" } %>
-            <% end %>
+            <%= link_to "Ver usuarios", usuarios_path, { :class=>"dropdown-item" } %>
+            <%= link_to "Ver reservas", reservas_path, { :class=>"dropdown-item" } %>
+            <%= link_to "Agregar reserva", new_reserva_path, { :class=>"dropdown-item"} %>
 
           </div>
         </li>
@@ -61,16 +75,7 @@
         </li>
 
       </ul>
-      <p class="navbar-text pull-right">
-      <% if user_signed_in? %>
-        <%= t('layouts.header.user_email') %> <strong><%= current_user.email %></strong>.
-        <%= link_to t('layouts.header.edit_account'), edit_user_registration_path, :class => 'navbar-link' %> |
-        <%= link_to t('layouts.header.logout'), destroy_user_session_path, method: :delete, :class => 'navbar-link' %>
-      <% else %>
-        <%= link_to t('layouts.header.register'), new_user_registration_path, :class => 'navbar-link' %> |
-        <%= link_to t('layouts.header.login'), new_user_session_path, :class => 'navbar-link' %>
-      <% end %>
-      </p>
+
     </div>
   </nav>
 

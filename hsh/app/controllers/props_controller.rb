@@ -32,8 +32,8 @@ class PropsController < ApplicationController
 
   def index
     @props =
-    if params[:ubicacion]
-      Prop.where('ubicacion LIKE ?', "%#{params[:ubicacion]}%").where('capacidad >= ?', "#{params[:capacidad]}")
+    if params[:busq]
+      Prop.where('(ubicacion LIKE ?) OR (nombre LIKE ?)', "%#{params[:busq]}%", "%#{params[:busq]}%")
     else
       Prop.all
     end

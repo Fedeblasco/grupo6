@@ -37,7 +37,6 @@ fr:
       language: "Changer la Langue"
       register: "Inscription"
       login: "Connexion"
-      user_email: "Connecté comme"
       edit_account: "Modifier compte"
       logout: "Deconnexion"
   props:
