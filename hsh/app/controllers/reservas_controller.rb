@@ -12,7 +12,8 @@ class ReservasController < ApplicationController
 
   	@reserva = Reserva.create(params.require(:reserva).permit(:fecha, :usuario_id, :prop_id))
 
-  	#@reserva.fecha = @reserva.fecha - @reserva.fecha.wday
+    # La fecha guardada va a ser el principio de la semana, domingo
+  	@reserva.fecha = @reserva.fecha - @reserva.fecha.wday
 
   	if @reserva.save
   		redirect_to reservas_path
