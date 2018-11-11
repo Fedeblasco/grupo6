@@ -1,9 +1,2 @@
-<%= form_for @sub do |d| %>
-
-	<% lista_prop = options_from_collection_for_select(Prop.all, 'id', 'nombre') %>
-	<%= d.date_field :fecha_inicio %><br><br>
-	<%= d.date_field :fecha_fin %><br><br>
-	<%= d.select :prop_id, lista_prop %><br><br>
-
-	<%= d.submit 'Agregar subasta' %>
-<% end %>
+<h1><%= t('.title') %></h1>
+<%= render 'form' %>

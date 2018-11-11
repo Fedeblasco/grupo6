@@ -67,3 +67,17 @@ en:
     show:
       title: "Property : "
       edit: "Edit property"
+  reservas:
+    index:
+      title: "Bookings list"
+    new:
+      title: "New booking"
+    form:
+      save: "Save booking"
+  subs:
+    index:
+      title: "Auctions list"
+    new:
+      title: "New auction"
+    form:
+      save: "Save auction"

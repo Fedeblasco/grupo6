@@ -67,3 +67,17 @@ fr:
     show:
       title: "Propriété : "
       edit: "Modifier la propriété"
+  reservas:
+    index:
+      title: "Liste des réservations"
+    new:
+      title: "Nouvelle réservation"
+    form:
+      save: "Enregister la réservation"
+  subs:
+    index:
+      title: "Liste des enchères"
+    new:
+      title: "Nouvelle enchère"
+    form:
+      save: "Enregister l'enchère"

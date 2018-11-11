@@ -67,3 +67,17 @@ es:
     show:
       title: "Propiedad : "
       edit: "Editar propiedad"
+  reservas:
+    index:
+      title: "Lista de reservas"
+    new:
+      title: "Nueva reserva"
+    form:
+      save: "Agregar reserva"
+  subs:
+    index:
+      title: "Lista de subastas"
+    new:
+      title: "Nueva subasta"
+    form:
+      save: "Agregar subasta"
