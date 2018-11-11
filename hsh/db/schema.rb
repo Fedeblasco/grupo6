@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_10_235938) do
+ActiveRecord::Schema.define(version: 2018_11_11_002534) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -57,6 +57,7 @@ ActiveRecord::Schema.define(version: 2018_11_10_235938) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "prop_id"
+    t.date "fecha_reserva"
     t.index ["prop_id"], name: "index_subs_on_prop_id"
   end
 
