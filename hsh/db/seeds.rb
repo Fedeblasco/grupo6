@@ -9,6 +9,7 @@ puts 'Reestableciendo la base de datos'
 Prop.destroy_all
 Usuario.destroy_all
 Reserva.destroy_all
+Sub.destroy_all
 
 #
 # CREA PROPIEDADES (las crea gritando)
@@ -81,5 +82,36 @@ Reserva.create(
 	fecha: Date.new(2018, 11, 18),
 	usuario_id: Usuario.where(mail: 'juan@hotmail.com').first.id,
 	prop_id: Prop.where('nombre like ?', '%Calabash%').first.id)
+
+
+#
+# CREA SUBASTAS
+#
+
+Sub.create(fecha_inicio: Date.new(2018, 11, 12),fecha_fin: Date.new(2018, 12, 15),fecha_reserva: Date.new(2018, 12, 7),prop_id: 1);
+
+Sub.create(
+	fecha_inicio: Date.new(2018, 11, 17),
+	fecha_fin: Date.new(2018, 12, 22),
+	fecha_reserva: Date.new(2018, 12, 7),
+	prop_id: 2);
+
+Sub.create(
+	fecha_inicio: Date.new(2018, 11, 19),
+	fecha_fin: Date.new(2018, 12, 14),
+	fecha_reserva: Date.new(2018, 12, 7),
+	prop_id: 3);
+
+Sub.create(
+	fecha_inicio: Date.new(2018, 11, 24),
+	fecha_fin: Date.new(2018, 12, 9),
+	fecha_reserva: Date.new(2018, 12, 7),
+	prop_id: 4);
+
+Sub.create(
+	fecha_inicio: Date.new(2018, 11, 30),
+	fecha_fin: Date.new(2018, 12, 7),
+	fecha_reserva: Date.new(2018, 12, 7),
+	prop_id: 5);
 
 puts 'La base de datos fue reestablecida correctamente'
