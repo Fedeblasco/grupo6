@@ -62,6 +62,7 @@ en:
       dates : "Dates"
       checkin_date: "Check In"
       checkout_date: "Check Out"
+      date_error: "The date of departure must be after the date of arrival."
       adultes : "Adultes"
       search: "Search"
     show:

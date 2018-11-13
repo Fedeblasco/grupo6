@@ -60,8 +60,9 @@ fr:
     search:
       place: "Lieu"
       dates : "Dates"
-      checkin_date: "Check In"
-      checkout_date: "Check Out"
+      checkin_date: "Arrivée"
+      checkout_date: "Départ"
+      date_error: "La date de départ doit être postérieure à la date d'arrivée."
       adultes : "Adultes"
       search: "Chercher"
     show:
