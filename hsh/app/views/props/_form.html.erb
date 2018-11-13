@@ -4,8 +4,25 @@
 
   <%= p.check_box :oculto %>
   <span><%= t('.hidded') %></span>
+  
 
+  <p>Imagen principal</p>
+  <%if not @prop.id.nil?%>
+  	<%= image_tag url_for(@prop.imgprincipal), :alt=>@prop.nombre %>
+  <% end %>
   <%= p.file_field :imgprincipal, multiple: false, required: true %><br>
+
+
+
+  <% if @prop.images.count > 0%>
+  	<p>Imagenes secundarias</p>
+  	<% @prop.images.each do |i| %>
+		<%= image_tag i %>
+  	<% end %>
+  	<br>
+  	<span>Eliminar fotos anteriores</span>
+  	<%=check_box_tag :destruir,'Eliminar fotos anteriores', true %><br>
+  <%end%>
   <%= p.file_field :images, multiple: true %><br>
   <%= p.submit t('.save') %>
 <% end %>

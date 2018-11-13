@@ -40,7 +40,15 @@ class PropsController < ApplicationController
 end
 
   def update
+    @prop=Prop.find(params[:id]);
     if Prop.find(params[:id]).update(params.require(:prop).permit(:nombre, :ubicacion, :oculto))
+      @prop.imgprincipal.attach(params[:prop][:imgprincipal])
+      if params[:destruir]
+          @prop.images.purge
+      end
+      if params[:prop][:images]
+        @prop.images.attach(params[:prop][:images])
+      end
       redirect_to prop_path
     else
       render :edit
