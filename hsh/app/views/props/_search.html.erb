@@ -6,20 +6,13 @@
     <%= text_field_tag :busq, params[:busq], class: "form-control", placeholder: "Ingrese aquí..." %>
 
     <div class="input-group-prepend">
-      <span class="input-group-text"><%= t('.dates') %></span>
+      <span class="input-group-text"><%= t('.checkin_date') %></span>
     </div>
-    <%= text_field_tag :entrada, params[:entrada], class: "form-control", placeholder: t('.start_date') %>
-    <%= text_field_tag :salida, params[:salida], class: "form-control", placeholder: t('.end_date') %>
-
+    <%= date_field_tag :desde, params[:desde], class: "form-control"%>
     <div class="input-group-prepend">
-      <span class="input-group-text"><%= t('.adultes') %></span>
+      <span class="input-group-text"><%= t('.checkin_date') %></span>
     </div>
-
-    <%= select_tag(
-      :capacidad,
-      options_for_select([[t('.adultes'), 0],['1', 1],['2', 2],['3', 3],['4', 4],['5', 5],['6', 6]], params[:capacidad]),
-      class: "custom-select",
-    ) %>
+    <%= date_field_tag :hasta, params[:hasta], class: "form-control"%>
 
     <div class="input-group-append">
       <%= submit_tag t('.search'), name: nil, class:"btn btn-success" %>

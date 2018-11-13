@@ -17,14 +17,14 @@ class ReservasController < ApplicationController
 
     # Si hay una reserva en esa fecha, da un error
     if Prop.find(params[:reserva][:prop_id]).reserva.where(fecha: @reserva.fecha).any?
-      flash[:notice] = "Ya hay una reserva en esta fecha"
+      flash[:alert] = "Ya hay una reserva en esta fecha"
       redirect_to new_reserva_path
 
     # Trata de guardar, si no puede, muestra una alerta
     elsif @reserva.save
   		redirect_to reservas_path
   	else
-      flash[:notice] = "Error al guardar"
+      flash[:alert] = "Error al guardar"
   		render :new
   	end
 
