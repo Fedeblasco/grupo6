@@ -60,8 +60,9 @@ es:
     search:
       place: "Lugar"
       dates : "Fechas"
-      start_date: "Fecha de entrada"
-      end_date: "Fecha de salida"
+      checkin_date: "Check In"
+      checkout_date: "Check Out"
+      date_error: "La fecha de salida debe ser posterior a la de llegada"
       adultes : "Adultos"
       search: "Buscar"
     show:
