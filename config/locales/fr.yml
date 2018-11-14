@@ -88,3 +88,9 @@ fr:
       title: "Nouvelle enchère"
     form:
       save: "Enregister l'enchère"
+  usuarios:
+    index:
+      title: "Liste des utilisateurs"
+      show: "Afficher"
+    usuario:
+      show: "afficher >>"

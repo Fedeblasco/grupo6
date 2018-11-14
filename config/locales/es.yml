@@ -88,3 +88,9 @@ es:
       title: "Nueva subasta"
     form:
       save: "Agregar subasta"
+  usuarios:
+    index:
+      title: "Lista de usuarios"
+      show: "ver"
+    usuario:
+      show: "ver >>"

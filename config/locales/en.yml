@@ -88,3 +88,9 @@ en:
       title: "New auction"
     form:
       save: "Save auction"
+  usuarios:
+    index:
+      title: "Users list"
+      show: "Show"
+    usuario:
+      show: "show >>"
