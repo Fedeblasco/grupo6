@@ -71,6 +71,3 @@ gem 'rails-i18n'
 # Add boostrap and jquery
 gem 'bootstrap-sass'
 gem 'jquery-rails'
-
-# Añade S3 para usar en Heroku
-gem "aws-sdk-s3", require: false
