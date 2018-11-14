@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :reservas
   resources :props
   resources :subs
-  resources :pujas
+  resources :pujas, except: :new
 
   get '/pujas/pujar/:id', to: 'pujas#new', as: "pujar"
 

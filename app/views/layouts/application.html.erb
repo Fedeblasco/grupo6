@@ -19,20 +19,8 @@
           <%= link_to t('layouts.header.add'), new_prop_path, { :class=>"nav-link" } %>
         </li>
 
-        <li class="nav-item <%= current_page?(new_prop_path) ? 'active' : '' %>">
+        <li class="nav-item <%= current_page?(new_reserva_path) ? 'active' : '' %>">
           <%= link_to t('layouts.header.add_reserva'), new_reserva_path, { :class=>"nav-link" } %>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Pujas
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-            <%= link_to 'Listado de pujas', pujas_path, { :class=>"dropdown-item" } %>
-            <%= link_to 'Nueva puja', new_puja_path, { :class=>"dropdown-item" } %>
-
-          </div>
         </li>
 
         <li class="nav-item dropdown">
