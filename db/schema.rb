@@ -10,13 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_11_002534) do
+ActiveRecord::Schema.define(version: 2018_11_14_071721) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -40,13 +43,23 @@ ActiveRecord::Schema.define(version: 2018_11_11_002534) do
     t.datetime "updated_at", null: false
     t.boolean "oculto"
   end
-  
+
+  create_table "pujas", force: :cascade do |t|
+    t.integer "valor"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "usuario_id"
+    t.bigint "sub_id"
+    t.index ["sub_id"], name: "index_pujas_on_sub_id"
+    t.index ["usuario_id"], name: "index_pujas_on_usuario_id"
+  end
+
   create_table "reservas", force: :cascade do |t|
     t.date "fecha"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "usuario_id"
-    t.integer "prop_id"
+    t.bigint "usuario_id"
+    t.bigint "prop_id"
     t.index ["prop_id"], name: "index_reservas_on_prop_id"
     t.index ["usuario_id"], name: "index_reservas_on_usuario_id"
   end
@@ -56,7 +69,7 @@ ActiveRecord::Schema.define(version: 2018_11_11_002534) do
     t.date "fecha_fin"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "prop_id"
+    t.bigint "prop_id"
     t.date "fecha_reserva"
     t.index ["prop_id"], name: "index_subs_on_prop_id"
   end
@@ -67,4 +80,9 @@ ActiveRecord::Schema.define(version: 2018_11_11_002534) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "pujas", "subs"
+  add_foreign_key "pujas", "usuarios"
+  add_foreign_key "reservas", "props"
+  add_foreign_key "reservas", "usuarios"
+  add_foreign_key "subs", "props"
 end

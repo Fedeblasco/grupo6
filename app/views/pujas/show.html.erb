@@ -1,0 +1,16 @@
+<h1><%= @usuario.mail %></h1>
+<h2>Reservas:</h2>
+
+<table class="table">
+	<thead>
+		<th scope="col">ID</th>
+		<th scope="col">Fecha</th>
+		<th scope="col">Propiedad</th>
+		<th scope="col">Cliente</th>
+	</thead>
+
+	<tbody>
+		<%= render partial: "reservas/reserva", collection: @usuario.reserva %>
+	</tbody>
+	
+</table>
