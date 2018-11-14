@@ -1,3 +1,3 @@
 class Usuario < ApplicationRecord
-	has_many :reserva
+	has_many :reserva, dependent: :destroy
 end
