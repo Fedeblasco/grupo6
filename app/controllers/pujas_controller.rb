@@ -1,7 +1,7 @@
 class PujasController < ApplicationController
 
   def new
-    @puja = Puja.new
+    @puja = Puja.new(sub_id: params[:id])
   end
 
   def index
@@ -13,9 +13,10 @@ class PujasController < ApplicationController
     if @puja.save
       redirect_to pujas_path
     else
-      flash[:alert] = "Error al guardar"
-      render :new
+      flash[:alert] = "Error al pujar"
+      redirect_to pujar_path(params[:sub_id])
     end
   end
 
 end
+

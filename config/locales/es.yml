@@ -66,8 +66,12 @@ es:
       adultes : "Adultos"
       search: "Buscar"
     show:
-      title: "Propiedad : "
+      title: "Propiedad: "
       edit: "Editar propiedad"
+      nueva_subasta: "Nueva subasta"
+      reservas: "Reservas"
+      subastas: "Subastas"
+
   reservas:
     index:
       title: "Lista de reservas"
@@ -83,8 +87,18 @@ es:
       title: "Lista de subastas"
       fecha_inicio: "Fecha inicio"
       fecha_fin: "Fecha fin"
+      ver_subasta: "Ver subasta"
       propriedad: "Propriedad"
     new:
       title: "Nueva subasta"
     form:
       save: "Agregar subasta"
+    show:
+      pujar: "Pujar"
+  pujas:
+    show:
+      usuario: "Usuario"
+      valor: "Valor"
+      propiedad: "Propiedad"
+      subasta: "Subasta"
+      pujar: "Pujar"

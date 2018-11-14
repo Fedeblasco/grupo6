@@ -1,0 +1,15 @@
+<h1>Subastando: <%= link_to @sub.prop.nombre, @sub.prop %></h1>
+<h3>Codigo de subasta: <%= @sub.id %></h3>
+<table class="table">
+	<thead>
+		<th scope="col">ID</th>
+		<th scope="col"><%= t('.valor') %></th>
+		<th scope="col"><%= t('.usuario') %></th>
+		<th scope="col"><%= t('.propiedad') %></th>
+		<th scope="col"><%= t('.subasta') %></th>		
+	</thead>
+
+	<%= render @pujas %>
+</table>
+
+<%= link_to t('.pujar'), pujar_path(@sub), class: "btn btn-info btn-sm" %>

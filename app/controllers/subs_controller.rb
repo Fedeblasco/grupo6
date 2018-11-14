@@ -21,6 +21,9 @@ class SubsController < ApplicationController
   end
 
   def show
+    # Obtiene la lista de pujas
+    @sub = Sub.find(params[:id])
+    @pujas = Sub.find(params[:id]).puja
   end
 
   def index
