@@ -5,7 +5,9 @@ class PropsController < ApplicationController
   end
 
   def create
-    @prop = Prop.create(
+ 
+
+    @prop = Prop.new(
       params.require(:prop).permit(:nombre, :ubicacion, :oculto)
       )
 
@@ -18,7 +20,8 @@ class PropsController < ApplicationController
     if @prop.save
       redirect_to @prop
     else
-      redirect_to :new
+      flash[:alert] = @prop.errors.full_messages.to_sentence
+      redirect_to new_prop_path
     end
   end
 
