@@ -20,7 +20,12 @@ class ReservasController < ApplicationController
       flash[:alert] = "Ya hay una reserva en esta fecha"
       redirect_to new_reserva_path
 
-    # Trata de guardar, si no puede, muestra una alerta
+    # Si hay una subasta en esa fecha, da un error
+    elsif Prop.find(params[:reserva][:prop_id]).sub.where(fecha_reserva: @reserva.fecha).any?
+      flash[:alert] = "Ya hay una subasta en esta fecha"
+      redirect_to new_reserva_path
+
+    # Trata de guardar, si no puede, muestra una alerta 
     elsif @reserva.save
   		redirect_to reservas_path
   	else

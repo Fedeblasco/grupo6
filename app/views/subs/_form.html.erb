@@ -1,9 +1,14 @@
 <%= form_for @sub do |d| %>
 	<% lista_prop = options_from_collection_for_select(Prop.all, 'id', 'nombre', params[:prop_id]) %>
-	<span>Fecha de inicio: <span>
+	<span>Fecha de inicio: </span>
 	<%= d.date_field :fecha_inicio, required: true%><br><br>
-	<span>Fecha de fin: <span>
+	<span>Fecha de fin: </span>
 	<%= d.date_field :fecha_fin, required: true %><br><br>
-	<%= d.select :prop_id, lista_prop%><br><br>
+	<span>Semana a subastar: </span>
+	<%= d.date_field :fecha_reserva, required: true %><br><br>
+	<span>Propiedad a subastar: </span>
+	<%= d.select :prop_id, lista_prop, required:true%><br><br>
+	<span>Precio minimo: </span>
+	<%= d.number_field :precio_min, required:true%><br><br>
 	<%= d.submit t('.save') %>
 <% end %>
