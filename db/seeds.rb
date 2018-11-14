@@ -90,35 +90,35 @@ Reserva.create(
 
 Sub.create(fecha_inicio: Date.new(2018, 11, 12),
 	fecha_fin: Date.new(2018, 12, 15),
-	fecha_reserva: Date.new(2018, 12, 7),
+	fecha_reserva: Date.new(2018, 12, 9),
 	prop_id: 1,
 	precio_min: 1000);
 
 Sub.create(
 	fecha_inicio: Date.new(2018, 11, 17),
 	fecha_fin: Date.new(2018, 12, 22),
-	fecha_reserva: Date.new(2018, 12, 7),
+	fecha_reserva: Date.new(2018, 12, 9),
 	prop_id: 2,
 	precio_min: 1500);
 
 Sub.create(
 	fecha_inicio: Date.new(2018, 11, 19),
 	fecha_fin: Date.new(2018, 12, 14),
-	fecha_reserva: Date.new(2018, 12, 7),
+	fecha_reserva: Date.new(2018, 12, 9),
 	prop_id: 3,
 	precio_min: 2000);
 
 Sub.create(
 	fecha_inicio: Date.new(2018, 11, 24),
 	fecha_fin: Date.new(2018, 12, 9),
-	fecha_reserva: Date.new(2018, 12, 7),
+	fecha_reserva: Date.new(2018, 12, 9),
 	prop_id: 4,
 	precio_min: 2500);
 
 Sub.create(
 	fecha_inicio: Date.new(2018, 11, 30),
 	fecha_fin: Date.new(2018, 12, 7),
-	fecha_reserva: Date.new(2018, 12, 7),
+	fecha_reserva: Date.new(2018, 12, 9),
 	prop_id: 5,
 	precio_min: 3000);
 
