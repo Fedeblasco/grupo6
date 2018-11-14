@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_14_071721) do
+ActiveRecord::Schema.define(version: 2018_11_14_205955) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 2018_11_14_071721) do
     t.datetime "updated_at", null: false
     t.bigint "prop_id"
     t.date "fecha_reserva"
+    t.integer "precio_min"
     t.index ["prop_id"], name: "index_subs_on_prop_id"
   end
 
