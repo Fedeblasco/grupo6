@@ -1,5 +1,5 @@
-<h1><%= @usuario.mail %></h1>
-<h2>Reservas:</h2>
+<h1 class="text-center"><%= @usuario.mail %> <small>(ID: <%= @usuario.id %>)</small></h1>
+<h3 class="text-center">Reservas:</h2>
 
 <table class="table">
 	<thead>
@@ -11,6 +11,26 @@
 
 	<tbody>
 		<%= render partial: "reservas/reserva", collection: @usuario.reserva %>
+	</tbody>
+	
+</table>
+
+<br>
+
+<h3 class="text-center">Subastas que gana:</h2>
+<table class="table">
+	<thead>
+		<th scope="col">ID</th>
+		<th scope="col"><%= t('.fecha_inicio') %></th>
+		<th scope="col"><%= t('.fecha_fin') %></th>
+		<th scope="col"><%= t('.fecha_reserva') %></th>
+		<th scope="col"><%= t('.propriedad') %></th>
+		<th scope="col"><%= 'Precio minimo (no va)' %></th>
+		<th scope="col"><%= t('.ver_subasta') %></th>
+	</thead>
+
+	<tbody>
+		<%= render partial: "subs/sub", collection: @subastas %>
 	</tbody>
 	
 </table>

@@ -22,6 +22,16 @@ class UsuariosController < ApplicationController
 
   def show
   	@usuario = Usuario.find(params[:id])
+    @subastas = []
+
+    # Recorre todas las subastas donde el usuario hizo puja, viendo si es el ganador es el
+    @usuario.puja.each do |p|
+      if p.sub.puja.order('valor desc').first.usuario == @usuario
+        if ! @subastas.include? p.sub
+          @subastas << p.sub
+        end
+      end
+    end
   end
 
 end

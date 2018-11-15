@@ -31,7 +31,7 @@ class SubsController < ApplicationController
   def show
     # Obtiene la lista de pujas
     @sub = Sub.find(params[:id])
-    @pujas = Sub.find(params[:id]).puja
+    @pujas = Sub.find(params[:id]).puja.order("valor desc")
   end
 
   def index
