@@ -1,21 +1,23 @@
-<%= form_tag(props_path, method: :get) do %>
-  <div class="input-group mb-3">
-    <div class="input-group-prepend">
-      <span class="input-group-text">Busqueda</span>
-    </div>
-    <%= text_field_tag :busq, params[:busq], class: "form-control", placeholder: "Ingrese aquí..." %>
+<div class="col-12 search-filters">
+  <%= form_tag(props_path, method: :get) do %>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">Busqueda</span>
+      </div>
+      <%= text_field_tag :busq, params[:busq], class: "form-control", placeholder: "Ingrese aquí..." %>
 
-    <div class="input-group-prepend">
-      <span class="input-group-text"><%= t('.checkin_date') %></span>
-    </div>
-    <%= date_field_tag :desde, params[:desde], class: "form-control"%>
-    <div class="input-group-prepend">
-      <span class="input-group-text"><%= t('.checkout_date') %></span>
-    </div>
-    <%= date_field_tag :hasta, params[:hasta], class: "form-control"%>
+      <div class="input-group-prepend">
+        <span class="input-group-text"><%= t('.checkin_date') %></span>
+      </div>
+      <%= date_field_tag :desde, params[:desde], class: "form-control"%>
+      <div class="input-group-prepend">
+        <span class="input-group-text"><%= t('.checkout_date') %></span>
+      </div>
+      <%= date_field_tag :hasta, params[:hasta], class: "form-control"%>
 
-    <div class="input-group-append">
-      <%= submit_tag t('.search'), name: nil, class:"btn btn-success" %>
+      <div class="input-group-append">
+        <%= submit_tag t('.search'), name: nil, class:"btn btn-success" %>
+      </div>
     </div>
-  </div>
-<% end %>
+  <% end %>
+</div>
