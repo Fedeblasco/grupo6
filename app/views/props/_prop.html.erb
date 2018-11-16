@@ -1,6 +1,6 @@
 
 <div class="card card-custom <%= prop.oculto ? "text-white bg-dark" : "" %>  mx-2 mb-3">
-	<%= image_tag url_for("http://www.belenesnoticia.com.ar/wp-content/uploads/2018/08/Casa_Kwantes_MVRDV_HR7.jpg") , class: "card-img-top", alt: prop.nombre %>
+	<%= image_tag url_for(prop.imgprincipal) , class: "card-img-top", alt: prop.nombre %>
 	<div class="card-body">
 		<h5 class="card-title"><%= prop.nombre %></h5>
 		<p class="card-text"><%= prop.ubicacion %></p>
