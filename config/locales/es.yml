@@ -34,6 +34,7 @@ es:
     header:
       add: "Agregar"
       list: "Listar"
+      list_prop: "Lista de propiedades"
       add_reserva: "Agregar reserva"
       top: "Mas reciente"
       top_usuarios: "Ver usuarios"
