@@ -88,6 +88,9 @@ en:
       title: "New auction"
     form:
       save: "Save auction"
+      fecha_inicio: "Start date"
+      fecha_fin: "End date"
+      propriedad: "Property"
   usuarios:
     index:
       title: "Users list"
