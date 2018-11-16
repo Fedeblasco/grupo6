@@ -16,14 +16,20 @@ class ReservasController < ApplicationController
   	@reserva.fecha = @reserva.fecha - @reserva.fecha.wday
 
     # Si hay una reserva en esa fecha, da un error
-    if Prop.find(@reserva.prop_id).reserva.where(fecha: @reserva.fecha).any?
+    if @reserva.prop.reserva.where(fecha: @reserva.fecha).any?
       flash[:alert] = "Ya hay una reserva en esta fecha"
       redirect_to new_reserva_path
 
     # Si hay una subasta en esa fecha, da un error
-    elsif Prop.find(@reserva.prop_id).sub.where(fecha_reserva: @reserva.fecha).any?
+    elsif @reserva.prop.sub.where(fecha_reserva: @reserva.fecha).any?
       flash[:alert] = "Ya hay una subasta en esta fecha"
       redirect_to new_reserva_path
+
+    # Si la propiedad esta oculta, tiro un mensaje de error
+    elsif @reserva.prop.oculto
+      flash[:alert] = "Esta propiedad no puede ser reservada en este momento"
+      redirect_to new_reserva_path
+
 
     # Trata de guardar, si no puede, muestra una alerta 
     elsif @reserva.save
