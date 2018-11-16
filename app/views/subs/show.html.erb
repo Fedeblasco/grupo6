@@ -13,4 +13,7 @@
 	<%= render @pujas %>
 </table>
 
-<%= link_to t('.pujar'), pujar_path(@sub), class: "btn btn-info btn-sm" %>
+
+<% if (@sub.fecha_inicio <= Date.today) && ( Date.today <= @sub.fecha_fin) %>
+	<%= link_to t('.pujar'), pujar_path(@sub), class: "btn btn-info btn-sm" %>
+<% end %>

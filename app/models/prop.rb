@@ -3,7 +3,7 @@ class Prop < ApplicationRecord
 	
 	has_many_attached :images
 
-	has_many :reserva
+	has_many :reserva, dependent: :destroy
 
 	has_many :sub, dependent: :destroy
 
