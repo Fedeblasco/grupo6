@@ -32,7 +32,8 @@
 fr:
   layouts:
     header:
-      add: "Ajouter une Propriété"
+      add: "Ajouter"
+      list: "Liste"
       add_reserva: "Ajouter une réservation"
       top: "Plus récents"
       top_usuarios: "Voir les utilisateurs"
@@ -45,6 +46,7 @@ fr:
       login: "Connexion"
       edit_account: "Modifier compte"
       logout: "Deconnexion"
+      add_usuario: "Ajouter un utilisateur"
   props:
     index:
       title: "Liste des propriétés"

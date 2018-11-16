@@ -15,22 +15,19 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item <%= current_page?(new_prop_path) ? 'active' : '' %>">
-          <%= link_to t('layouts.header.add'), new_prop_path, { :class=>"nav-link" } %>
-        </li>
-
-        <li class="nav-item <%= current_page?(new_reserva_path) ? 'active' : '' %>">
-          <%= link_to t('layouts.header.add_reserva'), new_reserva_path, { :class=>"nav-link" } %>
-        </li>
-
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= t('layouts.header.subastas') %>
+            <%= t('layouts.header.add') %>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-            <%= link_to t('layouts.header.list_subastas'), subs_path, { :class=>"dropdown-item" } %>
+            <%= link_to t('layouts.header.add'), new_prop_path, { :class=>"dropdown-item" } %>
+            
             <%= link_to t('layouts.header.add_subastas'), new_sub_path, { :class=>"dropdown-item" } %>
+
+            <%= link_to t('layouts.header.add_reserva'), new_reserva_path, { :class=>"dropdown-item" } %>
+
+            <%= link_to t('layouts.header.add_usuario'), new_usuario_path, { :class=>"dropdown-item" } %>
 
           </div>
         </li>
@@ -38,12 +35,13 @@
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= t('layouts.header.top') %>
+            <%= t('layouts.header.list') %>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
             <%= link_to t('layouts.header.top_usuarios'), usuarios_path, { :class=>"dropdown-item" } %>
             <%= link_to t('layouts.header.top_reservas'), reservas_path, { :class=>"dropdown-item" } %>
+            <%= link_to t('layouts.header.list_subastas'), subs_path, { :class=>"dropdown-item" } %>
 
           </div>
         </li>
