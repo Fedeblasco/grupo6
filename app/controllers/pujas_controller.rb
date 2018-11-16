@@ -56,6 +56,11 @@ class PujasController < ApplicationController
       flash[:alert] = "#{@puja.usuario.mail}" + " ya esta ganando esta subasta"
       redirect_to sub_path(@puja.sub_id)
 
+    # Verifica que sea la subasta este abierta
+    elsif (@puja.sub.fecha_inicio > Date.today) || ( Date.today > @puja.sub.fecha_fin)
+      flash[:alert] = "La subasta no esta abierta actualmente"
+      redirect_to sub_path(@puja.sub_id)
+
     # Trata de guardar
     elsif @puja.save
       redirect_to sub_path(@puja.sub_id)
