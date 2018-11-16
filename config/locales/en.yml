@@ -33,6 +33,7 @@ en:
   layouts:
     header:
       add: "Add"
+      add_prop: "Add a property"
       list: "List"
       list_prop: "Properties List"
       add_reserva: "Add Booking"

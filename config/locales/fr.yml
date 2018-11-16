@@ -34,6 +34,7 @@ fr:
     header:
       add: "Ajouter"
       list: "Liste"
+      add_prop: "Ajouter une propriété"
       list_prop: "Liste des propriétés"
       add_reserva: "Ajouter une réservation"
       top: "Plus récents"
