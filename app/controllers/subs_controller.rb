@@ -8,15 +8,26 @@ class SubsController < ApplicationController
     @sub = Sub.new(params.require(:sub).permit(:fecha_inicio, :fecha_fin, :prop_id, :fecha_reserva, :precio_min))
     @sub.fecha_reserva = @sub.fecha_reserva - @sub.fecha_reserva.wday
     
-    if (params[:sub][:fecha_inicio] > params[:sub][:fecha_fin])
+    if (@sub.fecha_inicio > @sub.fecha_fin)
       flash[:alert] = "La fecha de inicio es mayor a la fecha de fin"
       redirect_to new_sub_path
-    elsif (Prop.find(params[:sub][:prop_id]).reserva.where(fecha: @sub.fecha_reserva).any?)
+
+    elsif (Prop.find(@sub.prop_id).reserva.where(fecha: @sub.fecha_reserva).any?)
       flash[:alert] = "Ya hay una reserva en esa fecha"
       redirect_to new_sub_path
-    elsif (Prop.find(params[:sub][:prop_id]).sub.where(fecha_reserva: @sub.fecha_reserva).any?)
+
+    elsif (Prop.find(@sub.prop_id).sub.where(fecha_reserva: @sub.fecha_reserva).any?)
       flash[:alert] = "Ya hay una subasta en esa fecha"
       redirect_to new_sub_path
+
+    elsif ((@sub.fecha_fin + 6.months) > @sub.fecha_reserva)
+      flash[:alert] = "La fecha de reserva es antes de los 6 meses despues que termine la subasta"
+      redirect_to new_sub_path
+
+    elsif (Date.today > @sub.fecha_inicio)
+      flash[:alert] = "La fecha de subasta debe ser posterior a la fecha actual"
+      redirect_to new_sub_path
+
     elsif @sub.save
       redirect_to subs_path
     else
