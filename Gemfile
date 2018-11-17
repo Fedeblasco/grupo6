@@ -71,3 +71,7 @@ gem 'rails-i18n'
 # Add boostrap and jquery
 gem 'bootstrap-sass'
 gem 'jquery-rails'
+
+
+gem 'devise'
+gem 'devise-i18n'
