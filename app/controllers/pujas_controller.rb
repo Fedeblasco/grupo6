@@ -33,17 +33,17 @@ class PujasController < ApplicationController
 
     # Verifica que el usuario tenga menos de dos semanas reservadas. Esto incluye las subastas que va gaanando
     if (@puja.usuario.reserva.count + cant_pujas_ganadas >= 2)
-      flash[:alert] = "#{@puja.usuario.mail}" + " no tiene semanas libres"
+      flash[:alert] = "#{@puja.usuario.email}" + " no tiene semanas libres"
       redirect_to sub_path(@puja.sub_id)
 
     # Verifica que no tenga reservas esa semana.
     elsif (@puja.usuario.reserva.where(fecha: @puja.sub.fecha_reserva).count != 0)
-      flash[:alert] = "#{@puja.usuario.mail}" + " ya tiene una reserva esta semana"
+      flash[:alert] = "#{@puja.usuario.email}" + " ya tiene una reserva esta semana"
       redirect_to sub_path(@puja.sub_id)
 
     # Si va ganando otra puja, verifica que no sea la misma semana
     elsif (cant_pujas_ganadas == 1) && (@puja.usuario.reserva.where(fecha: otra_puja.sub.fecha_reserva).any?)
-      flash[:alert] = "#{@puja.usuario.mail}" + " esta ganando una subasta esta misma semana"
+      flash[:alert] = "#{@puja.usuario.email}" + " esta ganando una subasta esta misma semana"
       redirect_to sub_path(@puja.sub_id)
 
     # Verifica que la puja actual sea mayor a la actual
@@ -53,7 +53,7 @@ class PujasController < ApplicationController
 
     # Verifica si el que va ganando no sea el mismo usario
     elsif puja_mas_fuerte && (@puja.usuario_id == puja_mas_fuerte.usuario_id)
-      flash[:alert] = "#{@puja.usuario.mail}" + " ya esta ganando esta subasta"
+      flash[:alert] = "#{@puja.usuario.email}" + " ya esta ganando esta subasta"
       redirect_to sub_path(@puja.sub_id)
 
     # Verifica que sea la subasta este abierta

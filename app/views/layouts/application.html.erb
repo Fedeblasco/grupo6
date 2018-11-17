@@ -64,8 +64,11 @@
 
       <span class="nav-item">
         <% if usuario_signed_in? %>
-          <%= link_to current_usuario.email, usuario_path %>
+          <%= link_to current_usuario.email, mi_cuenta_path %>
           <span>|</span>
+          <%= link_to t('devise.sessions.sign_out'), destroy_usuario_session_path, :method => :delete %>
+        <% elsif %>
+          <span>admin: <%= current_admin.email %> | </span>
           <%= link_to t('devise.sessions.sign_out'), destroy_usuario_session_path, :method => :delete %>
         <% else %>
           <%= link_to t('devise.sessions.new.sign_in'), new_usuario_session_path %>

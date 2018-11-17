@@ -1,13 +1,18 @@
 # frozen_string_literal: true
 
-class Usuario::RegistrationsController < Devise::RegistrationsController
+class Admins::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  # def new
-  #   super
+  #def new
+  #  if admin_signed_in?
+  #    super
+  #  else
+  #    flash[:alert] = "Registro de administradores no disponible. Por favor contacte un administrador"
+  #    redirect_to new_admin_session_path
   # end
+  #end
 
   # POST /resource
   # def create
