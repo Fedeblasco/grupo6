@@ -1,0 +1,8 @@
+<tr>
+	<th scope="col"><%= prop.id %></th>
+	<th><%= link_to image_tag(url_for(prop.imgprincipal) , class: "card-img-top card-img-small", alt: prop.nombre),prop %></th>
+	<th><%= link_to prop.nombre, prop %></th>
+	<th><%= prop.ubicacion %></th>
+	<th><%= prop.oculto %></th>
+	<th><%= prop.hotsale %></th>
+</tr>

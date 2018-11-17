@@ -75,7 +75,6 @@ es:
       nueva_subasta: "Nueva subasta"
       reservas: "Reservas"
       subastas: "Subastas"
-
   reservas:
     index:
       title: "Lista de reservas"
@@ -117,3 +116,9 @@ es:
       propiedad: "Propiedad"
       subasta: "Subasta"
       pujar: "Pujar"
+  admin:
+    props:
+      index:
+        title: "Pizarra"
+      filter:
+        filter: "Filter"

@@ -102,3 +102,16 @@ fr:
       show: "Afficher"
     usuario:
       show: "afficher >>"
+  pujas:
+    show:
+      usuario: "Usuario"
+      valor: "Valor"
+      propiedad: "Propiedad"
+      subasta: "Subasta"
+      pujar: "Pujar"
+  admin:
+    props:
+      index:
+        title: "Tableau de bord"
+      filter:
+        filter: "Filtrer"

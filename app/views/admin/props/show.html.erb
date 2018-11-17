@@ -1,0 +1,48 @@
+<h1 class="text-center"><%= @prop.nombre%> <%= @prop.oculto ? "(oculta)"  : "(visible)"%></h1>
+
+<h3 class="text-center"><%= @prop.ubicacion %></h3>
+<h5 class="text-center">Codigo: <%= @prop.id %></h3>
+
+<%= image_tag url_for(@prop.imgprincipal), :alt=>@prop.nombre %>
+	<br>
+<% @prop.images.each do |i| %>
+	<%= image_tag i %>
+<% end %>
+
+<h2 class="text-center"><%= t('.reservas') %></h2>
+<br>
+<table class="table table-bordered table-striped">
+	<thead>
+		<th scope="col">ID</th>
+		<th scope="col">Fecha</th>
+		<th scope="col">Propiedad</th>
+		<th scope="col">Cliente</th>
+	</thead>
+
+	<tbody>
+		<%= render partial: "reservas/reserva", collection: @prop.reserva %>
+	</tbody>
+
+</table>
+
+<br><br>
+
+<h2 class="text-center"><%= t('.subastas')%></h2>
+<br>
+<table class="table table-bordered table-striped">
+	<thead>
+		<th scope="col">ID</th>
+		<th scope="col"><%= t('subs.index.fecha_inicio') %></th>
+		<th scope="col"><%= t('subs.index.fecha_fin') %></th>
+		<th scope="col"><%= t('subs.index.fecha_reserva ') %></th>
+		<th scope="col"><%= t('subs.index.propriedad') %></th>
+		<th scope="col"><%= t('subs.index.ver_subasta') %></th>
+	</thead>
+
+	<%= render partial: 'subs/sub', collection: @prop.sub %>
+</table>
+
+<br>
+
+<%= link_to t('.edit'), edit_prop_path, class: 'btn btn-info btn-sm' %>
+<%= link_to t(".nueva_subasta"), new_sub_path(:prop_id => @prop.id), class: 'btn btn-success btn-sm' %>

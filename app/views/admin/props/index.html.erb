@@ -1,0 +1,20 @@
+<h1><%= t('.title') %></h1>
+
+<div class="row mt-5 justify-content-center">
+	<%= render 'filter' %>
+	<table class="table table-bordered table-striped">
+		<thead>
+			<th scope="col">ID</th>
+			<th scope="col"><%= t('.image') %></th>
+			<th scope="col"><%= t('.nombre') %></th>
+			<th scope="col"><%= t('.ubicacion') %></th>
+			<th scope="col"><%= t('.oculto') %></th>
+			<th scope="col"><%= t('.hotsale') %></th>
+		</thead>
+
+		<tbody>
+			<%= render @props %>
+		</tbody>
+
+	</table>
+	</div>

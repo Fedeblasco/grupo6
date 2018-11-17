@@ -101,3 +101,16 @@ en:
       show: "Show"
     usuario:
       show: "show >>"
+  pujas:
+    show:
+      usuario: "Usuario"
+      valor: "Valor"
+      propiedad: "Propiedad"
+      subasta: "Subasta"
+      pujar: "Pujar"
+  admin:
+    props:
+      index:
+        title: "Dashboard"
+      filter:
+        filter: "Filter"
