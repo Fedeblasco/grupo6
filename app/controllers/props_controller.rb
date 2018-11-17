@@ -5,10 +5,9 @@ class PropsController < ApplicationController
   end
 
   def create
- 
 
     @prop = Prop.new(
-      params.require(:prop).permit(:nombre, :ubicacion, :oculto)
+      params.require(:prop).permit(:nombre, :ubicacion, :oculto, :hotsale)
       )
 
     @prop.imgprincipal.attach(params[:prop][:imgprincipal])
@@ -34,7 +33,7 @@ class PropsController < ApplicationController
   end
 
   def index
-    
+
     # Carga las propiedades a mostrar, si se pasaron opciones de busqueda filtra, si no devuelve todo
     @props = params[:busq] ? Prop.where('(ubicacion LIKE ?) OR (nombre LIKE ?)', "%#{params[:busq]}%", "%#{params[:busq]}%") : Prop.all
 
@@ -54,7 +53,7 @@ class PropsController < ApplicationController
 
           # Calcula la cantidad de semanas en el intervalo
           diff = ((hasta - desde) / 7 ).to_i
-        
+
           # Archivo donde guarda temporalmente las propiedades que tiene que eliminar
           remove = []
 
@@ -62,14 +61,14 @@ class PropsController < ApplicationController
           @props.each do |p|
 
             # Si la cantidad de reservas es igual a la cantidad de semanas en el
-            # intervalo, significa que no hay semanas libres 
+            # intervalo, significa que no hay semanas libres
             if (p.reserva.where(" (fecha >= ?) AND ( fecha < ?) ", desde, hasta ).count >= diff)
               remove << p
             end
 
           end
 
-          # Elimina las reservas 
+          # Elimina las reservas
           @props = @props - remove
 
           # Actualiza los parametros para que la fecha a mostrar sea la fecha corregida.
@@ -92,7 +91,7 @@ class PropsController < ApplicationController
 
   def update
     @prop=Prop.find(params[:id]);
-    if Prop.find(params[:id]).update(params.require(:prop).permit(:nombre, :ubicacion, :oculto))
+    if Prop.find(params[:id]).update(params.require(:prop).permit(:nombre, :ubicacion, :oculto, :hotsale))
       @prop.imgprincipal.attach(params[:prop][:imgprincipal])
       if params[:destruir]
           @prop.images.purge

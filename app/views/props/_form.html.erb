@@ -6,6 +6,8 @@
   <%= p.check_box :oculto %>
   <span><%= t('.hidded') %></span><br>
 
+  <%= p.check_box :hotsale %>
+  <span><%= t('.hotsale') %></span><br>
 
   <span>Imagen principal</span>
 
@@ -33,5 +35,5 @@
 
   <%= p.file_field :images, multiple: true %><br>
   <%= p.submit t('.save') %>
-  
+
 <% end %>

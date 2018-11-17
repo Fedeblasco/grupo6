@@ -15,37 +15,37 @@ Sub.destroy_all
 # CREA PROPIEDADES (las crea gritando)
 #
 
-p = Prop.create(nombre:'Hotel sol bariloche',ubicacion:'Bariloche, Argentina',oculto: true)
+p = Prop.create(nombre:'Hotel sol bariloche',ubicacion:'Bariloche, Argentina',oculto: true,hotsale: false)
 p.imgprincipal.attach(io: File.open('seedaux/hotelsol.jpeg'), filename: 'file.png')
 
-p = Prop.create(nombre:'Hotel ausonia',ubicacion:'Bariloche, Argentina',oculto: false)
+p = Prop.create(nombre:'Hotel ausonia',ubicacion:'Bariloche, Argentina',oculto: false,hotsale: false)
 p.imgprincipal.attach(io: File.open('seedaux/hotelausonia.jpeg'), filename: 'file.png')
 
-p = Prop.create(nombre:'Rodeo ski',ubicacion:'Bariloche, Argentina',oculto: false)
+p = Prop.create(nombre:'Rodeo ski',ubicacion:'Bariloche, Argentina',oculto: false,hotsale: false)
 p.imgprincipal.attach(io: File.open('seedaux/rodeoski.jpeg'), filename: 'file.png')
 
-p = Prop.create(nombre:'Shinta mani resort',ubicacion:'Siem reap, Cambodia',oculto: false)
+p = Prop.create(nombre:'Shinta mani resort',ubicacion:'Siem reap, Cambodia',oculto: false,hotsale: true)
 p.imgprincipal.attach(io: File.open('seedaux/shintamani.jpeg'), filename: 'file.png')
 
-p = Prop.create(nombre:'Bellevue syrene',ubicacion:'Sorrento, Italia',oculto: false)
+p = Prop.create(nombre:'Bellevue syrene',ubicacion:'Sorrento, Italia',oculto: false,hotsale: false)
 p.imgprincipal.attach(io: File.open('seedaux/bellevue.jpeg'), filename: 'file.png')
 
-p = Prop.create(nombre:'Hanoi hotel y spa',ubicacion:'Hanoi, Vietnam',oculto: false)
+p = Prop.create(nombre:'Hanoi hotel y spa',ubicacion:'Hanoi, Vietnam',oculto: false,hotsale: true)
 p.imgprincipal.attach(io: File.open('seedaux/hanoi.jpeg'), filename: 'file.png')
 
-p = Prop.create(nombre:'Achtis hotel',ubicacion:'Afitos, Grecia',oculto: false)
+p = Prop.create(nombre:'Achtis hotel',ubicacion:'Afitos, Grecia',oculto: false,hotsale: true)
 p.imgprincipal.attach(io: File.open('seedaux/achtis.jpeg'), filename: 'file.png')
 
-p = Prop.create(nombre:'Mirihi island resort',ubicacion:'Mirihi, Maldivas',oculto: false)
+p = Prop.create(nombre:'Mirihi island resort',ubicacion:'Mirihi, Maldivas',oculto: false,hotsale: false)
 p.imgprincipal.attach(io: File.open('seedaux/mirihi.jpeg'), filename: 'file.png')
 
-p = Prop.create(nombre:'Bucuti & tara beach resort',ubicacion:'Eagle beach, Aruba',oculto: false)
+p = Prop.create(nombre:'Bucuti & tara beach resort',ubicacion:'Eagle beach, Aruba',oculto: false,hotsale: false)
 p.imgprincipal.attach(io: File.open('seedaux/bucuti.jpeg'), filename: 'file.png')
 
-p = Prop.create(nombre:'Calabash luxury',ubicacion:'Saint Georges, Grenada',oculto: false)
+p = Prop.create(nombre:'Calabash luxury',ubicacion:'Saint Georges, Grenada',oculto: false,hotsale: false)
 p.imgprincipal.attach(io: File.open('seedaux/calabash.jpeg'), filename: 'file.png')
 
-p = Prop.create(nombre:'Hotel Ritta Hoppener',ubicacion:'Rio grande do sul, Brasil',oculto: false)
+p = Prop.create(nombre:'Hotel Ritta Hoppener',ubicacion:'Rio grande do sul, Brasil',oculto: false,hotsale: false)
 p.imgprincipal.attach(io: File.open('seedaux/ritta.jpeg'), filename: 'file.png')
 
 #
