@@ -18,7 +18,7 @@ Sub.destroy_all
 p = Prop.create(nombre:'Hotel sol bariloche',ubicacion:'Bariloche, Argentina',oculto: true,hotsale: false)
 p.imgprincipal.attach(io: File.open('seedaux/hotelsol.jpeg'), filename: 'file.png')
 
-p = Prop.create(nombre:'Hotel ausonia',ubicacion:'Bariloche, Argentina',oculto: false,hotsale: false)
+p = Prop.create(nombre:'Hotel ausonia',ubicacion:'Bariloche, Argentina',oculto: false,hotsale: true)
 p.imgprincipal.attach(io: File.open('seedaux/hotelausonia.jpeg'), filename: 'file.png')
 
 p = Prop.create(nombre:'Rodeo ski',ubicacion:'Bariloche, Argentina',oculto: false,hotsale: false)
