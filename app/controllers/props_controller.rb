@@ -35,7 +35,7 @@ class PropsController < ApplicationController
   def index
 
     # Carga las propiedades a mostrar, si se pasaron opciones de busqueda filtra, si no devuelve todo
-    @props = params[:busq] ? Prop.where('(ubicacion LIKE ?) OR (nombre LIKE ?)', "%#{params[:busq]}%", "%#{params[:busq]}%") : Prop.all
+    @props = params[:busq] ? Prop.order(hotsale: :desc).where('(ubicacion LIKE ?) OR (nombre LIKE ?)', "%#{params[:busq]}%", "%#{params[:busq]}%") : Prop.order(hotsale: :desc)
 
     # Si se enviaron los parametros de fecha
     if (params[:desde] && params[:hasta]) && (params[:desde] != "" && params[:hasta] != "")
@@ -94,7 +94,7 @@ class PropsController < ApplicationController
     if Prop.find(params[:id]).update(params.require(:prop).permit(:nombre, :ubicacion, :oculto, :hotsale))
       if params[:prop][:imgprincipal]
         @prop.imgprincipal.attach(params[:prop][:imgprincipal])
-      end 
+      end
       if params[:destruir]
           @prop.images.purge
       end
