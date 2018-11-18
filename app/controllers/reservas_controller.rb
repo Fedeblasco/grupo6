@@ -2,6 +2,15 @@ class ReservasController < ApplicationController
 
   def index
   	@reservas = Reserva.all
+    if usuario_signed_in?
+      remove = []
+      @reservas.each do |p|
+        if (p.usuario_id != current_usuario.id)
+          remove << p
+        end
+      end
+      @reservas = @reservas - remove
+    end
   end
 
   def new
