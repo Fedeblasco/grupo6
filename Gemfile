@@ -62,7 +62,6 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
 gem 'hirb'
 
 # Add i18n for translation management
@@ -71,7 +70,6 @@ gem 'rails-i18n'
 # Add boostrap and jquery
 gem 'bootstrap-sass'
 gem 'jquery-rails'
-
 
 gem 'devise'
 gem 'devise-i18n'
