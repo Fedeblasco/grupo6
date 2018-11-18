@@ -2,7 +2,7 @@
 
 <%= form_for @puja do |p| %>
 
-	<% lista_usuario = options_from_collection_for_select(Usuario.all, 'id', 'mail') %>
+	<% lista_usuario = options_from_collection_for_select(Usuario.all, 'id', 'email') %>
 	
 	<% lista_sub = options_from_collection_for_select(Sub.all, 'id', 'prop_id') %>
 	

@@ -15,43 +15,36 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= t('layouts.header.add') %>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <%if admin_signed_in?%>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= t('layouts.header.add') %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-            <%= link_to t('layouts.header.add_prop'), new_admin_prop_path, { :class=>"dropdown-item" } %>
-            <%= link_to t('layouts.header.add_subastas'), new_admin_sub_path, { :class=>"dropdown-item" } %>
-            <%= link_to t('layouts.header.add_reserva'), new_reserva_path, { :class=>"dropdown-item" } %>
-            <%= link_to t('layouts.header.add_usuario'), new_admin_usuario_path, { :class=>"dropdown-item" } %>
+              <%= link_to t('layouts.header.add_prop'), new_admin_prop_path, { :class=>"dropdown-item" } %>
+              <%= link_to t('layouts.header.add_subastas'), new_admin_sub_path, { :class=>"dropdown-item" } %>
+              <%= link_to t('layouts.header.add_reserva'), new_reserva_path, { :class=>"dropdown-item" } %>
+              <%= link_to t('layouts.header.add_usuario'), new_admin_usuario_path, { :class=>"dropdown-item" } %>
 
-            
+            </div>
+          </li>
+        <%end%>
 
-            
+        <%if usuario_signed_in? || admin_signed_in?%>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= t('layouts.header.list') %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-            
+              <%= link_to t('layouts.header.top_usuarios'), admin_usuarios_path, { :class=>"dropdown-item" } %>
+              <%= link_to t('layouts.header.top_reservas'), reservas_path, { :class=>"dropdown-item" } %>
+              <%= link_to t('layouts.header.list_subastas'), subs_path, { :class=>"dropdown-item" } %>
 
-            
-
-            
-
-          </div>
-        </li>
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= t('layouts.header.list') %>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-            <%= link_to t('layouts.header.top_usuarios'), admin_usuarios_path, { :class=>"dropdown-item" } %>
-            <%= link_to t('layouts.header.top_reservas'), reservas_path, { :class=>"dropdown-item" } %>
-            <%= link_to t('layouts.header.list_subastas'), subs_path, { :class=>"dropdown-item" } %>
-
-          </div>
-        </li>
-
+            </div>
+          </li>
+        <%end%>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <%= t('layouts.header.language') %>
@@ -65,26 +58,30 @@
           </div>
         </li>
 
+        <li class="nav-item">
+          <%= link_to "Log admin", new_admin_session_path, :class=>"dropdown-item" %>
+        </li>
       </ul>
+
 
       <span class="nav-item">
         <% if usuario_signed_in? %>
-          
+
           <%= link_to current_usuario.email, mi_cuenta_path %>
           <span>|</span>
           <%= link_to t('devise.sessions.sign_out'), destroy_usuario_session_path, :method => :delete %>
-        
+
         <% elsif admin_signed_in?%>
-          
+
           <span>admin: <%= current_admin.email %> | </span>
           <%= link_to t('devise.sessions.sign_out'), destroy_usuario_session_path, :method => :delete %>
-        
+
         <% else %>
-          
+
           <%= link_to t('devise.sessions.new.sign_in'), new_usuario_session_path %>
           <span> | </span>
           <%= link_to t('devise.registrations.new.sign_up'), new_usuario_registration_path %>
-        
+
         <% end %>
       </span>
 

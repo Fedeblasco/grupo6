@@ -8,11 +8,23 @@ class PropsController < ApplicationController
 
     @props = []
 
-
     if usuario_signed_in?
 
     # Carga las propiedades a mostrar, si se pasaron opciones de busqueda filtra, si no devuelve todo
     @props = params[:busq] ? Prop.order(hotsale: :desc).where('(ubicacion LIKE ?) OR (nombre LIKE ?)', "%#{params[:busq]}%", "%#{params[:busq]}%") : Prop.order(hotsale: :desc)
+
+    # Archivo donde guarda temporalmente las propiedades que tiene que eliminar
+    remove = []
+
+    # Si no soy admin y la propiedad esta oculta, no la tengo en cuenta
+    @props.each do |p|
+        if not admin_signed_in?
+          if p.oculto
+            remove << p
+          end
+        end
+    end
+
 
     # Si se enviaron los parametros de fecha
     if (params[:desde] && params[:hasta]) && (params[:desde] != "" && params[:hasta] != "")
@@ -63,6 +75,8 @@ class PropsController < ApplicationController
         flash.now[:alert] = t('props.search.date_error');
       end
     end
+    # Elimina las reservas
+    @props = @props - remove
     end
 
   end
