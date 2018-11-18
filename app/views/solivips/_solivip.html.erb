@@ -1,0 +1,15 @@
+<tr <%= solivip.estado == "Aceptada"?  "class=table-success": 
+	(solivip.estado == "Rechazada"?  "class=table-danger" : "class=table-warning")%>>
+
+	<th><%= solivip.id %></th>
+	<th><%= solivip.usuario.email %></th>
+	<th> <%= solivip.estado %> </th>
+	<%if admin_signed_in?%>
+		<th>
+  			<%= link_to "Aceptar",aceptar_path(:solivip => solivip), class: "btn btn-success" %>
+  			<%= link_to "Rechazar",rechazar_path(:solivip => solivip), class: "btn btn-danger" %>
+		</th>
+	<%end%>
+</tr>
+
+

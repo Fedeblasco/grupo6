@@ -13,9 +13,14 @@ Rails.application.routes.draw do
   resources :reservas
   resources :props
   resources :subs
+  resources :solivips
   resources :pujas, except: :new
 
   get 'mi_cuenta', to: 'usuarios#show', as: 'mi_cuenta'
+
+  get 'aceptar', to: 'solivips#aceptar', as: 'aceptar'
+
+  get 'rechazar', to: 'solivips#rechazar', as: 'rechazar'
 
   get '/pujas/pujar/:id', to: 'pujas#new', as: "pujar"
 

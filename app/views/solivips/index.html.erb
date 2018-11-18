@@ -1,0 +1,17 @@
+<h1>Lista de solicitudes</h1>
+
+<table class="table table-bordered table-striped">
+	<thead>
+		<th scope="col">ID</th>
+		<th scope="col">Usuario</th>
+		<th scope="col">Estado</th>
+		<%if admin_signed_in?%>
+			<th scope="col">Desicion</th>
+		<%end%>
+	</thead>
+
+	<tbody>
+		<%= render @solivips %>
+	</tbody>
+
+</table>

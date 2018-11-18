@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_17_055053) do
+ActiveRecord::Schema.define(version: 2018_11_18_185135) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,22 @@ ActiveRecord::Schema.define(version: 2018_11_17_055053) do
     t.index ["usuario_id"], name: "index_reservas_on_usuario_id"
   end
 
+  create_table "solicitud_vips", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "usuario_id"
+    t.string "estado"
+    t.index ["usuario_id"], name: "index_solicitud_vips_on_usuario_id"
+  end
+
+  create_table "solivips", force: :cascade do |t|
+    t.string "estado"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "usuario_id"
+    t.index ["usuario_id"], name: "index_solivips_on_usuario_id"
+  end
+
   create_table "sub_fins", force: :cascade do |t|
     t.integer "valor"
     t.datetime "created_at", null: false
@@ -105,6 +121,7 @@ ActiveRecord::Schema.define(version: 2018_11_17_055053) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.boolean "vip"
     t.index ["email"], name: "index_usuarios_on_email", unique: true
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
   end
@@ -113,6 +130,8 @@ ActiveRecord::Schema.define(version: 2018_11_17_055053) do
   add_foreign_key "pujas", "usuarios"
   add_foreign_key "reservas", "props"
   add_foreign_key "reservas", "usuarios"
+  add_foreign_key "solicitud_vips", "usuarios"
+  add_foreign_key "solivips", "usuarios"
   add_foreign_key "sub_fins", "reservas"
   add_foreign_key "sub_fins", "usuarios"
   add_foreign_key "subs", "props"
