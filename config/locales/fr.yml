@@ -32,46 +32,42 @@
 fr:
   layouts:
     header:
-      add: "Ajouter"
-      list: "Liste"
-      add_prop: "Ajouter une propriété"
-      list_prop: "Liste des propriétés"
-      add_reserva: "Ajouter une réservation"
-      top: "Plus récents"
+      add: "Nouvelle"
+      add_prop: "Nouvelle propriété"
+      add_subastas: "Nouvelle enchère"
+      add_reserva: "Nouvelle réservation"
+      add_usuario: "Nouvel utilisateur"
+      list: "Voir"
       top_usuarios: "Voir les utilisateurs"
       top_reservas: "Voir les réservations"
-      subastas: "Enchères"
-      list_subastas: "Liste des enchères"
-      add_subastas: "Nouvelle enchère"
-      language: "Changer la Langue"
+      list_subastas: "Voir les enchères"
+      language: "Changer de langue"
+      spanish: "Espagnol"
+      english: "Anglais"
+      french: "Français"
       register: "Inscription"
       login: "Connexion"
       edit_account: "Modifier compte"
       logout: "Deconnexion"
-      add_usuario: "Ajouter un utilisateur"
   props:
     index:
       title: "Liste des propriétés"
-    edit:
-      title: "Modifier la propriété"
-    new:
-      title: "Ajouter une propriété"
-    form:
-      hidded: "Caché"
-      save: "Enregister la propriété"
     prop:
       read_more: "Plus d'information"
     search:
       place: "Lieu"
       dates : "Dates"
-      checkin_date: "Arrivée"
-      checkout_date: "Départ"
+      checkin_date: "Date d'arrivée"
+      checkout_date: "Date de départ"
       date_error: "La date de départ doit être postérieure à la date d'arrivée."
       adultes : "Adultes"
       search: "Chercher"
     show:
       title: "Propriété : "
       edit: "Modifier la propriété"
+      nueva_subasta: "Nouvelle enchère"
+      reservas: "Reservas"
+      subastas: "Enchères"
   reservas:
     index:
       title: "Liste des réservations"
@@ -85,33 +81,46 @@ fr:
   subs:
     index:
       title: "Liste des enchères"
-      fecha_inicio: "Date de début"
-      fecha_fin: "Date de fin"
+      fecha_inicio: "Date d'arrivée"
+      fecha_fin: "Date de départ"
+      ver_subasta: "Afficher les enchères"
       propriedad: "Propriété"
-    new:
-      title: "Nouvelle enchère"
-      fecha_inicio: "Date de début"
-    form:
-      save: "Enregister l'enchère"
-      fecha_inicio: "Date de début"
-      fecha_fin: "Date de fin"
-      propriedad: "Propriété"
-  usuarios:
-    index:
-      title: "Liste des utilisateurs"
-      show: "Afficher"
-    usuario:
-      show: "afficher >>"
+    show:
+      pujar: "Enchérir"
   pujas:
     show:
       usuario: "Usuario"
-      valor: "Valor"
-      propiedad: "Propiedad"
-      subasta: "Subasta"
-      pujar: "Pujar"
+      valor: "Montant"
+      propiedad: "Propriétée"
+      subasta: "Enchère"
+      pujar: "Enchèrir"
   admin:
     props:
       index:
         title: "Tableau de bord"
+      edit:
+        title: "Modifier la propriété"
+      new:
+        title: "Ajouter une propriété"
+      form:
+        hidded: "Caché"
+        hotsale: "En avant"
+        save: "Enregister la propriété"
       filter:
         filter: "Filtrer"
+    subs:
+      new:
+        title: "Nouvelle enchère"
+        fecha_inicio: "Date d'arrivée"
+      form:
+        save: "Enregister l'enchère"
+        fecha_inicio: "Date d'arrivée"
+        fecha_fin: "Date de départ"
+        propriedad: "Propriété"
+        ver_subasta: "Afficher les enchères"
+    usuarios:
+      index:
+        title: "Liste des utilisateurs"
+        show: "Afficher"
+      usuario:
+        show: "afficher >>"

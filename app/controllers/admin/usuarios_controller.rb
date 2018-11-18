@@ -1,5 +1,5 @@
-class UsuariosController < ApplicationController
-  
+class Admin::UsuariosController < ApplicationController
+
   def index
   	@usuarios = Usuario.all
   end
@@ -13,7 +13,7 @@ class UsuariosController < ApplicationController
   	@usuario = Usuario.create(params.require(:usuario).permit(:mail))
 
   	if @usuario.save
-  		redirect_to @usuario
+  		redirect_to [:admin, @usuario]
   	else
   		render :new
   	end

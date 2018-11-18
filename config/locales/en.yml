@@ -32,33 +32,26 @@
 en:
   layouts:
     header:
-      add: "Add"
-      add_prop: "Add a property"
-      list: "List"
-      list_prop: "Properties List"
-      add_reserva: "Add Booking"
-      top: "Most recents"
-      top_usuarios: "Users list"
-      top_reservas: "Bookings list"
-      subastas: "Auctions"
-      list_subastas: "Auctions list"
+      add: "New"
+      add_prop: "New property"
       add_subastas: "New auction"
+      add_reserva: "New booking"
+      add_usuario: "New user"
+      list: "View"
+      top_usuarios: "Users view"
+      top_reservas: "Bookings view"
+      list_subastas: "Auctions view"
       language: "Change language"
+      spanish: "Spanish"
+      english: "English"
+      french: "French"
       register: "Register"
       login: "Login"
       edit_account: "Edit account"
       logout: "Logout"
-      add_usuario: "Add user"
   props:
     index:
       title: "Properties List"
-    edit:
-      title: "Edit property"
-    new:
-      title: "Add a property"
-    form:
-      hidded: "Hidded"
-      save: "Save property"
     prop:
       read_more: "Read more"
     search:
@@ -72,6 +65,9 @@ en:
     show:
       title: "Property : "
       edit: "Edit property"
+      nueva_subasta: "New auction"
+      reservas: "Reservations"
+      subastas: "Auction"
   reservas:
     index:
       title: "Bookings list"
@@ -85,32 +81,46 @@ en:
   subs:
     index:
       title: "Auctions list"
-      fecha_inicio: "Start date"
-      fecha_fin: "End date"
+      fecha_inicio: "Check In"
+      fecha_fin: "Check Out"
+      ver_subasta: "Display auction"
       propriedad: "Property"
-    new:
-      title: "New auction"
-    form:
-      save: "Save auction"
-      fecha_inicio: "Start date"
-      fecha_fin: "End date"
-      propriedad: "Property"
-  usuarios:
-    index:
-      title: "Users list"
-      show: "Show"
-    usuario:
-      show: "show >>"
+    show:
+      pujar: "Bid"
   pujas:
     show:
-      usuario: "Usuario"
-      valor: "Valor"
-      propiedad: "Propiedad"
-      subasta: "Subasta"
-      pujar: "Pujar"
+      usuario: "User"
+      valor: "Amount"
+      propiedad: "Property"
+      subasta: "Auction"
+      pujar: "Bid"
   admin:
     props:
       index:
         title: "Dashboard"
+      edit:
+        title: "Edit property"
+      new:
+        title: "Add a property"
+      form:
+        hidded: "Hidded"
+        hotsale: "Hot sale"
+        save: "Save property"
       filter:
         filter: "Filter"
+    subs:
+      new:
+        title: "New auction"
+        fecha_inicio: "Check In"
+      form:
+        save: "Save auction"
+        fecha_inicio: "Check In"
+        fecha_fin: "Check Out"
+        propriedad: "Property"
+        ver_subasta: "Display auction"
+    usuarios:
+      index:
+        title: "Users list"
+        show: "Show"
+      usuario:
+        show: "show >>"

@@ -1,12 +1,10 @@
 Rails.application.routes.draw do
 
   # routes regular users
-  resources :usuarios
   resources :reservas
   resources :props
   resources :subs
   resources :pujas, except: :new
-  resources :dashboard
 
   get '/pujas/pujar/:id', to: 'pujas#new', as: "pujar"
 
@@ -15,6 +13,8 @@ Rails.application.routes.draw do
   # routes for admin users
   namespace :admin do
     resources :props
+    resources :subs
+    resources :usuarios
 
     root 'props#index'
   end

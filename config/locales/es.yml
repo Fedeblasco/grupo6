@@ -32,33 +32,26 @@
 es:
   layouts:
     header:
-      add: "Agregar"
-      list: "Listar"
+      add: "Nueva"
       add_prop: "Nueva propiedad"
-      list_prop: "Lista de propiedades"
-      add_reserva: "Agregar reserva"
-      top: "Mas reciente"
+      add_subastas: "Nueva subasta"
+      add_reserva: "Nueva reserva"
+      add_usuario: "Nueva usuario"
+      list: "Ver"
       top_usuarios: "Ver usuarios"
       top_reservas: "Ver reservas"
-      subastas: "Subastas"
-      list_subastas: "Lista de subastas"
-      add_subastas: "Nueva subasta"
+      list_subastas: "Ver subastas"
       language: "Cambiar Idioma"
+      spanish: "Español"
+      english: "Inglés"
+      french: "Francés"
       register: "Inscripción"
       login: "Conexión"
       edit_account: "Editar perfil"
       logout: "Cerrar sesión"
-      add_usuario: "Agregar usuario"
   props:
     index:
       title: "Lista de propiedades"
-    edit:
-      title: "Editar propiedad"
-    new:
-      title: "Nueva propiedad"
-    form:
-      hidded: "Oculto"
-      save: "Cargar propiedad"
     prop:
       read_more: "Ver más"
     search:
@@ -92,23 +85,8 @@ es:
       fecha_fin: "Fecha fin"
       ver_subasta: "Ver subasta"
       propriedad: "Propriedad"
-    new:
-      title: "Nueva subasta"
-      fecha_inicio: "Fecha inicio"
-    form:
-      save: "Agregar subasta"
-      fecha_inicio: "Fecha inicio"
-      ver_subasta: "Ver subasta"
-      propriedad: "Propiedad"
-      fecha_fin: "Fecha fin"
     show:
       pujar: "Pujar"
-  usuarios:
-    index:
-      title: "Lista de usuarios"
-      show: "ver"
-    usuario:
-      show: "ver >>"
   pujas:
     show:
       usuario: "Usuario"
@@ -120,5 +98,29 @@ es:
     props:
       index:
         title: "Pizarra"
+      edit:
+        title: "Editar propiedad"
+      new:
+        title: "Nueva propiedad"
+      form:
+        hidded: "Oculto"
+        hotsale: "Hotsale"
+        save: "Cargar propiedad"
       filter:
         filter: "Filter"
+    subs:
+      new:
+        title: "Nueva subasta"
+        fecha_inicio: "Fecha inicio"
+      form:
+        save: "Agregar subasta"
+        fecha_inicio: "Fecha inicio"
+        fecha_fin: "Fecha fin"
+        propriedad: "Propiedad"
+        ver_subasta: "Ver subasta"
+    usuarios:
+      index:
+        title: "Lista de usuarios"
+        show: "ver"
+      usuario:
+        show: "ver >>"
