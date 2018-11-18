@@ -1,36 +1,100 @@
-<h1 class="text-center"><%= @usuario.mail %> <small>(ID: <%= @usuario.id %>)</small></h1>
-<h3 class="text-center">Reservas:</h2>
+<!-- VISTA DEL ADMINISTRADOR -->
 
-<table class="table">
-	<thead>
-		<th scope="col">ID</th>
-		<th scope="col">Fecha</th>
-		<th scope="col">Propiedad</th>
-		<th scope="col">Cliente</th>
-	</thead>
+<% if admin_signed_in? %>
 
-	<tbody>
-		<%= render partial: "reservas/reserva", collection: @usuario.reserva %>
-	</tbody>
+
+	<h1 class="text-center"><%= @usuario.email %> <small>(ID: <%= @usuario.id %>)</small></h1>
+	<h3 class="text-center">Reservas:</h2>
+
+	<table class="table">
+		<thead>
+			<th scope="col">ID</th>
+			<th scope="col">Fecha</th>
+			<th scope="col">Propiedad</th>
+			<th scope="col">Cliente</th>
+		</thead>
+
+		<tbody>
+			<%= render partial: "reservas/reserva", collection: @usuario.reserva %>
+		</tbody>
+		
+	</table>
+
+	<br>
+
+	<h3 class="text-center">Subastas que gana:</h2>
+	<table class="table">
+		<thead>
+			<th scope="col">ID</th>
+			<th scope="col"><%= t('.fecha_inicio') %></th>
+			<th scope="col"><%= t('.fecha_fin') %></th>
+			<th scope="col"><%= t('.fecha_reserva') %></th>
+			<th scope="col"><%= t('.propriedad') %></th>
+			<th scope="col"><%= 'Precio minimo (no va)' %></th>
+			<th scope="col"><%= t('.ver_subasta') %></th>
+		</thead>
+
+		<tbody>
+			<%= render partial: "subs/sub", collection: @subastas %>
+		</tbody>
+		
+	</table>
+
+
+<!-- VISTA DEL USUARIO -->
+
+<% elsif usuario_signed_in? %>
+
+	<h1 class="text-center"><%= @usuario.email %></h1>
+	<h3 class="text-center">Reservas:</h2>
+
+	<table class="table">
+		<thead>
+			<th scope="col">Codigo de Reserva</th>
+			<th scope="col">Fecha</th>
+			<th scope="col">Propiedad</th>
+		</thead>
+
+		<tbody>
+
+			<% @usuario.reserva.each do |r| %>
+
+				<tr>
+					<th><%= r.id %></th>
+					<th><%= r.fecha %></th>
+					<th><%= link_to r.prop.nombre, r.prop %></th>
+				</tr>
+			<% end %>
+		</tbody>
+		
+	</table>
+
+	<br>
+
+	<h3 class="text-center">Subastas que gana:</h2>
+	<table class="table">
+		<thead>
+			<th scope="col">Codigo de subasta</th>
+			<th scope="col"><%= t('.fecha_reserva') %></th>
+			<th scope="col"><%= t('.propriedad') %></th>
+			<th scope="col"><%= t('.ver_subasta') %></th>
+		</thead>
+
+		<tbody>
+
+			<% @subastas.each do |s| %>
+				<tr>
+					<th scope="col"><%= s.id %></th>
+					<th><%= s.fecha_reserva %></th>
+					<th><%= link_to s.prop.nombre, s.prop %></th>
+					<th><%= link_to "Ver subasta", s %></th>
+				</tr>
+
+			<% end %>
+
+		</tbody>
+		
+	</table>
 	
-</table>
 
-<br>
-
-<h3 class="text-center">Subastas que gana:</h2>
-<table class="table">
-	<thead>
-		<th scope="col">ID</th>
-		<th scope="col"><%= t('.fecha_inicio') %></th>
-		<th scope="col"><%= t('.fecha_fin') %></th>
-		<th scope="col"><%= t('.fecha_reserva') %></th>
-		<th scope="col"><%= t('.propriedad') %></th>
-		<th scope="col"><%= 'Precio minimo (no va)' %></th>
-		<th scope="col"><%= t('.ver_subasta') %></th>
-	</thead>
-
-	<tbody>
-		<%= render partial: "subs/sub", collection: @subastas %>
-	</tbody>
-	
-</table>
+<% end %>

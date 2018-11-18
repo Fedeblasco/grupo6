@@ -36,3 +36,24 @@
 		padding-left: 10px;
 		padding-right: 10px
 }
+
+
+.custom-form {
+	width: 300px;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.custom-form input, .custom-form label {
+	width: 100%;
+}
+
+.custom-form input {
+	margin-bottom: 15px;
+}
+
+
+.custom-form input[type="checkbox"] {
+	width: 20px;
+	text-align: left;
+}
