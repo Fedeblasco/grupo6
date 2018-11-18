@@ -1,4 +1,9 @@
 class Admin::UsuariosController < ApplicationController
+  before_action :check_access
+
+  def check_access
+    redirect_to root_url and return unless admin_signed_in?
+  end
 
   def index
   	@usuarios = Usuario.all
@@ -7,7 +12,7 @@ class Admin::UsuariosController < ApplicationController
   def new
   	@usuario = Usuario.new
   end
-  
+
   def create
 
   	@usuario = Usuario.create(params.require(:usuario).permit(:mail))
@@ -21,7 +26,7 @@ class Admin::UsuariosController < ApplicationController
   end
 
   def show
-    
+
     if admin_signed_in?
     	@usuario = Usuario.find(params[:id])
       @subastas = [ ]

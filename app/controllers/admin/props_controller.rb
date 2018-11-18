@@ -1,4 +1,9 @@
 class Admin::PropsController < ApplicationController
+  before_action :check_access
+
+  def check_access
+    redirect_to props_url and return unless admin_signed_in?
+  end
 
   def new
     @prop = Prop.new
@@ -29,9 +34,7 @@ class Admin::PropsController < ApplicationController
   end
 
   def index
-
-  @props = Prop.order(hotsale: :desc)
-
+    @props = Prop.order(hotsale: :desc)
   end
 
   def update
@@ -51,5 +54,5 @@ class Admin::PropsController < ApplicationController
       render :edit
     end
   end
-  
+
 end

@@ -6,6 +6,10 @@ class PropsController < ApplicationController
 
   def index
 
+    if admin_signed_in?
+      redirect_to admin_props_url
+    end
+
     @props = []
 
     if usuario_signed_in?
