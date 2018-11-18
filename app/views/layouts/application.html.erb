@@ -15,37 +15,43 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= t('layouts.header.add') %>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        
+        <%if admin_signed_in?%>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= t('layouts.header.add') %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-            <%= link_to t('layouts.header.add_prop'), new_prop_path, { :class=>"dropdown-item" } %>
-            
-            <%= link_to t('layouts.header.add_subastas'), new_sub_path, { :class=>"dropdown-item" } %>
+              <%= link_to t('layouts.header.add_prop'), new_prop_path, { :class=>"dropdown-item" } %>
+              
+              <%= link_to t('layouts.header.add_subastas'), new_sub_path, { :class=>"dropdown-item" } %>
 
-            <%= link_to t('layouts.header.add_reserva'), new_reserva_path, { :class=>"dropdown-item" } %>
+              <%= link_to t('layouts.header.add_reserva'), new_reserva_path, { :class=>"dropdown-item" } %>
 
-            <%= link_to t('layouts.header.add_usuario'), new_usuario_path, { :class=>"dropdown-item" } %>
+              <%= link_to t('layouts.header.add_usuario'), new_usuario_path, { :class=>"dropdown-item" } %>
 
-          </div>
-        </li>
+            </div>
+          </li>
+        <%end%>
 
+        <%if usuario_signed_in? || admin_signed_in?%>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <%= t('layouts.header.list') %>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= t('layouts.header.list') %>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%if admin_signed_in?%>
+                <%= link_to t('layouts.header.top_usuarios'), usuarios_path, { :class=>"dropdown-item" } %>
+              <%end%>
+              <%= link_to t('layouts.header.top_reservas'), reservas_path, { :class=>"dropdown-item" } %>
+              <%= link_to t('layouts.header.list_subastas'), subs_path, { :class=>"dropdown-item" } %>
+              <%= link_to t('layouts.header.list_prop'), props_path, { :class=>"dropdown-item" } %>
 
-            <%= link_to t('layouts.header.top_usuarios'), usuarios_path, { :class=>"dropdown-item" } %>
-            <%= link_to t('layouts.header.top_reservas'), reservas_path, { :class=>"dropdown-item" } %>
-            <%= link_to t('layouts.header.list_subastas'), subs_path, { :class=>"dropdown-item" } %>
-            <%= link_to t('layouts.header.list_prop'), props_path, { :class=>"dropdown-item" } %>
-
-          </div>
-        </li>
+            </div>
+          </li>
+        <%end%>
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -60,7 +66,11 @@
           </div>
         </li>
 
+        <li class="nav-item">
+          <%= link_to "Log admin", new_admin_session_path, :class=>"dropdown-item" %> 
+        </li>
       </ul>
+
 
       <span class="nav-item">
         <% if usuario_signed_in? %>

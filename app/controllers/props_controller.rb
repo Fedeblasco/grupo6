@@ -35,13 +35,21 @@ class PropsController < ApplicationController
 
   def index
 
-    @props = []
-    
-
-    if usuario_signed_in?
-
     # Carga las propiedades a mostrar, si se pasaron opciones de busqueda filtra, si no devuelve todo
     @props = params[:busq] ? Prop.where('(ubicacion LIKE ?) OR (nombre LIKE ?)', "%#{params[:busq]}%", "%#{params[:busq]}%") : Prop.all
+
+    # Archivo donde guarda temporalmente las propiedades que tiene que eliminar
+    remove = []
+
+    # Si no soy admin y la propiedad esta oculta, no la tengo en cuenta
+    @props.each do |p|
+        if not admin_signed_in?
+          if p.oculto
+            remove << p
+          end
+        end
+    end
+
 
     # Si se enviaron los parametros de fecha
     if (params[:desde] && params[:hasta]) && (params[:desde] != "" && params[:hasta] != "")
@@ -60,8 +68,6 @@ class PropsController < ApplicationController
           # Calcula la cantidad de semanas en el intervalo
           diff = ((hasta - desde) / 7 ).to_i
         
-          # Archivo donde guarda temporalmente las propiedades que tiene que eliminar
-          remove = []
 
           # Recorre todas las propiedades para filtrar las que tienen semanas libres
           @props.each do |p|
@@ -73,9 +79,6 @@ class PropsController < ApplicationController
             end
 
           end
-
-          # Elimina las reservas 
-          @props = @props - remove
 
           # Actualiza los parametros para que la fecha a mostrar sea la fecha corregida.
           # Para la semana de inicio se indica el domingo de la primer semana
@@ -92,6 +95,8 @@ class PropsController < ApplicationController
         flash.now[:alert] = t('props.search.date_error');
       end
     end
+    # Elimina las reservas 
+    @props = @props - remove
     end
 
   end
@@ -111,5 +116,3 @@ class PropsController < ApplicationController
       render :edit
     end
   end
-
-end

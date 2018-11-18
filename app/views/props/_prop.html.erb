@@ -1,10 +1,13 @@
-
 <div class="card card-custom <%= prop.oculto ? "text-white bg-dark" : "" %>  mx-2 mb-3">
 	<%= image_tag url_for(prop.imgprincipal) , class: "card-img-top", alt: prop.nombre %>
 	<div class="card-body">
 		<h5 class="card-title"><%= prop.nombre %></h5>
 		<p class="card-text"><%= prop.ubicacion %></p>
 		<small><%= prop.oculto ? "Propiedad oculta" : "" %></small>
-		<%= link_to t('.read_more'),prop, class: "btn btn-success" %>
+		<%if usuario_signed_in? || admin_signed_in?%>
+			<%= link_to t('.read_more'),prop, class: "btn btn-success" %>
+		<%end%>
 	</div>
 </div>
+
+
