@@ -2,22 +2,23 @@ class SolivipsController < ApplicationController
 
   def new
     @solivip = Solivip.new
-  end
-
-  def create
-  end
-
-  def edit
-  end
-
-  def show
+    @solivip.estado = "En progreso"
+    @solivip.usuario_id = current_usuario.id
+    @solivip.save
+    flash[:notice] = "Solicitud creada correctamente"
+    redirect_to solivips_path
   end
 
   def index
-    @solivips = Solivip.all
-  end
-
-  def update
+    if usuario_signed_in?
+      if current_usuario.solivip != nil
+        @solivips = Solivip.where(usuario_id: current_usuario.id) 
+      else
+        redirect_to new_solivip_path
+      end
+    else
+      @solivips = Solivip.all
+    end
   end
 
   def aceptar
@@ -37,6 +38,13 @@ class SolivipsController < ApplicationController
     u.vip = false
     s.save
     u.save
+    redirect_to solivips_path
+  end  
+
+  def enprogre
+    s=Solivip.find(params[:solivip])
+    s.estado = "En progreso"
+    s.save
     redirect_to solivips_path
   end  
 end

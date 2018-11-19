@@ -44,6 +44,7 @@
 
               <%if admin_signed_in?%>
                 <%= link_to t('layouts.header.top_usuarios'), usuarios_path, { :class=>"dropdown-item" } %>
+                <%= link_to "Listar solicitudes vip", solivips_path, { :class=>"dropdown-item" } %>
               <%end%>
               <%= link_to t('layouts.header.top_reservas'), reservas_path, { :class=>"dropdown-item" } %>
               <%= link_to t('layouts.header.list_subastas'), subs_path, { :class=>"dropdown-item" } %>
@@ -69,16 +70,17 @@
         <li class="nav-item">
           <%= link_to "Log admin", new_admin_session_path, :class=>"dropdown-item" %> 
         </li>
-
-        <li class="nav-item">
-          <%= link_to "Solicitud de vip", solivips_path, :class=>"dropdown-item" %> 
-        </li>
       </ul>
 
 
       <span class="nav-item">
         <% if usuario_signed_in? %>
           
+          <%if current_usuario.vip == false%>
+            <%= link_to "Solicitud VIP",solivips_path, class: "btn btn-warning" %>
+          <%else%>
+            <button class= "btn btn-warning">VIP</button>
+          <%end%>
           <%= link_to current_usuario.email, mi_cuenta_path %>
           <span>|</span>
           <%= link_to t('devise.sessions.sign_out'), destroy_usuario_session_path, :method => :delete %>

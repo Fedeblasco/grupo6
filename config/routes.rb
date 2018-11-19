@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   get 'rechazar', to: 'solivips#rechazar', as: 'rechazar'
 
+  get 'enprogre', to: 'solivips#enprogre', as: 'enprogre'
+
   get '/pujas/pujar/:id', to: 'pujas#new', as: "pujar"
 
   root 'props#index'
