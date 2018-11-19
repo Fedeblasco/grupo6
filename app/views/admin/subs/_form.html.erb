@@ -1,4 +1,4 @@
-<%= form_for @sub do |d| %>
+<%= form_for [:admin, @sub] do |d| %>
 	<% lista_prop = options_from_collection_for_select(Prop.all, 'id', 'nombre', params[:prop_id]) %>
 	<span><%=t('.fecha_inicio')%>: </span>
 	<%= d.date_field :fecha_inicio, required: true%><br><br>

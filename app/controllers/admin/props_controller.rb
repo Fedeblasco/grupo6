@@ -34,7 +34,10 @@ class Admin::PropsController < ApplicationController
   end
 
   def index
-    @props = Prop.order(hotsale: :desc)
+    @props = Prop.all
+    @props_reservas = Prop.joins(:reserva)
+    @props_subastas = Prop.joins(:sub)
+    @props_hotsale = Prop.where("hotsale = true")
   end
 
   def update

@@ -1,8 +1,8 @@
 <h1>Agregar nuevo usuario</h1>
 
 <%= form_for [:admin, @usuario] do |u| %>
-	<%= u.label :mail %>
-	<%= u.text_field :mail %>
+	<%= u.label :email %>
+	<%= u.text_field :email %>
 
 	<%= u.submit 'Cargar' %>
 
