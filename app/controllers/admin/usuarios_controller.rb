@@ -15,7 +15,7 @@ class Admin::UsuariosController < ApplicationController
 
   def create
 
-  	@usuario = Usuario.create(params.require(:usuario).permit(:mail))
+  	@usuario = Usuario.create(params.require(:usuario).permit(:email))
 
   	if @usuario.save
   		redirect_to [:admin, @usuario]
