@@ -15,10 +15,9 @@ Rails.application.routes.draw do
   resources :pujas, except: :new
 
   get 'mi_cuenta', to: 'usuarios#show', as: 'mi_cuenta'
-
   get '/pujas/pujar/:id', to: 'pujas#new', as: "pujar"
 
-  root 'props#index'
+  root 'main#index'
 
   # routes for admin users
   namespace :admin do
