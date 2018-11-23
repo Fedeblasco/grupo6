@@ -1,8 +1,8 @@
 <div class="custom-form">
-  <h2 style="text-align: center; margin-bottom: 30px"><%= t('devise.sessions.new.sign_in') %></h2>
+  <h2 style="text-align: center; margin-bottom: 30px"><%= t('devise.sessions.new.sign_in') %> | Admin</h2>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  
+
     <div class="field">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -17,7 +17,7 @@
       <%= f.submit t('devise.sessions.new.sign_in') %>
     </div>
 
-  
+
   <% end %>
 
   <%= render "admins/shared/links" %>

@@ -1,1 +1,1 @@
-web: rake db:create & rake db:migrate & rake db:seed & bundle exec puma
+web: rake db:drop db:create db:migrate db:seed & bundle exec puma
