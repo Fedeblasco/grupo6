@@ -10,9 +10,14 @@ class Usuarios::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super
+    
+    # Queda re rancio pero no se me ocurrio otra idea
+    usuario = Usuario.where(email: params[:usuario][:email]).first
+    usuario.vip = false
+    usuario.save
+  end
 
   # GET /resource/edit
   # def edit
