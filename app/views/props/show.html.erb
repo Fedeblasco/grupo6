@@ -42,10 +42,32 @@
 	<%= render partial: 'subs/sub', collection: @prop.sub %>
 </table>
 
+<br><br>
+
+<h2 class="text-center"><%= "Hot Sale" %></h2>
 <br>
+<table class="table table-bordered table-striped">
+	<thead>
+		<!-- Si el logeado es admin, que muestre la ID -->
+		<% if admin_signed_in? %>
+			<th scope="col">ID</th>
+		<% end  %>
+		<th scope="col"><%= "Fecha Hot Sale" %></th>
+		<th scope="col"><%= "Fecha Reserva" %></th>
+		<th scope="col"><%= "Precio" %></th>
+		<th scope="col"><%= "Propiedad" %></th>
+		<th scope="col"><%= "Ver Hot Sale" %></th>
+	</thead>
+
+	<%= render partial: 'hot_sales/hot_sale', collection: @prop.hot_sale %>
+</table>
+
+<br>
+
 <%if admin_signed_in?%>
 	<%= link_to t('.edit'), edit_prop_path, class: 'btn btn-info btn-sm' %>
 	<%= link_to t(".nueva_subasta"), new_sub_path(:prop_id => @prop.id), class: 'btn btn-success btn-sm' %>
+	<%= link_to "Nueva Hot Sale", new_hot_sale_path(:prop_id => @prop.id), class: 'btn btn-success btn-sm' %>
 <%elsif usuario_signed_in? && current_usuario.vip == true%>
 	<%= link_to "Reservar", new_reserva_path(@prop.id), class: 'btn btn-info btn-sm' %>
 <%end%>

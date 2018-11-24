@@ -1,0 +1,21 @@
+<h1>Crear Hot Sale</h1>
+
+<%= form_for @hotsale do |h| %>
+
+	<% lista_prop = options_from_collection_for_select(Prop.all, 'id', 'nombre') %>
+
+	<%= h.label "Fecha Inicio: " %>
+	<%= h.date_field :fecha_hotsale, required: true %> <br>
+
+	<%= h.label "Fecha Reserva" %>
+	<%= h.date_field :fecha_reserva, required: true %> <br>
+
+	<%= h.label "Propiedad" %>
+	<%= h.select :prop_id, lista_prop, required: true %> <br>
+
+	<%= h.label "Precio" %>
+	<%= h.number_field :precio, required: true %> <br>
+
+	<%= h.submit "Crear Hot Sale" %>
+
+<% end %>

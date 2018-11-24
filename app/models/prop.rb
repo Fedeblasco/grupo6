@@ -7,6 +7,8 @@ class Prop < ApplicationRecord
 
 	has_many :sub, dependent: :destroy
 
+	has_many :hot_sale, dependent: :destroy
+
 
 	# Validaciones para que no cree cosas vacias
 	validates :nombre, presence: true, length: {minimum: 3, maximum: 255}

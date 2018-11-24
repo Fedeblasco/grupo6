@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_18_185135) do
+ActiveRecord::Schema.define(version: 2018_11_24_212551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,16 @@ ActiveRecord::Schema.define(version: 2018_11_18_185135) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_admins_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+  end
+
+  create_table "hot_sales", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "precio"
+    t.date "fecha_hotsale"
+    t.date "fecha_reserva"
+    t.bigint "prop_id"
+    t.index ["prop_id"], name: "index_hot_sales_on_prop_id"
   end
 
   create_table "props", force: :cascade do |t|
@@ -126,6 +136,7 @@ ActiveRecord::Schema.define(version: 2018_11_18_185135) do
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "hot_sales", "props"
   add_foreign_key "pujas", "subs"
   add_foreign_key "pujas", "usuarios"
   add_foreign_key "reservas", "props"

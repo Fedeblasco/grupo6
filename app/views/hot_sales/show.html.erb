@@ -1,0 +1,7 @@
+<h1>HOT SALE! <%= link_to @hotsale.prop.nombre, @hotsale.prop %></h1>
+<h5>La semana del <%= @hotsale.fecha_reserva%></h5>
+<h5><small>Codigo de Hot Sale: <%= @hotsale.id %></small></h5>
+
+<% if (@hotsale.fecha_hotsale <= Date.today) && usuario_signed_in? %>
+	<%= link_to "Reservar", reservar_path(@hotsale), class: "btn btn-info btn-sm" %>
+<% end %>

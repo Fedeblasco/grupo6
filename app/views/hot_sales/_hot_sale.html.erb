@@ -1,0 +1,11 @@
+<tr>
+
+	<% if admin_signed_in? %>
+		<th><%=  hot_sale.id %></th>
+	<% end %>
+	<th> <%= hot_sale.fecha_hotsale %>  </th>
+	<th> <%= hot_sale.fecha_reserva %>  </th>
+	<th> <%= hot_sale.precio %></th>
+	<th> <%= link_to hot_sale.prop.nombre, hot_sale.prop %>  </th>
+	<th> <%= link_to "Ver Hot Sale", hot_sale %>  </th>
+</tr>

@@ -36,9 +36,6 @@ class SubsController < ApplicationController
     end
   end
 
-  def edit
-  end
-
   def show
     # Obtiene la lista de pujas
     @sub = Sub.find(params[:id])
@@ -56,9 +53,6 @@ class SubsController < ApplicationController
 
   def index
     @subs = Sub.all
-  end
-
-  def update
   end
 
 end

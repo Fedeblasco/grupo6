@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :subs
   resources :solivips
   resources :pujas, except: :new
+  resources :hot_sales
 
   # Ruta, se hace asi para que pase el parametro de la propiedad
   get '/reservar/:prop_id', to: 'reservas#new', as: 'new_reserva'
