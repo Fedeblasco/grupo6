@@ -84,6 +84,7 @@ es:
       cliente: "Cliente"
     new:
       title: "Nueva reserva"
+      save: "Reservar"
     form:
       save: "Agregar reserva"
   subs:

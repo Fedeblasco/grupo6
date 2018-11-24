@@ -10,11 +10,14 @@ Rails.application.routes.draw do
   }
 
   resources :usuarios
-  resources :reservas
+  resources :reservas, :except => [:new]
   resources :props
   resources :subs
   resources :solivips
   resources :pujas, except: :new
+
+  # Ruta, se hace asi para que pase el parametro de la propiedad
+  get '/reservar/:prop_id', to: 'reservas#new', as: 'new_reserva'
 
   get 'mi_cuenta', to: 'usuarios#show', as: 'mi_cuenta'
 
