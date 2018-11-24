@@ -1,8 +1,10 @@
-<tr>
-	<th scope="col"><%= prop.id %></th>
-	<th><%= link_to image_tag(url_for(prop.imgprincipal), class: "card-img-top card-img-small", alt: prop.nombre),prop %></th>
-	<th><%= link_to prop.nombre, prop %></th>
-	<th><%= prop.ubicacion %></th>
-	<th><%= prop.oculto %></th>
-	<th><%= prop.hotsale %></th>
-</tr>
+<div class="card card-custom float-left <%= prop.oculto ? "text-white bg-dark" : "" %> <%= prop.hotsale ? "text-white bg-success" : "" %>  mx-2 mb-3">
+	<%= link_to image_tag(url_for(prop.imgprincipal) , class: "card-img-top", alt: prop.nombre),prop %>
+	<%= prop.hotsale ? (link_to t('.hotsale'),prop, class: "btn btn-light position-absolute m-2 text-success") : "" %>
+	<div class="card-body">
+		<h5 class="card-title"><%= prop.nombre %></h5>
+		<p class="card-text"><%= prop.ubicacion %></p>
+		<small><%= prop.oculto ? "Propiedad oculta" : "" %></small>
+		<%= link_to t('.read_more'),prop, class: "btn btn-light" %>
+	</div>
+</div>

@@ -2,17 +2,22 @@
 
 	<div class="row">
 		<div class="col-sm">
-			<h1 class="text"><%= @prop.nombre%> <%= @prop.oculto ? "(oculta)"  : "(visible)"%></h1>
+			<h1 class="text"><%= @prop.nombre%><%= @prop.oculto ? "(oculta)"  : "(visible)"%></h1>
 			<h3 class="text"><%= @prop.ubicacion %></h3>
 			<h5 class="text">Codigo: <%= @prop.id %></h3>
 		</div>
 
 		<div class="col-sm">
-			<%= link_to t(".nueva_subasta"), new_sub_path(:prop_id => @prop.id), class: 'btn btn-success float-right m-1' %>
-			<br clear="all" />
-			<%if admin_signed_in?%>
+			<%if usuario_signed_in?%>
+				<%= link_to t(".nueva_subasta"), new_sub_path(:prop_id => @prop.id), class: 'btn btn-success float-right m-1' %>
+				<br clear="all" />
+				<%= link_to t(".nueva_reserva"), new_reserva_path(:prop_id => @prop.id), class: 'btn btn-outline-success float-right m-1' %>
+				<br clear="all" />
+			<%elsif admin_signed_in?%>
 				<%= link_to t('.edit'), edit_admin_prop_path, class: 'btn btn-primary float-right m-1' %>
-			<%end%>
+			<% end %>
+
+
 		</div>
 	</div>
 

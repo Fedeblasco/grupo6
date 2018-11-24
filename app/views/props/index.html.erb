@@ -1,12 +1,10 @@
-<h1><%= t('.title') %></h1>
 <ul>
+
+	<h1><%= t('.title') %></h1>
 
 	<div class="row mt-5 justify-content-center">
 
-		<%if usuario_signed_in? || admin_signed_in?%>
-			<%= render 'search' %>
-		<%end%>
-
+		<%= render 'search' %>
 		<%= render @props %>
 
 	</div>

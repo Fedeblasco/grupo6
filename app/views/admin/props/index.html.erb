@@ -1,82 +1,28 @@
+<ul>
+
 <h1><%= t('.title') %></h1>
 
-<ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
-  <li class="nav-item">
-    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#todas" role="tab" aria-controls="pills-home" aria-selected="true">Todas</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="pills-home-tab" data-toggle="pill" href="#reservas" role="tab" aria-controls="pills-home" aria-selected="true">Reservas común</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#subastas" role="tab" aria-controls="pills-profile" aria-selected="false">Subastas</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#hotsales" role="tab" aria-controls="pills-contact" aria-selected="false">Hot sales</a>
-  </li>
+	<div class="row mt-5 justify-content-center">
+
+		<%= render 'filter' %>
+
+    <div class="tab-content" id="pills-tabContent">
+      <div class="tab-pane fade show active" id="todas" role="tabpanel" aria-labelledby="pills-home-tab">
+	      <%= render @props %>
+    	</div>
+    	<div class="tab-pane fade" id="reservas" role="tabpanel" aria-labelledby="pills-home-tab">
+    		<%= render @props_reservas %>
+    	</div>
+      <div class="tab-pane fade" id="subastas" role="tabpanel" aria-labelledby="pills-profile-tab">
+    		<%= render @props_subastas %>
+    	</div>
+      <div class="tab-pane fade" id="hotsales" role="tabpanel" aria-labelledby="pills-contact-tab">
+    		<%= render @props_hotsale %>
+    	</div>
+      <div class="tab-pane fade" id="oculto" role="tabpanel" aria-labelledby="pills-contact-tab">
+    		<%= render @props_oculto %>
+    	</div>
+    </div>
+
+	</div>
 </ul>
-<div class="tab-content" id="pills-tabContent">
-  <div class="tab-pane fade show active" id="todas" role="tabpanel" aria-labelledby="pills-home-tab">
-		<table class="table table-bordered table-striped">
-			<thead>
-				<th scope="col">ID</th>
-				<th scope="col"><%= t('.image') %></th>
-				<th scope="col"><%= t('.nombre') %></th>
-				<th scope="col"><%= t('.ubicacion') %></th>
-				<th scope="col"><%= t('.oculto') %></th>
-				<th scope="col"><%= t('.hotsale') %></th>
-			</thead>
-			<tbody>
-				<%= render @props %>
-			</tbody>
-		</table>
-	</div>
-	<div class="tab-pane fade" id="reservas" role="tabpanel" aria-labelledby="pills-home-tab">
-		<table class="table table-bordered table-striped">
-			<thead>
-				<th scope="col">ID</th>
-				<th scope="col"><%= t('.image') %></th>
-				<th scope="col"><%= t('.nombre') %></th>
-				<th scope="col"><%= t('.ubicacion') %></th>
-				<th scope="col"><%= t('.oculto') %></th>
-				<th scope="col"><%= t('.hotsale') %></th>
-			</thead>
-			<tbody>
-				<%= render @props_reservas %>
-			</tbody>
-		</table>
-	</div>
-  <div class="tab-pane fade" id="subastas" role="tabpanel" aria-labelledby="pills-profile-tab">
-		<table class="table table-bordered table-striped">
-			<thead>
-				<th scope="col">ID</th>
-				<th scope="col"><%= t('.image') %></th>
-				<th scope="col"><%= t('.nombre') %></th>
-				<th scope="col"><%= t('.ubicacion') %></th>
-				<th scope="col"><%= t('.oculto') %></th>
-				<th scope="col"><%= t('.hotsale') %></th>
-			</thead>
-			<tbody>
-				<%= render @props_subastas %>
-			</tbody>
-		</table>
-	</div>
-  <div class="tab-pane fade" id="hotsales" role="tabpanel" aria-labelledby="pills-contact-tab">
-		<table class="table table-bordered table-striped">
-			<thead>
-				<th scope="col">ID</th>
-				<th scope="col"><%= t('.image') %></th>
-				<th scope="col"><%= t('.nombre') %></th>
-				<th scope="col"><%= t('.ubicacion') %></th>
-				<th scope="col"><%= t('.oculto') %></th>
-				<th scope="col"><%= t('.hotsale') %></th>
-			</thead>
-			<tbody>
-				<%= render @props_hotsale %>
-			</tbody>
-		</table>
-	</div>
-</div>
-
-<div class="row mt-5 justify-content-center">
-
-	</div>

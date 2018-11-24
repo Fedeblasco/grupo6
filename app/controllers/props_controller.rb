@@ -8,9 +8,7 @@ class PropsController < ApplicationController
 
     if !usuario_signed_in?
       redirect_to root_path
-    end
-
-    if admin_signed_in?
+    else admin_signed_in?
       redirect_to admin_props_url
     end
 
