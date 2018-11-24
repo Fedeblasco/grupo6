@@ -1,6 +1,6 @@
 <%= form_for @reserva do |d| %>
 
-	<% lista_usuario = options_from_collection_for_select(Usuario.all, 'id', 'mail') %>
+	<% lista_usuario = options_from_collection_for_select(Usuario.all, 'id', 'email') %>
 	<% lista_prop = options_from_collection_for_select(Prop.all, 'id', 'nombre') %>
 
 	<%= d.select :usuario_id, lista_usuario %><br><br>

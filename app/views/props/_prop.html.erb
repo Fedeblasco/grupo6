@@ -5,8 +5,6 @@
 		<h5 class="card-title"><%= prop.nombre %></h5>
 		<p class="card-text"><%= prop.ubicacion %></p>
 		<small><%= prop.oculto ? "Propiedad oculta" : "" %></small>
-		<%if usuario_signed_in? || admin_signed_in?%>
-			<%= link_to t('.read_more'),prop, class: "btn btn-light" %>
-		<%end%>
+		<%= link_to t('.read_more'),prop, class: "btn btn-light" %>
 	</div>
 </div>
