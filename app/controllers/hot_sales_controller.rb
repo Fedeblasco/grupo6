@@ -2,6 +2,10 @@ class HotSalesController < ApplicationController
 
   def new
     @hotsale = HotSale.new
+
+    if params[:prop_id]
+      @hotsale.prop_id = params[:prop_id]
+    end
   end
 
   def create
@@ -53,6 +57,41 @@ class HotSalesController < ApplicationController
       flash.now[:notice] = "Este Hot Sale se encuentra disponible"
     elsif (@hotsale.fecha_hotsale > Date.today)
       flash.now[:alert] = "Este Hot Sale estara disponible el " + "#{@hotsale.fecha_hotsale}"
+    end
+  end
+
+  def reservar
+    # Se fija si hay un usuario logeado
+    if (usuario_signed_in?)
+
+      # Obtiene el hot sale que esta tratando de reservar
+      hotsale = HotSale.find(params[:id])
+
+      # Chequea si el usuario tiene semanas libres 
+      if (current_usuario.reserva.count >= 2)
+        flash[:alert] = "Usted no tiene semanas libres"
+        redirect_to root_path
+
+      # Chequea si el usuario ya tiene esa semana ocupada
+      elsif (current_usuario.reserva.where(fecha: hotsale.fecha_reserva).any?)
+        flash[:alert] = "Ustes ya tiene una reserva para esta semana"
+        redirect_to root_path
+
+      # Si no salio antes hace una reserva
+      else
+
+        # Crea la reserva y asigna todos los campos
+        reserva_nueva = Reserva.new
+        reserva_nueva.fecha = hotsale.fecha_reserva
+        reserva_nueva.usuario_id = current_usuario.id
+        reserva_nueva.prop_id = hotsale.prop_id
+        reserva_nueva.save
+
+        # Elimina la publicacion de Hot Sale
+        hotsale.destroy
+
+        redirect_to usuario_path(current_usuario)
+      end
     end
   end
 

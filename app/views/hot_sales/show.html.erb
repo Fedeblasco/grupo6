@@ -3,5 +3,5 @@
 <h5><small>Codigo de Hot Sale: <%= @hotsale.id %></small></h5>
 
 <% if (@hotsale.fecha_hotsale <= Date.today) && usuario_signed_in? %>
-	<%= link_to "Reservar", reservar_path(@hotsale), class: "btn btn-info btn-sm" %>
+	<%= button_to "Reservar", reservar_hot_sale_path(@hotsale.id), class: "btn btn-info btn-sm" %>
 <% end %>

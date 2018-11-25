@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   # Ruta, se hace asi para que pase el parametro de la propiedad
   get '/reservar/:prop_id', to: 'reservas#new', as: 'new_reserva'
 
+  # Ruta para reservar una propiedad en Hot Sale
+  post 'hot_sales/reservar/:id', to: 'hot_sales#reservar', as: 'reservar_hot_sale'
+
   get 'mi_cuenta', to: 'usuarios#show', as: 'mi_cuenta'
 
   get 'aceptar', to: 'solivips#aceptar', as: 'aceptar'

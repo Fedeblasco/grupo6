@@ -2,7 +2,7 @@
 
 <%= form_for @hotsale do |h| %>
 
-	<% lista_prop = options_from_collection_for_select(Prop.all, 'id', 'nombre') %>
+	<% lista_prop = options_from_collection_for_select(Prop.all, 'id', 'nombre', params[:prop_id]) %>
 
 	<%= h.label "Fecha Inicio: " %>
 	<%= h.date_field :fecha_hotsale, required: true %> <br>
