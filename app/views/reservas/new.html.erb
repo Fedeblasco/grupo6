@@ -1,2 +1,11 @@
-<h1><%= t('.title') %></h1>
-<%= render 'form' %>
+<h1><%= t('.title')  %></h1>
+
+<%= form_for @reserva do |r| %>
+	
+	<%= hidden_field_tag "reserva[usuario_id]", @reserva.usuario_id %>
+	<%= hidden_field_tag "reserva[prop_id]", @reserva.prop_id %>
+	<%= r.date_field :fecha, required: true %> <br>
+
+	<%= r.submit t('.save')%>
+
+<% end %>

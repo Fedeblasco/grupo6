@@ -1,9 +1,5 @@
 class Admin::UsuariosController < ApplicationController
-  before_action :check_access
-
-  def check_access
-    redirect_to root_url and return unless admin_signed_in?
-  end
+  before_action :authenticate_admin!
 
   def index
   	@usuarios = Usuario.all

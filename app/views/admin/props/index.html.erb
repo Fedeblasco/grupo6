@@ -1,28 +1,11 @@
 <ul>
 
-<h1><%= t('.title') %></h1>
+	<h1><%= t('.title') %></h1>
 
 	<div class="row mt-5 justify-content-center">
 
 		<%= render 'filter' %>
-
-    <div class="tab-content" id="pills-tabContent">
-      <div class="tab-pane fade show active" id="todas" role="tabpanel" aria-labelledby="pills-home-tab">
-	      <%= render @props %>
-    	</div>
-    	<div class="tab-pane fade" id="reservas" role="tabpanel" aria-labelledby="pills-home-tab">
-    		<%= render @props_reservas %>
-    	</div>
-      <div class="tab-pane fade" id="subastas" role="tabpanel" aria-labelledby="pills-profile-tab">
-    		<%= render @props_subastas %>
-    	</div>
-      <div class="tab-pane fade" id="hotsales" role="tabpanel" aria-labelledby="pills-contact-tab">
-    		<%= render @props_hotsale %>
-    	</div>
-      <div class="tab-pane fade" id="oculto" role="tabpanel" aria-labelledby="pills-contact-tab">
-    		<%= render @props_oculto %>
-    	</div>
-    </div>
+		<%= render @props %>
 
 	</div>
 </ul>

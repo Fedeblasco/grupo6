@@ -1,0 +1,77 @@
+<div class="container-fluid">
+
+	<div class="row">
+		<div class="col-sm">
+			<h1 class="text"><%= @prop.nombre%><%= @prop.oculto ? "(oculta)"  : "(visible)"%></h1>
+			<h3 class="text"><%= @prop.ubicacion %></h3>
+			<h5 class="text">Codigo: <%= @prop.id %></h3>
+		</div>
+
+		<div class="col-sm">
+			<%if usuario_signed_in?%>
+				<%= link_to t(".nueva_subasta"), new_sub_path(:prop_id => @prop.id), class: 'btn btn-success float-right m-1' %>
+				<br clear="all" />
+				<%= link_to t(".nueva_reserva"), new_reserva_path(:prop_id => @prop.id), class: 'btn btn-outline-success float-right m-1' %>
+				<br clear="all" />
+			<%elsif admin_signed_in?%>
+				<%= link_to t('.edit'), edit_admin_prop_path, class: 'btn btn-primary float-right m-1' %>
+			<% end %>
+
+
+		</div>
+	</div>
+
+  <div class="row">
+    <div class="col-sm">
+      <%= image_tag url_for(@prop.imgprincipal), :alt=>@prop.nombre, :class=>"card-img" %>
+				<br>
+			<% @prop.images.each do |i| %>
+				<%= image_tag i %>
+			<% end %>
+    </div>
+    <div class="col-sm">
+      <div class="card text-center">
+			  <div class="card-header">
+			    <ul class="nav nav-tabs card-header-tabs">
+			      <li class="nav-item">
+			    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#reservas" role="tab" aria-controls="pills-home" aria-selected="true"><%= t('.reservas') %></a>
+			      </li>
+			      <li class="nav-item">
+			    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#subastas" role="tab" aria-controls="pills-profile" aria-selected="false">Subastas</a>
+			      </li>
+			    </ul>
+			  </div>
+			  <div class="card-body tab-content" id="pills-tabContent">
+				  <div class="tab-pane fade show active" id="reservas" role="tabpanel" aria-labelledby="pills-home-tab">
+						<table class="table table-bordered table-striped">
+							<thead>
+								<th scope="col">ID</th>
+								<th scope="col">Fecha</th>
+								<th scope="col">Propiedad</th>
+								<th scope="col">Cliente</th>
+							</thead>
+							<tbody>
+								<%= render partial: "reservas/reserva", collection: @prop.reserva %>
+							</tbody>
+						</table>
+					</div>
+					<div class="tab-pane fade show" id="subastas" role="tabpanel" aria-labelledby="pills-home-tab">
+						<table class="table table-bordered table-striped">
+							<thead>
+								<th scope="col">ID</th>
+								<th scope="col"><%= t('subs.index.fecha_inicio') %></th>
+								<th scope="col"><%= t('subs.index.fecha_fin') %></th>
+								<th scope="col"><%= t('subs.index.fecha_reserva ') %></th>
+								<th scope="col"><%= t('subs.index.propriedad') %></th>
+								<th scope="col"><%= t('subs.index.ver_subasta') %></th>
+							</thead>
+							<tbody>
+								<%= render partial: 'subs/sub', collection: @prop.sub %>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+    </div>
+  </div>
+</div>

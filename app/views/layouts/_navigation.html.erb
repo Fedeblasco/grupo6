@@ -18,15 +18,6 @@
             <%= link_to t('layouts.header.add_usuario'), new_admin_usuario_path, { :class=>"dropdown-item" } %>
           </div>
         </li>
-      <%elsif usuario_signed_in?%>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= t('layouts.header.add') %>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to t('layouts.header.add_reserva'), new_reserva_path, { :class=>"dropdown-item" } %>
-          </div>
-        </li>
       <%end%>
 
       <%if admin_signed_in?%>
@@ -36,18 +27,9 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%= link_to t('layouts.header.top_usuarios'), admin_usuarios_path, { :class=>"dropdown-item" } %>
-            <%= link_to t('layouts.header.top_reservas'), reservas_path, { :class=>"dropdown-item" } %>
-            <%= link_to t('layouts.header.list_subastas'), subs_path, { :class=>"dropdown-item" } %>
-          </div>
-        </li>
-      <%elsif usuario_signed_in?%>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= t('layouts.header.list') %>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <%= link_to t('layouts.header.top_reservas'), reservas_path, { :class=>"dropdown-item" } %>
-            <%= link_to t('layouts.header.list_subastas'), subs_path, { :class=>"dropdown-item" } %>
+            <%= link_to "Ver solicitudes vip", admin_solivips_path, { :class=>"dropdown-item" } %>
+            <%= link_to t('layouts.header.top_reservas'), admin_reservas_path, { :class=>"dropdown-item" } %>
+            <%= link_to t('layouts.header.list_subastas'), admin_subs_path, { :class=>"dropdown-item" } %>
           </div>
         </li>
       <%end%>
@@ -69,6 +51,11 @@
     <span class="nav-item">
       <% if usuario_signed_in? %>
 
+        <%if current_usuario.vip == false%>
+          <%= link_to "Solicitud VIP",solivips_path, class: "btn btn-warning" %>
+        <%else%>
+          <%= link_to "VIP", solivips_path, { :class=>"btn btn-warning" } %>
+        <%end%>
         <%= link_to current_usuario.email, mi_cuenta_path %>
         <span>|</span>
         <%= link_to t('devise.sessions.sign_out'), destroy_usuario_session_path, :method => :delete %>

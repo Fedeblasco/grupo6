@@ -1,4 +1,5 @@
 class SubsController < ApplicationController
+  before_action :authenticate_usuario!
 
   def show
     # Obtiene la lista de pujas
@@ -13,10 +14,6 @@ class SubsController < ApplicationController
     elsif (Date.today > @sub.fecha_fin)
       flash.now[:alert] = "Esta subasta termino. Los ganadores se conoceran a la brevedad"
     end
-  end
-
-  def index
-    @subs = Sub.all
   end
 
   def new

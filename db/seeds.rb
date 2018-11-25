@@ -6,10 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 puts 'Reestableciendo la base de datos'
-Prop.destroy_all
-Usuario.destroy_all
-Reserva.destroy_all
-Sub.destroy_all
 
 #
 # CREA PROPIEDADES (las crea gritando)

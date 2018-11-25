@@ -1,4 +1,5 @@
 class PujasController < ApplicationController
+  before_action :authenticate_usuario!
 
   def new
     @puja = Puja.new(sub_id: params[:id])
@@ -11,7 +12,7 @@ class PujasController < ApplicationController
 
     cant_pujas_ganadas = 0
     otra_puja = nil
-    
+
     # Si tiene dos pujas en una subasta, va a verificar esa subasta dos veces,
     # y si va ganando, lo va a agregar dos veces. Por eso hay que hacer una
     # lista con las subastas en donde participa y recorrer eso
@@ -71,4 +72,3 @@ class PujasController < ApplicationController
   end
 
 end
-

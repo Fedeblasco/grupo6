@@ -1,9 +1,5 @@
 class Admin::SubsController < ApplicationController
-  before_action :check_access
-
-  def check_access
-    redirect_to subs_url and return unless admin_signed_in?
-  end
+  before_action :authenticate_admin!
 
   def index
     @subs = Sub.all

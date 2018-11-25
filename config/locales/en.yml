@@ -63,7 +63,7 @@ en:
       adultes : "Adultes"
       search: "Search"
     show:
-      title: "Property : "
+      title: "Property:"
       edit: "Edit property"
       nueva_subasta: "New auction"
       reservas: "Reservations"
@@ -76,6 +76,7 @@ en:
       cliente: "Customer"
     new:
       title: "New booking"
+      save: "Book!"
     form:
       save: "Save booking"
   subs:

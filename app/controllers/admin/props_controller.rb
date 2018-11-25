@@ -1,8 +1,8 @@
 class Admin::PropsController < ApplicationController
-  before_action :check_access
+  before_action :authenticate_admin!
 
-  def check_access
-    redirect_to props_url and return unless admin_signed_in?
+  def show
+    @prop = Prop.find(params[:id])
   end
 
   def new

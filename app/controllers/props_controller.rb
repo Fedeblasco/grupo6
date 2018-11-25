@@ -1,20 +1,11 @@
 class PropsController < ApplicationController
+  before_action :authenticate_usuario!, :except => [:show, :index]
 
   def show
     @prop = Prop.find(params[:id])
   end
 
   def index
-
-    if !usuario_signed_in?
-      redirect_to root_path
-    else admin_signed_in?
-      redirect_to admin_props_url
-    end
-
-    @props = []
-
-    if usuario_signed_in?
 
     # Carga las propiedades a mostrar, si se pasaron opciones de busqueda filtra, si no devuelve todo
     @props = params[:busq] ? Prop.order(hotsale: :desc).where('(ubicacion LIKE ?) OR (nombre LIKE ?)', "%#{params[:busq]}%", "%#{params[:busq]}%") : Prop.order(hotsale: :desc)
@@ -83,8 +74,6 @@ class PropsController < ApplicationController
     end
     # Elimina las reservas
     @props = @props - remove
-    end
-
   end
 
 end
