@@ -1,36 +1,63 @@
 <%= form_for [:admin, @prop] do |p| %>
 
-  <%= p.text_field :nombre, required: true %><br>
-  <%= p.text_field :ubicacion, required: true %><br>
+  <%= content_tag :div, class: "input-group mb-3" do -%>
+    <%=content_tag(:div, p.label( :nombre, :class=>"input-group-text"), class: "input-group-prepend")%>
+    <%= p.text_field :nombre, required: true, autofocus: true, :class=>"form-control" %>
+  <% end -%>
 
-  <%= p.check_box :oculto %>
-  <span><%= t('.hidded') %></span><br>
+  <%= content_tag :div, class: "input-group mb-3" do -%>
+    <%=content_tag(:div, p.label( :ubicacion, :class=>"input-group-text"), class: "input-group-prepend")%>
+    <%= p.text_field :ubicacion, required: true, :class=>"form-control" %>
+  <% end -%>
 
-  <%= p.check_box :hotsale %>
-  <span><%= t('.hotsale') %></span><br>
+  <%= content_tag :div, class: "input-group mb-3" do -%>
+    <%=content_tag(:div, p.label("",p.check_box(:oculto), :class=>"input-group-text"), class: "input-group-prepend")%>
+    <%=content_tag(:div, p.label( t('.hidded'), :class=>"input-group-text"), class: "input-group-append")%>
+  <% end -%>
 
-  <span>Imagen principal</span>
+  <%= content_tag :div, class: "input-group mb-3" do -%>
+    <%=content_tag(:div, p.label("",p.check_box(:hotsale), :class=>"input-group-text"), class: "input-group-prepend")%>
+    <%=content_tag(:div, p.label( t('.hotsale'), :class=>"input-group-text"), class: "input-group-append")%>
+  <% end -%>
+
+  <%= content_tag :div, class: "input-group mb-3" do -%>
+    <%=content_tag(:div, p.label( :descripcion, :class=>"input-group-text"), class: "input-group-prepend")%>
+    <%= p.text_area :descripcion, :class=>"form-control" %>
+  <% end -%>
+
+  <h4>Imagen principal</h4>
   <%if not @prop.id.nil?%>
-  	<%= image_tag url_for(@prop.imgprincipal), :alt=>@prop.nombre %>
+    <%= content_tag :div, class: "input-group mb-3" do -%>
+      <%= image_tag url_for(@prop.imgprincipal), :alt=>@prop.nombre %>
+    <% end -%>
   <% end %>
 
-  <%= p.file_field :imgprincipal, multiple: false, accept: 'image/png,image/gif,image/jpeg' %><br>
+  <%= content_tag :div, class: "input-group mb-3" do -%>
+    <%=content_tag(:div, p.label( :imgprincipal, :class=>"input-group-text"), class: "input-group-prepend")%>
+    <%= content_tag :div, class: "custom-file" do -%>
+      <%= p.file_field :imgprincipal, multiple: false, accept: 'image/png,image/gif,image/jpeg', :class=>"custom-file-input" %>
+      <%= p.label "Choose file", :class=>"custom-file-label" %>
+    <% end -%>
+  <% end -%>
 
   <% if @prop.images.count > 0%>
-
-  	<span>Imagenes secundarias</span>
-
+  	<h4>Imagenes secundarias</h4>
   	<% @prop.images.each do |i| %>
 		  <%= image_tag i %>
   	<% end %>
   	<br>
-  	<span>Eliminar fotos anteriores</span>
-
+  	<h4>Eliminar fotos anteriores</h4>
   	<%=check_box_tag :destruir,'Eliminar fotos anteriores', true %><br>
-
   <%end%>
 
-  <%= p.file_field :images, multiple: true, accept: 'image/png,image/gif,image/jpeg' %><br>
-  <%= p.submit t('.save') %>
+  <%= content_tag :div, class: "input-group mb-3" do -%>
+    <%=content_tag(:div, p.label( :images, :class=>"input-group-text"), class: "input-group-prepend")%>
+    <%= content_tag :div, class: "custom-file" do -%>
+      <%= p.file_field :images, multiple: true, accept: 'image/png,image/gif,image/jpeg', :class=>"custom-file-input" %>
+      <%= p.label "Choose file(s)", :class=>"custom-file-label" %>
+    <% end -%>
+  <% end -%>
+
+  <%= p.submit t('.save'), :class=>"btn btn-primary mb-3" %>
 
 <% end %>

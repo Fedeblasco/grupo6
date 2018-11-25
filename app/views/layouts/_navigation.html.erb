@@ -67,11 +67,9 @@
 
       <% else %>
 
-        <%= link_to "Log admin", new_admin_session_path %>
+        <%= link_to "Log Usuario", new_usuario_session_path %>
         <span> | </span>
-        <%= link_to t('devise.sessions.new.sign_in'), new_usuario_session_path %>
-        <span> | </span>
-        <%= link_to t('devise.registrations.new.sign_up'), new_usuario_registration_path %>
+        <%= link_to "Log Admin", new_admin_session_path %>
 
       <% end %>
     </span>

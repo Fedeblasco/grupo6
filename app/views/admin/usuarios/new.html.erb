@@ -1,9 +1,10 @@
-<h1>Agregar nuevo usuario</h1>
+<h1>Agregar un nuevo usuario</h1>
 
 <%= form_for [:admin, @usuario] do |u| %>
-	<%= u.label :email %>
-	<%= u.text_field :email %>
+	<%= content_tag :div, class: "input-group mb-3" do -%>
+		<%=content_tag(:div, u.label( :email, :class=>"input-group-text"), class: "input-group-prepend")%>
+		<%= u.email_field :email, autofocus: true, autocomplete: "email", :class=>"form-control" %>
+	<% end -%>
 
-	<%= u.submit 'Cargar' %>
-
+	<%= u.submit 'Cargar', :class=>"btn btn-primary mb-3" %>
 <% end %>

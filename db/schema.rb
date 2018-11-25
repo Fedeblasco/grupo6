@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_18_185135) do
+ActiveRecord::Schema.define(version: 2018_11_25_194051) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 2018_11_18_185135) do
     t.datetime "updated_at", null: false
     t.boolean "oculto"
     t.boolean "hotsale"
+    t.string "descripcion"
   end
 
   create_table "pujas", force: :cascade do |t|
@@ -115,6 +116,7 @@ ActiveRecord::Schema.define(version: 2018_11_18_185135) do
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.boolean "vip"
+    t.string "tarjeta"
     t.index ["email"], name: "index_usuarios_on_email", unique: true
     t.index ["reset_password_token"], name: "index_usuarios_on_reset_password_token", unique: true
   end
