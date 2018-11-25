@@ -1,22 +1,25 @@
-<div class="custom-form">
-    <h2><%= t('devise.sessions.new.sign_in')%> | Usuario</h2>
+<div class="custom-form card">
+  <div class="card-header">
+    <h3><%= t('devise.sessions.new.sign_in')%> | Usuario</h3>
+  </div>
 
-  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <%= f.label :email %><br />
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-    </div>
+  <div class="card-body">
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
-    <div class="field">
-      <%= f.label :password %><br />
-      <%= f.password_field :password, autocomplete: "current-password" %>
-    </div>
+      <%= content_tag :div, class: "input-group mb-3" do -%>
+        <%=content_tag(:div, f.label( :email, :class=>"input-group-text"), class: "input-group-prepend")%>
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", :class=>"form-control" %>
+      <% end -%>
 
-    <div class="actions">
-      <%= f.submit "Log in" %>
-    </div>
-  <% end %>
+      <%= content_tag :div, class: "input-group mb-3" do -%>
+        <%=content_tag(:div, f.label( :password, :class=>"input-group-text"), class: "input-group-prepend")%>
+        <%= f.password_field :password, autocomplete: "current-password", :class=>"form-control" %>
+      <% end -%>
 
-  <%= render "usuarios/shared/links" %>
+      <%= f.submit "Log in", :class=>"btn btn-primary btn-block" %>
+    <% end %>
+
+    <%= render "usuarios/shared/links" %>
+  </div>
 
 </div>

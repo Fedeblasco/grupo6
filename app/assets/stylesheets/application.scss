@@ -18,6 +18,15 @@
 	padding-top: 70px;
 }
 
+.full {
+    background: url('images/background.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    height:100%;
+}
+
 .card-custom {
     width: 280px;
 }
@@ -37,10 +46,9 @@
 		padding-right: 10px
 }
 
-
 .custom-form {
-	width: 300px;
-	margin: 0 auto;
+	width: 400px;
+	margin: auto;
 	text-align: center;
 }
 
@@ -51,7 +59,6 @@
 .custom-form input {
 	margin-bottom: 15px;
 }
-
 
 .custom-form input[type="checkbox"] {
 	width: 20px;
