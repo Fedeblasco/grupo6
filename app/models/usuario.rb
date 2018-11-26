@@ -23,4 +23,16 @@ class Usuario < ApplicationRecord
     greater_than_or_equal_to: 2018,
     less_than_or_equal_to: 2100
   }
+
+  # Validacion de la fecha de nacimiento
+
+  validate :fecha_nac_limits
+
+  private
+
+  def fecha_nac_limits
+    if ((fecha_nac + 18.years) >= Date.today)
+      errors.add(:fecha_nac, "No eres mayor de 18 años de edad")
+    end
+  end
 end

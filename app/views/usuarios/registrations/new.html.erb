@@ -9,6 +9,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :fecha_nacimiento %><br />
+    <%= f.date_field :fecha_nac, autofocus: true, autocomplete: "fecha-nacimiento" %><br />
+  </div>
+
+  <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
