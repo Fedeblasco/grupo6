@@ -1,0 +1,31 @@
+<h1>Lista de Cobro</h1>
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>Nombre</th>
+			<th>Apellido</th>
+			<th>Email</th>
+			<th>Tarjeta</th>
+			<th>CVV</th>
+			<th>Vencimiento</th>
+			<th>VIP</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		
+		<% @usuarios.each do |u| %>
+		<tr>
+			<td><%= u.nombre %></td>
+			<td><%= u.apellido %></td>
+			<td><%= u.email %></td>
+			<td><%= u.tarjeta_numero %></td>
+			<td><%= u.tarjeta_cvv %></td>
+			<td><%= u.tarjeta_mes %>/<%= u.tarjeta_ano %></td>
+			<td><%= u.vip? ? "Si" :  "No"%></td>
+		</tr>
+		<% end %>
+
+	</tbody>
+</table>

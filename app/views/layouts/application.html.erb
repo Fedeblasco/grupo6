@@ -24,10 +24,6 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
               <%= link_to t('layouts.header.add_prop'), new_prop_path, { :class=>"dropdown-item" } %>
-              
-              <%= link_to t('layouts.header.add_subastas'), new_sub_path, { :class=>"dropdown-item" } %>
-
-              <%= link_to t('layouts.header.add_usuario'), new_usuario_path, { :class=>"dropdown-item" } %>
 
             </div>
           </li>
@@ -39,14 +35,17 @@
               <%= t('layouts.header.list') %>
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <%= link_to t('layouts.header.list_prop'), props_path, { :class=>"dropdown-item" } %>
+              <%= link_to t('layouts.header.list_subastas'), subs_path, { :class=>"dropdown-item" } %>
 
               <%if admin_signed_in?%>
+                <%= link_to t('layouts.header.top_reservas'), reservas_path, { :class=>"dropdown-item" } %>
                 <%= link_to t('layouts.header.top_usuarios'), usuarios_path, { :class=>"dropdown-item" } %>
                 <%= link_to "Listar solicitudes vip", solivips_path, { :class=>"dropdown-item" } %>
+                <%= link_to "Listado de tarjetas", lista_tarjetas_path, { :class=>"dropdown-item" } %>
+                
               <%end%>
-              <%= link_to t('layouts.header.top_reservas'), reservas_path, { :class=>"dropdown-item" } %>
-              <%= link_to t('layouts.header.list_subastas'), subs_path, { :class=>"dropdown-item" } %>
-              <%= link_to t('layouts.header.list_prop'), props_path, { :class=>"dropdown-item" } %>
+              
 
             </div>
           </li>

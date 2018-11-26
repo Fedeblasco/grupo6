@@ -10,6 +10,10 @@ class Usuario < ApplicationRecord
 
 	has_one :solivip
 
+  # Valida nombre y apellido
+  validates :nombre, presence: true, format: { with: /\A[a-zA-Z\s]+\z/, message: "solo se aceptan letras" }
+  validates :apellido, presence: true, format: { with: /\A[a-zA-Z\s]+\z/, message: "solo se aceptan letras" }
+
   # Validaciones de la tarjeta
   validates :tarjeta_numero, presence: true, format: {with: /\A\d+\z/}, length: {is: 16} 
   validates :tarjeta_cvv, presence: true, format: {with: /\A\d+\z/}, length: {is: 3} 

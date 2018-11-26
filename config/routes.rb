@@ -33,6 +33,9 @@ Rails.application.routes.draw do
 
   get '/pujas/pujar/:id', to: 'pujas#new', as: "pujar"
 
+  # Vista del administrador para obtener las tarjetas
+  get 'tarjetas', to: 'main#tarjetas', as: "lista_tarjetas"
+
   root 'props#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
