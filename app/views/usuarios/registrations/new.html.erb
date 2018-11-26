@@ -21,6 +21,25 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <h3>Informacion de Tarjeta</h3>
+  <div class="field">
+    <%= f.label "Numero de tarjeta" %><br />
+    <%= f.text_field :tarjeta_numero, placeholder: "WWWWXXXXYYYYZZZZ" %>
+  </div>
+
+  <div class="field">
+    <%= f.label "CVV" %><br />
+    <%= f.text_field :tarjeta_cvv, placeholder:"XXX" %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Vencimiento" %><br />
+    <%= f.text_field :tarjeta_mes, placeholder:"XX" %>
+    <%= f.text_field :tarjeta_ano, placeholder:"YYYY" %>
+  </div>
+
+  <%= hidden_field_tag "usuario[vip]", false %>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

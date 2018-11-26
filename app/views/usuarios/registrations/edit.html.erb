@@ -25,11 +25,32 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
+  <br>
+  <h3>Informacion de Tarjeta</h3>
+  <div class="field">
+    <%= f.label "Numero de tarjeta" %><br />
+    <%= f.text_field :tarjeta_numero, placeholder: "WWWWXXXXYYYYZZZZ" %>
+  </div>
+
+  <div class="field">
+    <%= f.label "CVV" %><br />
+    <%= f.text_field :tarjeta_cvv, placeholder:"XXX" %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Vencimiento" %><br />
+    <%= f.text_field :tarjeta_mes, placeholder:"XX" %>
+    <%= f.text_field :tarjeta_ano, placeholder:"YYYY" %>
+  </div>
+
+  <br>
 
   <div class="field">
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
+
+  <br>
 
   <div class="actions">
     <%= f.submit "Update" %>
