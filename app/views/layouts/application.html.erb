@@ -63,10 +63,7 @@
 
           </div>
         </li>
-
-        <li class="nav-item">
-          <%= link_to "Log admin", new_admin_session_path, :class=>"dropdown-item" %> 
-        </li>
+        
       </ul>
 
 
@@ -111,6 +108,17 @@
 
     <%= yield %>
   </div>
+
+  <footer class="footer">
+      <div class="container">
+        <span class="text-muted">HomeSwitchHome 2018</span>
+        <span style="float: right">
+          <% if !(admin_signed_in? | usuario_signed_in?) %>
+            <%= link_to "Admin", new_admin_session_path, class: "text-muted" %>
+          <% end %>
+        </span>
+      </div>
+    </footer>
 
 </body>
 
