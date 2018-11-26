@@ -29,12 +29,21 @@ class Usuario < ApplicationRecord
 
   validate :fecha_nac_limits
 
+  validate :password_complexity
+
   private
 
   def fecha_nac_limits
     if ((fecha_nac + 18.years) >= Date.today)
       errors.add(:fecha_nac, "No eres mayor de 18 años de edad")
     end
+  end
+
+  def password_complexity
+    # Regexp extracted from https://stackoverflow.com/questions/19605150/regex-for-password-must-contain-at-least-eight-characters-at-least-one-number-a
+    return if password.blank? || password =~ /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{10,70}$/
+
+    errors.add :password, ' no es válida. El tamaño debe ser de 10 a 70 caracteres e incluir al menos una letra mayúscula, una minúscula y un número'
   end
 
   # Funcion para verificar el vencimiento de la tarjeta

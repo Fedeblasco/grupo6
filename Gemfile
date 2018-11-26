@@ -75,3 +75,4 @@ gem 'jquery-rails'
 
 gem 'devise'
 gem 'devise-i18n'
+gem 'strong_password', '~> 0.0.6'
