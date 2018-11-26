@@ -3,61 +3,84 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :nombre %><br />
-    <%= f.text_field :nombre, autofocus: true %>
+  <div class="form-row">
+    <div class="form-group col-md-5">
+      <%= f.label :nombre %>
+      <%= f.text_field :nombre, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-md-5">
+      <%= f.label :apellido %>
+      <%= f.text_field :apellido, class: "form-control"  %>
+    </div>
+
+    <div class="form-group col-md-2">
+      <%= f.label :fecha_nacimiento %> <br>
+      <%= f.date_field :fecha_nac, autocomplete: "fecha-nacimiento", class: "form-control"  %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= f.label :apellido %><br />
-    <%= f.text_field :apellido, autofocus: true %>
+  <div class="form-group">
+      <%= f.label :email %>
+      <%= f.email_field :email, autocomplete: "email", class: "form-control"  %>
   </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="form-row">
+
+    <div class="form-group col-md-6">
+      <%= f.label :password %>
+      <% if @minimum_password_length %>
+      <em>(<%= @minimum_password_length %> characters minimum)</em>
+      <% end %><br />
+      <%= f.password_field :password, autocomplete: "new-password", class: "form-control"  %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <%= f.label :password_confirmation %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control"  %>
+    </div>
+    
   </div>
 
-  <div class="field">
-    <%= f.label :fecha_nacimiento %><br />
-    <%= f.date_field :fecha_nac, autofocus: true, autocomplete: "fecha-nacimiento" %><br />
-  </div>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= f.label "Numero de tarjeta" %><br />
+      <%= f.text_field :tarjeta_numero, placeholder: "WWWWXXXXYYYYZZZZ", class: "form-control", :"maxlength" => 16  %>
+    </div>
+    
+    <div class="form-group col-md-4">
+      <%= f.label "CVV" %>
+      <%= f.text_field :tarjeta_cvv, placeholder:"XXX", class: "form-control", :"maxlength" => 3  %>
+    </div>
+    
+    <div class="form-group col-md-2">
+      <%= f.label "Vencimiento" %>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <h3>Informacion de Tarjeta</h3>
-  <div class="field">
-    <%= f.label "Numero de tarjeta" %><br />
-    <%= f.text_field :tarjeta_numero, placeholder: "WWWWXXXXYYYYZZZZ" %>
-  </div>
-
-  <div class="field">
-    <%= f.label "CVV" %><br />
-    <%= f.text_field :tarjeta_cvv, placeholder:"XXX" %>
-  </div>
-
-  <div class="field">
-    <%= f.label "Vencimiento" %><br />
-    <%= f.text_field :tarjeta_mes, placeholder:"XX" %>
-    <%= f.text_field :tarjeta_ano, placeholder:"YYYY" %>
+      <div class="input-group">
+        <%= f.text_field :tarjeta_mes, placeholder:"XX", class: "form-control", :"maxlength" => 2 %>
+        <%= f.text_field :tarjeta_ano, placeholder:"YYYY", class: "form-control", :"maxlength" => 4  %>
+      </div>
+    </div>
+    
   </div>
 
   <%= hidden_field_tag "usuario[vip]", false %>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="form-row">
+    <div class="form-group col-md-4"></div>
+    <div class="form-group col-md-4">
+      <%= f.submit "Sign up", class: "form-control btn btn-primary" %>
+    </div>
+    <div class="form-group col-md-4"></div>
+    
   </div>
-<% end %>
 
-<%= render "usuarios/shared/links" %>
+  <div class="form-row">
+    <div class="form-group col-md-4"></div>
+    <div class="form-group col-md-4">
+      <%= link_to "Iniciar sesion", new_usuario_session_path, class: "form-control btn btn-light" %>
+    </div>
+    <div class="form-group col-md-4"></div>
+  </div>
+
+<% end %>
