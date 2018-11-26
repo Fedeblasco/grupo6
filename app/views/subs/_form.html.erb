@@ -2,8 +2,6 @@
 	<% lista_prop = options_from_collection_for_select(Prop.all, 'id', 'nombre', params[:prop_id]) %>
 	<span><%=t('.fecha_inicio')%>: </span>
 	<%= d.date_field :fecha_inicio, required: true%><br><br>
-	<span><%=t('.fecha_fin')%>: </span>
-	<%= d.date_field :fecha_fin, required: true %><br><br>
 	<span>Semana a subastar: </span>
 	<%= d.date_field :fecha_reserva, required: true %><br><br>
 	<span><%=t('.propriedad')%>: </span>

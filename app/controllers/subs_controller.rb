@@ -5,9 +5,11 @@ class SubsController < ApplicationController
   end
 
   def create
-    @sub = Sub.new(params.require(:sub).permit(:fecha_inicio, :fecha_fin, :prop_id, :fecha_reserva, :precio_min))
+    @sub = Sub.new(params.require(:sub).permit(:fecha_inicio, :prop_id, :fecha_reserva, :precio_min))
     @sub.fecha_reserva = @sub.fecha_reserva - @sub.fecha_reserva.wday
-    
+    @sub.fecha_fin = @sub.fecha_inicio + 3.days
+
+
     if (@sub.fecha_inicio > @sub.fecha_fin)
       flash[:alert] = "La fecha de inicio es mayor a la fecha de fin"
       redirect_to new_sub_path
