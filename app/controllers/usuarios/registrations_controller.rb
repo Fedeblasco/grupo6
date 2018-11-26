@@ -20,9 +20,9 @@ class Usuarios::RegistrationsController < Devise::RegistrationsController
   # end
 
   # PUT /resource
-  # def update
-  #   super
-  # end
+  def update
+    super
+  end
 
   # DELETE /resource
   # def destroy
@@ -38,7 +38,7 @@ class Usuarios::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_sign_up_params
@@ -47,7 +47,7 @@ class Usuarios::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   def configure_account_update_params
-    devise_parameter_sanitizer.permit(:sign_up, keys: [:tarjeta_numero, :tarjeta_cvv, :tarjeta_mes, :tarjeta_ano])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:tarjeta_numero, :tarjeta_cvv, :tarjeta_mes, :tarjeta_ano])
   end
 
   # The path used after sign up.
