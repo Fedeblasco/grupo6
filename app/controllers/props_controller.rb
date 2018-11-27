@@ -79,17 +79,17 @@ class PropsController < ApplicationController
       desde = Date.parse(params[:desde])
       hasta = Date.parse(params[:hasta])
 
+      # Fuerza las fechas a que sean domingo y sabado
+      desde = desde - desde.wday
+      hasta = hasta + 7
+      hasta = hasta - hasta.wday - 1
+
+      # Calcula la cantidad de semanas en el intervalo
+      diff = ((hasta - desde + 1).to_i / 7 )
+
       # Si las fechas tienen coherencia (desde es anterior a hasta, y el intervalo no es mayor a 2 meses)
       if (desde < hasta)
-        if ((hasta - desde).to_i <= 8)
-          # Fuerza las fechas a que sean domingo
-          desde = desde - desde.wday
-          hasta = hasta + 7
-          hasta = hasta - hasta.wday
-
-          # Calcula la cantidad de semanas en el intervalo
-          diff = ((hasta - desde) / 7 ).to_i
-        
+        if ( ( diff ) <= 8)
 
           # Recorre todas las propiedades para filtrar las que tienen semanas libres
           @props.each do |p|
@@ -106,7 +106,7 @@ class PropsController < ApplicationController
           # Para la semana de inicio se indica el domingo de la primer semana
           params[:desde] = desde
           # Para la ultima semana se indica el sabado que se deberia dejar la propiedad
-          params[:hasta] = hasta - 1
+          params[:hasta] = hasta 
 
           flash.now[:notice] = "Cantidad de semanas a buscar: " + "#{diff}"
         else
