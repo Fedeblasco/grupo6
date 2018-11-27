@@ -36,6 +36,8 @@ Rails.application.routes.draw do
   # Vista del administrador para obtener las tarjetas
   get 'tarjetas', to: 'main#tarjetas', as: "lista_tarjetas"
 
-  root 'props#index'
+  get 'principal', to: 'main#index', as: "principal"
+
+  root 'main#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

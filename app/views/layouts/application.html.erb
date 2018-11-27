@@ -97,8 +97,18 @@
   </nav>
 
   <!-- Bloque principal -->
-  <div id="main">
+  <% if !current_page?(root_path) %>
+    <div id="main">
+      <% if notice %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
 
+      <%= yield %>
+    </div>
+  <% else %>
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>
@@ -107,10 +117,10 @@
     <% end %>
 
     <%= yield %>
-  </div>
+  <% end %>
 
   <footer class="footer">
-      <div class="container">
+      <divclass="container">
         <span class="text-muted">HomeSwitchHome 2018</span>
         <span style="float: right">
           <% if !(admin_signed_in? | usuario_signed_in?) %>
