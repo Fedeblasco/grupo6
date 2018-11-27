@@ -62,10 +62,10 @@
 			<% @usuario.reserva.each do |r| %>
 
 				<tr>
-					<th><%= r.id %></th>
-					<th><%= r.fecha %></th>
-					<th><%= link_to r.prop.nombre, r.prop %></th>
-					<th><%= button_to "Eliminar", r, :method => :delete %></th>
+					<td><%= r.id %></td>
+					<td><%= r.fecha %></td>
+					<td><%= link_to r.prop.nombre, r.prop %></td>
+					<td><%= button_to "Eliminar", r, :method => :delete, class: "btn btn-danger" %></td>
 				</tr>
 			<% end %>
 		</tbody>
@@ -87,10 +87,10 @@
 
 			<% @subastas.each do |s| %>
 				<tr>
-					<th scope="col"><%= s.id %></th>
-					<th><%= s.fecha_reserva %></th>
-					<th><%= link_to s.prop.nombre, s.prop %></th>
-					<th><%= link_to "Ver subasta", s %></th>
+					<td scope="col"><%= s.id %></td>
+					<td><%= s.fecha_reserva %></td>
+					<td><%= link_to s.prop.nombre, s.prop %></td>
+					<td><%= link_to "Ver subasta", s %></td>
 				</tr>
 
 			<% end %>

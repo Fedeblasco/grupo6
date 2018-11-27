@@ -1,7 +1,7 @@
 <tr>
-	<th scope="col"><%= puja.id %></th>
-	<th><%= puja.valor %></th>
-	<th><%= link_to puja.usuario.email, puja.usuario %></th>
-	<th><%= link_to puja.sub.prop.nombre, puja.sub.prop %></th>
-	<th><%= link_to t("pujas.show.subasta"), puja.sub %></th>
+	<td scope="col"><%= puja.id %></td>
+	<td><%= puja.valor %></td>
+	<td><%= link_to puja.usuario.email, puja.usuario %></td>
+	<td><%= link_to puja.sub.prop.nombre, puja.sub.prop %></td>
+	<td><%= link_to t("pujas.show.subasta"), puja.sub %></td>
 </tr>

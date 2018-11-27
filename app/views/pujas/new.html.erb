@@ -1,21 +1,21 @@
-<h1>Agregar una nueva puja</h1>
-
-<%= form_for @puja do |p| %>
-
-	<% lista_usuario = options_from_collection_for_select(Usuario.all, 'id', 'email') %>
+<div class="custom-form">
 	
-	<% lista_sub = options_from_collection_for_select(Sub.all, 'id', 'prop_id') %>
+	<h3>Pujar</h3>
+
+	<%= form_for @puja do |p| %>
+		
+		<div class="form-group">
+			<%= p.label :valor %>
+			<%= p.number_field :valor, class: "form-control" %>
+		</div>
+
+		<%= hidden_field_tag "puja[usuario_id]", current_usuario.id %>
+		<%= hidden_field_tag "puja[sub_id]", params[:id] %>
+
+		<div class="form-group">
+			<%= p.submit 'Cargar', class: "form-control btn btn-primary" %>
+		</div>
+
+	<% end %>
 	
-	<label>Valor de la puja</label>
-	<%= p.number_field :valor %><br>
-
-	<label>Usuario</label>
-	<%= p.select :usuario_id, lista_usuario%><br><br>
-
-	<label>Id de la subasta</label>
-
-	<%= number_field_tag "puja[sub_id]", params[:id], :readonly=>true  %><br><br>
-
-	<%= p.submit 'Cargar' %>
-
-<% end %>
+</div>
