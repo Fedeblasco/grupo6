@@ -1,37 +1,61 @@
-<%= form_for @prop do |p| %>
-
-  <%= p.text_field :nombre, required: true %><br>
-  <%= p.text_field :ubicacion, required: true %><br>
-
-  <%= p.check_box :oculto %>
-  <span><%= t('.hidded') %></span><br>
-
-
-  <span>Imagen principal</span>
-
+<%= form_for(@prop) do |p| %>
+  
+  <!-- IMAGEN PRINCIPAL -->
   <%if not @prop.id.nil?%>
-  	<%= image_tag url_for(@prop.imgprincipal), :alt=>@prop.nombre %>
+    <h4>Imagen Principal</h4>
+    <%= image_tag url_for(@prop.imgprincipal), :alt=>@prop.nombre, class: "img-thumbnail", style: "height: 200px" %>
   <% end %>
+  
+  <!-- Form -->
+  <div class="form-row">
+    
+    <div class="form-group col-md-6">
+      <%= p.label :nombre %>
+      <%= p.text_field :nombre, required: true, class: "form-control" %>
+    </div>
+    
+    <div class="form-group col-md-6">
+      <%= p.label :ubicacion %>
+      <%= p.text_field :ubicacion, required: true, class: "form-control" %>
+    </div>
+  </div>
 
-  <%= p.file_field :imgprincipal, multiple: false, required: true %><br>
+
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= p.label "Imagen Principal" %>
+      <%= p.file_field :imgprincipal, multiple: false, class: "form-control" %>
+    </div>
+    
+    <div class="form-group col-md-6">
+      <%= p.label "Imagenes Secundarias" %>
+      <%= p.file_field :images, multiple: true, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-check">
+    <%= p.check_box :oculto, class: "form-check-input" %>
+    <%= p.label :oculto, class: "form-check-label" %>
+  </div>
 
   <% if @prop.images.count > 0%>
+    
+    <div class="form-check">
+      <%=check_box_tag :destruir,'Eliminar fotos anteriores', true, class: "form-check-input" %>
+      <%= p.label "Destruir fotos anteriores", class: "form-check-label" %>
+    </div>
 
-  	<span>Imagenes secundarias</span>
-
-  	<% @prop.images.each do |i| %>
-		  <%= image_tag i %>
-  	<% end %>
-
-  	<br>
-
-  	<span>Eliminar fotos anteriores</span>
-
-  	<%=check_box_tag :destruir,'Eliminar fotos anteriores', true %><br>
+    <h4>Fotos Secundarias</h4>
+    <% @prop.images.each do |i| %>
+      <%= image_tag i, class: "img-thumbnail", style: "height: 200px; margin-right: 10px"  %>
+    <% end %>
 
   <%end%>
-
-  <%= p.file_field :images, multiple: true %><br>
-  <%= p.submit t('.save') %>
+  
+  <div class="form-group">
+    <%= p.submit t('.save'), class: "form-control btn btn-primary" %>
+  </div>
+  
   
 <% end %>
+

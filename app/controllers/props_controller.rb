@@ -11,13 +11,15 @@ class PropsController < ApplicationController
       params.require(:prop).permit(:nombre, :ubicacion, :oculto)
       )
 
-    @prop.imgprincipal.attach(params[:prop][:imgprincipal])
-
-    if params[:prop][:images]
+    if params[:prop][:images].present?
       @prop.images.attach(params[:prop][:images])
     end
-
-    if @prop.save
+    
+    if !params[:prop][:imgprincipal].present?
+      flash[:alert] = "Debe ingresar una imagen principal"
+      redirect_to new_prop_path
+    elsif @prop.save
+      @prop.imgprincipal.attach(params[:prop][:imgprincipal])
       redirect_to @prop
     else
       flash[:alert] = @prop.errors.full_messages.to_sentence
@@ -27,6 +29,27 @@ class PropsController < ApplicationController
 
   def edit
     @prop = Prop.find(params[:id])
+  end
+
+  def update
+    @prop=Prop.find(params[:id]);
+    if Prop.find(params[:id]).update(params.require(:prop).permit(:nombre, :ubicacion, :oculto))
+      
+      # Si hay una imagen principal nueva, la carga
+      if params[:prop][:imgprincipal].present?
+        @prop.imgprincipal.attach(params[:prop][:imgprincipal])
+      end
+
+      if params[:destruir]
+          @prop.images.purge
+      end
+      if params[:prop][:images]
+        @prop.images.attach(params[:prop][:images])
+      end
+      redirect_to prop_path
+    else
+      render :edit
+    end
   end
 
   def show
@@ -49,7 +72,6 @@ class PropsController < ApplicationController
           end
         end
     end
-
 
     # Si se enviaron los parametros de fecha
     if (params[:desde] && params[:hasta]) && (params[:desde] != "" && params[:hasta] != "")
@@ -97,22 +119,7 @@ class PropsController < ApplicationController
     end
     # Elimina las reservas 
     @props = @props - remove
-    end
-
   end
 
-  def update
-    @prop=Prop.find(params[:id]);
-    if Prop.find(params[:id]).update(params.require(:prop).permit(:nombre, :ubicacion, :oculto))
-      @prop.imgprincipal.attach(params[:prop][:imgprincipal])
-      if params[:destruir]
-          @prop.images.purge
-      end
-      if params[:prop][:images]
-        @prop.images.attach(params[:prop][:images])
-      end
-      redirect_to prop_path
-    else
-      render :edit
-    end
-  end
+end
+
