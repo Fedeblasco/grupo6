@@ -3,8 +3,9 @@
 
 <%= render "layouts/header" %>
 
+
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" style="z-index: 1">
 
     <!-- Reemplaza el link por el / -->
     <%= link_to image_tag("HSH-Complete.svg", :height => "60px"), root_path, { :class=>"navbar-brand" } %>
@@ -120,7 +121,7 @@
   <% end %>
 
   <footer class="footer">
-      <divclass="container">
+      <div class="container">
         <span class="text-muted">HomeSwitchHome 2018</span>
         <span style="float: right">
           <% if !(admin_signed_in? | usuario_signed_in?) %>
@@ -128,10 +129,8 @@
           <% end %>
         </span>
       </div>
-    </footer>
+  </footer>
 
 </body>
-
-<%= render "layouts/footer" %>
 
 </html>
