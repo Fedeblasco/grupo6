@@ -1,7 +1,12 @@
 class UsuariosController < ApplicationController
   
   def index
-  	@usuarios = Usuario.all
+    if admin_signed_in?
+  	 @usuarios = Usuario.all
+    else
+      flash[:alert] = "Usted no tiene permiso para ver esta seccion"
+      redirect_to prohibido_path
+    end
   end
 
   def show

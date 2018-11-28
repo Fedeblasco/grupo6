@@ -1,10 +1,15 @@
 class HotSalesController < ApplicationController
 
   def new
-    @hotsale = HotSale.new
+    if admin_signed_on?
+      @hotsale = HotSale.new
 
-    if params[:prop_id]
-      @hotsale.prop_id = params[:prop_id]
+      if params[:prop_id]
+        @hotsale.prop_id = params[:prop_id]
+      end
+    else
+      flash[:alert] = "Usted no tiene permiso para ver esta seccion"
+      redirect_to prohibido_path
     end
   end
 
@@ -92,6 +97,9 @@ class HotSalesController < ApplicationController
 
         redirect_to usuario_path(current_usuario)
       end
+    else
+      flash[:alert] = "Usted no tiene permiso para ver esta seccion"
+      redirect_to prohibido_path
     end
   end
 

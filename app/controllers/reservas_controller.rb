@@ -6,18 +6,26 @@ class ReservasController < ApplicationController
       @reservas = Reserva.all
     else
       flash[:alert] = "Usted no tiene permiso para ver esta seccion"
-      redirect_to root_path
+      redirect_to prohibido_path
     end
       
   end
 
   def new
-  	@reserva = Reserva.new
 
-    # Ya define de antemano la propiedad a reservar y el usuario
-    # (El usuario es el que este logeado actualmente en el sistema)
-    @reserva.prop_id = params[:prop_id]
-    @reserva.usuario_id = current_usuario.id
+    # Verifica que el usuario este logeado y sea admin
+
+    if usuario_signed_in? && current_usuario.vip
+    	@reserva = Reserva.new
+
+      # Ya define de antemano la propiedad a reservar y el usuario
+      # (El usuario es el que este logeado actualmente en el sistema)
+      @reserva.prop_id = params[:prop_id]
+      @reserva.usuario_id = current_usuario.id
+    else
+      flash[:alert] = "Usted no tiene permiso para ver esta seccion"
+      redirect_to prohibido_path
+    end
   end
 
   def create
@@ -79,8 +87,14 @@ class ReservasController < ApplicationController
 
   def destroy
     usuario_id = Reserva.find(params[:id]).usuario_id
-    Reserva.find(params[:id]).destroy
-    redirect_to usuario_path(usuario_id)
+
+    if usuario_signed_in? && current_usuario.id == usuario_id
+      Reserva.find(params[:id]).destroy
+      redirect_to usuario_path(usuario_id)
+    else
+      flash[:alert] = "Usted no tiene permiso para ver esta seccion"
+      redirect_to prohibido_path
+    end
   end
 
 end

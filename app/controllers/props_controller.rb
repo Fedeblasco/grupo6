@@ -1,7 +1,12 @@
 class PropsController < ApplicationController
 
   def new
-    @prop = Prop.new
+    if admin_signed_in?
+      @prop = Prop.new
+    else
+      flash[:alert] = "Usted no tiene permiso para ver esta seccion"
+      redirect_to prohibido_path
+    end
   end
 
   def create
@@ -28,7 +33,12 @@ class PropsController < ApplicationController
   end
 
   def edit
-    @prop = Prop.find(params[:id])
+    if admin_signed_in?
+      @prop = Prop.find(params[:id])
+    else
+      flash[:alert] = "Usted no tiene permiso para ver esta seccion"
+      redirect_to prohibido_path
+    end
   end
 
   def update

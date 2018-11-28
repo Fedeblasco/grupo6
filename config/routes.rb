@@ -17,6 +17,9 @@ Rails.application.routes.draw do
   resources :pujas, except: :new
   resources :hot_sales
 
+  # Pagina que dice prohibido y nada mas
+  get "prohibido", to: 'main#prohibido', as: 'prohibido'
+
   # Ruta, se hace asi para que pase el parametro de la propiedad
   get '/reservar/:prop_id', to: 'reservas#new', as: 'new_reserva'
 

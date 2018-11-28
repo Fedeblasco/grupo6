@@ -1,7 +1,9 @@
 class PujasController < ApplicationController
 
   def new
-    @puja = Puja.new(sub_id: params[:id])
+    if usuario_signed_in?
+      @puja = Puja.new(sub_id: params[:id])
+    end
   end
 
   def create

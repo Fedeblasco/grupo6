@@ -1,7 +1,12 @@
 class SubsController < ApplicationController
 
   def new
-    @sub = Sub.new
+    if admin_signed_in?
+      @sub = Sub.new
+    else
+      flash[:alert] = "Usted no tiene permiso para ver esta seccion"
+      redirect_to prohibido_path
+    end
   end
 
   def create
