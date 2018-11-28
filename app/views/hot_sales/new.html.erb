@@ -3,19 +3,34 @@
 <%= form_for @hotsale do |h| %>
 
 	<% lista_prop = options_from_collection_for_select(Prop.all, 'id', 'nombre', params[:prop_id]) %>
+	<% lista = {} %>
 
-	<%= h.label "Fecha Inicio: " %>
-	<%= h.date_field :fecha_hotsale, required: true %> <br>
+	<div class="form-row">
+		<div class="form-group col-md-6">
+			<%= h.label "Fecha Inicio" %>
+			<%= h.date_field :fecha_hotsale, required: true, class: "form-control"  %> 
+		</div>
 
-	<%= h.label "Fecha Reserva" %>
-	<%= h.date_field :fecha_reserva, required: true %> <br>
+		<div class="form-group col-md-6">
+			<%= h.label "Fecha Reserva" %>
+			<%= h.date_field :fecha_reserva, required: true, class: "form-control" %> 
+		</div>
+	</div>
 
-	<%= h.label "Propiedad" %>
-	<%= h.select :prop_id, lista_prop, required: true %> <br>
+	<div class="form-row">
+		<div class="form-group col-md-6">
+			<%= h.label "Propiedad" %>
+			<%= h.select :prop_id, lista_prop, {}, {class: "form-control", required: true, include_blank: false} %> 
+		</div>
 
-	<%= h.label "Precio" %>
-	<%= h.number_field :precio, required: true %> <br>
+		<div class="form-group col-md-6">
+			<%= h.label "Precio" %>
+			<%= h.number_field :precio, required: true, class: "form-control"  %> 
+		</div>
+	</div>
 
-	<%= h.submit "Crear Hot Sale" %>
+	<div class="form-group">
+		<%= h.submit "Crear Hot Sale", class: "form-control btn btn-primary" %>
+	</div>
 
 <% end %>
