@@ -1,7 +1,7 @@
 <tr <%= reserva.fecha.wday == 0 ? '' : 'class=table-danger' %> >
-	<th scope="col"><%= reserva.id %></th>
-	<th><%= reserva.fecha %></th>
-	<th><%= link_to reserva.prop.nombre, reserva.prop %></th>
-	<th><%= link_to reserva.usuario.email, reserva.usuario %></th>
-	<th><%= button_to "Eliminar", reserva, :method => :delete %></th>
+	<td scope="col"><%= reserva.id %></td>
+	<td><%= reserva.fecha %></td>
+	<td><%= link_to reserva.prop.nombre, reserva.prop %></td>
+	<td><%= link_to reserva.usuario.email, reserva.usuario %></td>
+	<td><%= button_to "Eliminar", reserva, class: "btn btn-alert", :method => :delete%></td>
 </tr>

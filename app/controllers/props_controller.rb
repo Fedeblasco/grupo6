@@ -11,13 +11,15 @@ class PropsController < ApplicationController
       params.require(:prop).permit(:nombre, :ubicacion, :oculto)
       )
 
-    @prop.imgprincipal.attach(params[:prop][:imgprincipal])
-
-    if params[:prop][:images]
+    if params[:prop][:images].present?
       @prop.images.attach(params[:prop][:images])
     end
-
-    if @prop.save
+    
+    if !params[:prop][:imgprincipal].present?
+      flash[:alert] = "Debe ingresar una imagen principal"
+      redirect_to new_prop_path
+    elsif @prop.save
+      @prop.imgprincipal.attach(params[:prop][:imgprincipal])
       redirect_to @prop
     else
       flash[:alert] = @prop.errors.full_messages.to_sentence
@@ -27,6 +29,27 @@ class PropsController < ApplicationController
 
   def edit
     @prop = Prop.find(params[:id])
+  end
+
+  def update
+    @prop=Prop.find(params[:id]);
+    if Prop.find(params[:id]).update(params.require(:prop).permit(:nombre, :ubicacion, :oculto))
+      
+      # Si hay una imagen principal nueva, la carga
+      if params[:prop][:imgprincipal].present?
+        @prop.imgprincipal.attach(params[:prop][:imgprincipal])
+      end
+
+      if params[:destruir]
+          @prop.images.purge
+      end
+      if params[:prop][:images]
+        @prop.images.attach(params[:prop][:images])
+      end
+      redirect_to prop_path
+    else
+      render :edit
+    end
   end
 
   def show
@@ -50,24 +73,23 @@ class PropsController < ApplicationController
         end
     end
 
-
     # Si se enviaron los parametros de fecha
     if (params[:desde] && params[:hasta]) && (params[:desde] != "" && params[:hasta] != "")
       # Convierte el parametro que llego como string a tipo Date
       desde = Date.parse(params[:desde])
       hasta = Date.parse(params[:hasta])
 
+      # Fuerza las fechas a que sean domingo y sabado
+      desde = desde - desde.wday
+      hasta = hasta + 7
+      hasta = hasta - hasta.wday - 1
+
+      # Calcula la cantidad de semanas en el intervalo
+      diff = ((hasta - desde + 1).to_i / 7 )
+
       # Si las fechas tienen coherencia (desde es anterior a hasta, y el intervalo no es mayor a 2 meses)
       if (desde < hasta)
-        if ((hasta - desde).to_i <= 8)
-          # Fuerza las fechas a que sean domingo
-          desde = desde - desde.wday
-          hasta = hasta + 7
-          hasta = hasta - hasta.wday
-
-          # Calcula la cantidad de semanas en el intervalo
-          diff = ((hasta - desde) / 7 ).to_i
-        
+        if ( ( diff ) <= 8)
 
           # Recorre todas las propiedades para filtrar las que tienen semanas libres
           @props.each do |p|
@@ -84,7 +106,7 @@ class PropsController < ApplicationController
           # Para la semana de inicio se indica el domingo de la primer semana
           params[:desde] = desde
           # Para la ultima semana se indica el sabado que se deberia dejar la propiedad
-          params[:hasta] = hasta - 1
+          params[:hasta] = hasta 
 
           flash.now[:notice] = "Cantidad de semanas a buscar: " + "#{diff}"
         else
@@ -97,22 +119,7 @@ class PropsController < ApplicationController
     end
     # Elimina las reservas 
     @props = @props - remove
-    end
-
   end
 
-  def update
-    @prop=Prop.find(params[:id]);
-    if Prop.find(params[:id]).update(params.require(:prop).permit(:nombre, :ubicacion, :oculto))
-      @prop.imgprincipal.attach(params[:prop][:imgprincipal])
-      if params[:destruir]
-          @prop.images.purge
-      end
-      if params[:prop][:images]
-        @prop.images.attach(params[:prop][:images])
-      end
-      redirect_to prop_path
-    else
-      render :edit
-    end
-  end
+end
+
