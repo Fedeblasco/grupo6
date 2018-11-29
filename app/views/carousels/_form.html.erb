@@ -1,0 +1,68 @@
+<%= form_for @carousel do |p| %>
+
+  <h3>Primera imagen</h3>
+
+  <%if not @carousel.id.nil?%>
+      <%= image_tag url_for(Carousel.first.imageA), class: "d-block w-100" %>
+  <%end%>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <%= p.label "Archivo" %>
+      <%= p.file_field :imageA, multiple: false, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= p.label :texto_principal %>
+      <%= p.text_field :texto1fto1, required: true, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= p.label :texto_secundario %>
+      <%= p.text_field :texto2fto1, required: true, class: "form-control" %>
+    </div>
+  </div>
+
+  <h3>Segunda imagen</h3>
+  <%if not @carousel.id.nil?%>
+      <%= image_tag url_for(Carousel.first.imageB), class: "d-block w-100" %>
+  <%end%>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <%= p.label "Archivo" %>
+      <%= p.file_field :imageB, multiple: false, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= p.label :texto_principal %>
+      <%= p.text_field :texto1fto2, required: true, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= p.label :texto_secundario %>
+      <%= p.text_field :texto2fto2, required: true, class: "form-control" %>
+    </div>
+  </div>
+
+  <h3>Tercera imagen</h3>
+  <%if not @carousel.id.nil?%>
+      <%= image_tag url_for(Carousel.first.imageC), class: "d-block w-100" %>
+  <%end%>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <%= p.label "Archivo" %>
+      <%= p.file_field :imageC, multiple: false, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= p.label :texto_principal %>
+      <%= p.text_field :texto1fto3, required: true, class: "form-control" %>
+    </div>
+    <div class="form-group col-md-4">
+      <%= p.label :texto_secundario %>
+      <%= p.text_field :texto2fto3, required: true, class: "form-control" %>
+    </div>
+  </div>
+
+  
+  <div class="form-group">
+    <%= p.submit "Guardar", class: "form-control btn btn-primary" %>
+  </div>
+  
+  
+<% end %>
+

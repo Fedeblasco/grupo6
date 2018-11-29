@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :solivips
   resources :pujas, except: :new
   resources :hot_sales
+  resources :carousels
 
   # Pagina que dice prohibido y nada mas
   get "prohibido", to: 'main#prohibido', as: 'prohibido'
