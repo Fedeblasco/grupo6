@@ -1,22 +1,5 @@
 <%= form_for @prop do |p| %>
 
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <%= p.label :nombre %>
-      <%= p.text_field :nombre, required: true, class: "form-control" %>
-    </div>
-    <div class="form-group col-md-6">
-      <%= p.label :ubicacion %>
-      <%= p.text_field :ubicacion, required: true, class: "form-control" %>
-    </div>
-  </div>
-
-  <%= p.check_box :oculto %>
-  <span><%= t('.hidded') %></span><br>
-
-
-  <span>Imagen principal</span>
-
   <%if not @prop.id.nil?%>
     <h4>Imagen Principal</h4>
     <%= image_tag url_for(@prop.imgprincipal), :alt=>@prop.nombre, class: "img-thumbnail", style: "height: 200px" %>
