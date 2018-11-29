@@ -6,24 +6,24 @@
     </ol>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img class="d-block w-100" src="/assets/car1.jpg" alt="First slide">
+        <%= image_tag url_for(Carousel.first.imageA), class: "d-block w-100" %>
         <div class="carousel-caption d-none d-md-block">
-          <h3>Relax</h3>
-          <p>Complejos con el mejor servicio</p>
+          <h3><%=Carousel.first.texto1fto1%></h3>
+          <p><%=Carousel.first.texto2fto1%></p>
         </div>
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="/assets/car2.jpg" alt="Second slide">
+        <%= image_tag url_for(Carousel.first.imageB), class: "d-block w-100" %>
         <div class="carousel-caption d-none d-md-block">
-          <h3>Privacidad</h3>
-          <p>Casas ubicadas estratégicamente</p>
+          <h3><%=Carousel.first.texto1fto2%></h3>
+          <p><%=Carousel.first.texto2fto2%></p>
         </div>
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="/assets/car3.jpg" alt="Third slide">
+        <%= image_tag url_for(Carousel.first.imageC), class: "d-block w-100" %>
         <div class="carousel-caption d-none d-md-block">
-          <h3>Confort</h3>
-          <p>Los mejores complejos del mundo, en un solo lugar</p>
+          <h3><%=Carousel.first.texto1fto3%></h3>
+          <p><%=Carousel.first.texto2fto3%></p>
         </div>
       </div>
     </div>
