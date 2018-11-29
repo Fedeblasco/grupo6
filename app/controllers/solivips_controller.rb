@@ -9,7 +9,7 @@ class SolivipsController < ApplicationController
       flash[:notice] = "Solicitud creada correctamente"
       redirect_to solivips_path
     else
-      flash[:alert] = "Usted no tiene permiso para ver esta seccion"
+      flash[:alert] = t('forbidden')
       redirect_to prohibido_path
     end
   end
@@ -24,7 +24,7 @@ class SolivipsController < ApplicationController
     elsif admin_signed_in?
       @solivips = Solivip.all
     else
-      flash[:alert] = "Usted no tiene permiso para ver esta seccion"
+      flash[:alert] = t('forbidden')
       redirect_to prohibido_path
     end
   end
@@ -39,7 +39,7 @@ class SolivipsController < ApplicationController
       u.save
       redirect_to solivips_path
     else
-      flash[:alert] = "Usted no tiene permiso para ver esta seccion"
+      flash[:alert] = t('forbidden')
       redirect_to prohibido_path
     end
   end
@@ -54,7 +54,7 @@ class SolivipsController < ApplicationController
       u.save
       redirect_to solivips_path
     else
-      flash[:alert] = "Usted no tiene permiso para ver esta seccion"
+      flash[:alert] = t('forbidden')
       redirect_to prohibido_path
     end
   end  
@@ -66,7 +66,7 @@ class SolivipsController < ApplicationController
       s.save
       redirect_to solivips_path
     else
-      flash[:alert] = "Usted no tiene permiso para ver esta seccion"
+      flash[:alert] = t('forbidden')
       redirect_to prohibido_path
     end
   end  

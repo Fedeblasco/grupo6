@@ -4,7 +4,7 @@ class SubsController < ApplicationController
     if admin_signed_in?
       @sub = Sub.new
     else
-      flash[:alert] = "Usted no tiene permiso para ver esta seccion"
+      flash[:alert] = t('forbidden')
       redirect_to prohibido_path
     end
   end

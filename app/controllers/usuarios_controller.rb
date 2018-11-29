@@ -4,7 +4,7 @@ class UsuariosController < ApplicationController
     if admin_signed_in?
   	 @usuarios = Usuario.all
     else
-      flash[:alert] = "Usted no tiene permiso para ver esta seccion"
+      flash[:alert] = t('forbidden')
       redirect_to prohibido_path
     end
   end

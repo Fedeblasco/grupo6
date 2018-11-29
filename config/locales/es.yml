@@ -30,6 +30,10 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 es:
+  forbidden: "Usted no tiene acceso a esta sección"
+  main:
+    prohibido:
+      home: "Inicio"
   layouts:
     header:
       add: "Agregar"
@@ -52,10 +56,12 @@ es:
   props:
     index:
       title: "Lista de propiedades"
+      cant_semanas: "Cantidad de semanas a buscar: "
     edit:
       title: "Editar propiedad"
     new:
       title: "Nueva propiedad"
+      no_imgprincipal: "Debe ingresar una imagen principal"
     form:
       hidded: "Oculto"
       save: "Cargar propiedad"
@@ -118,3 +124,11 @@ es:
       propiedad: "Propiedad"
       subasta: "Subasta"
       pujar: "Pujar"
+  hotsale:
+    errors:
+      reserva_posterior: "La fecha de reserva debe ser posterior a la del hotsale"
+      already_reserva: "Ya hay una reserva en esa fecha"
+      already_auction: "Ya hay una subasta en esa fecha"
+      already_hotsale: "Ya hay un hotsale en esa fecha"
+      hotsale_posterior: "La fecha de Hot Sale debe ser posterior a la fecha actual"
+      
