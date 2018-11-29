@@ -3,6 +3,9 @@ class PujasController < ApplicationController
   def new
     if usuario_signed_in?
       @puja = Puja.new(sub_id: params[:id])
+    else
+      flash[:alert] = "Usted no tiene permiso para ver esta seccion"
+      redirect_to prohibido_path
     end
   end
 

@@ -5,13 +5,10 @@ class Admins::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
-  #def new
-  #  if admin_signed_in?
-  #    super
-  #  else
-  #    flash[:alert] = "Registro de administradores no disponible. Por favor contacte un administrador"
-  #    redirect_to new_admin_session_path
-  # end
+  def new
+    flash[:alert] = "Usted no tiene permiso para ver esta seccion"
+    redirect_to prohibido_path
+  end
   #end
 
   # POST /resource
