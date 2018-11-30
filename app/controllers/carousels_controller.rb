@@ -55,10 +55,10 @@ class CarouselsController < ApplicationController
         @carousel.imageA.attach(params[:carousel][:imageA])
       end
       if params[:carousel][:imageB].present?
-        @carousel.imageB.attach(params[:carousel][:imageA])
+        @carousel.imageB.attach(params[:carousel][:imageB])
       end
       if params[:carousel][:imageC].present?
-        @carousel.imageC.attach(params[:carousel][:imageA])
+        @carousel.imageC.attach(params[:carousel][:imageC])
       end
       flash[:notice] = "Carousel editado correctamente"
       redirect_to root_path
