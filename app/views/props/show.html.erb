@@ -1,13 +1,18 @@
 <h1 class="text-center"><%= @prop.nombre%> <%= @prop.oculto ? "(oculta)"  : "(visible)"%></h1>
-
 <h3 class="text-center"><%= @prop.ubicacion %></h3>
+<h3 class="text-center">Precio: <%= @prop.precio %></h3>
 <h5 class="text-center">Codigo: <%= @prop.id %></h3>
 
-<%= image_tag url_for(@prop.imgprincipal), :alt=>@prop.nombre %>
+<%= image_tag url_for(@prop.imgprincipal), :alt=>@prop.nombre, class: "img-thumbnail rounded img-fluid", style: "width: 100%" %>
 	<br>
-<% @prop.images.each do |i| %>
-	<%= image_tag i %>
-<% end %>
+
+	<div class="row mt-5 justify-content-center">
+		<% @prop.images.each do |i| %>
+			<div class="card card-custom mx-2 mb-3">
+				<%= image_tag i, class: "card-img-top" %>
+			</div>
+		<% end %>
+	</div>
 
 <h2 class="text-center"><%= t('.reservas') %></h2>
 <br>

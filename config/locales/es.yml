@@ -44,24 +44,27 @@ es:
     prohibido:
       home: "Inicio"
   layouts:
-    header:
+    header:      
       add: "Agregar"
       list: "Listar"
       add_prop: "Nueva propiedad"
-      list_prop: "Lista de propiedades"
+      list_prop: "Propiedades"
       add_reserva: "Agregar reserva"
       top: "Mas reciente"
-      top_usuarios: "Ver usuarios"
-      top_reservas: "Ver reservas"
+      list_usuarios: "Usuarios"
+      list_reservas: "Reservas"
       subastas: "Subastas"
-      list_subastas: "Lista de subastas"
+      list_subastas: "Subastas"
       add_subastas: "Nueva subasta"
+      list_hotsale: "Hot Sales"
       language: "Cambiar Idioma"
       register: "Inscripción"
       login: "Conexión"
       edit_account: "Editar perfil"
       logout: "Cerrar sesión"
       add_usuario: "Agregar usuario"
+      list_solicitudes: "Solicitudes Vip"
+      list_tarjetas: "Tarjetas de Usuarios"
   props:
     index:
       title: "Lista de propiedades"

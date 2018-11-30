@@ -1,11 +1,11 @@
 <tr>
 
 	<% if admin_signed_in? %>
-		<th><%=  hot_sale.id %></th>
+		<td><%=  hot_sale.id %></td>
 	<% end %>
-	<th> <%= hot_sale.fecha_hotsale %>  </th>
-	<th> <%= hot_sale.fecha_reserva %>  </th>
-	<th> <%= hot_sale.precio %></th>
-	<th> <%= link_to hot_sale.prop.nombre, hot_sale.prop %>  </th>
-	<th> <%= link_to "Ver Hot Sale", hot_sale %>  </th>
+	<td> <%= hot_sale.fecha_hotsale %>  </td>
+	<td> <%= hot_sale.fecha_reserva %>  </td>
+	<td> <%= hot_sale.precio %></td>
+	<td> <%= link_to hot_sale.prop.nombre, hot_sale.prop %>  </td>
+	<td> <%= link_to "Ver Hot Sale", hot_sale %>  </td>
 </tr>

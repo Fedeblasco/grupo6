@@ -110,7 +110,7 @@ class HotSalesController < ApplicationController
 
   def index
     if admin_signed_in? || usuario_signed_in?
-      @hotsale = HotSale.all
+      @hot_sales = HotSale.all
     else
       flash[:alert] = t('forbidden')
       redirect_to prohibido_path

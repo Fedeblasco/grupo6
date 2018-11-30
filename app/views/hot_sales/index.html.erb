@@ -1,0 +1,19 @@
+<h1><%= t('.title') %></h1>
+
+<table class="table table-bordered table-striped">
+	<thead>
+		<% if admin_signed_in? %>
+			<th scope="col">ID</th>
+		<% end %>
+		<th scope="col"><%= t('.fecha_inicio') %></th>
+		<th scope="col"><%= t('.fecha_reserva') %></th>
+		<th scope="col"><%= 'Precio' %></th>
+		<th scope="col"><%= t('.propriedad') %></th>
+		<th scope="col"><%= t('.ver_hotsale') %></th>
+	</thead>
+
+	<tbody>
+		<%= render @hot_sales %>
+	</tbody>
+
+</table>
