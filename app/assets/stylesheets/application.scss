@@ -90,7 +90,7 @@ html, body {
   min-height:100%;
 }
 
-.carousel, .item, .active {
+.carousel, .carousel-item, .active {
   height: 100%;
 }
 
@@ -100,4 +100,9 @@ html, body {
 
 .carousel {
   position: absolute;
+}
+
+img.d-block {
+  min-height: 100%!important;
+  min-width: 100%!important;
 }
