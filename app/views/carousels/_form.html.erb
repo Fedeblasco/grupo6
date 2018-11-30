@@ -1,0 +1,54 @@
+<%= form_for @carousel do |p| %>
+
+  <div class="row mt-5 justify-content-center">
+
+    <div class="card card-custom mx-2 mb-3">
+      <%if not @carousel.id.nil?%>
+        <%= image_tag url_for(Carousel.first.imageA) , class: "card-img-top" %>
+      <%end%>
+      <div class="card-body">
+        <h5 class="card-title"><%= p.label "Primer imagen" %></h5>
+        <p class="card-text"><%= p.file_field :imageA, multiple: false, class: "form-control" %></p>
+        <h5 class="card-title"><%= p.label "Texto principal" %></h5>
+        <p class="card-text"><%= p.text_field :texto1fto1, required: true, class: "form-control" %></p>
+        <h5 class="card-title"><%= p.label "Texto secundario" %></h5>
+        <p class="card-text"><%= p.text_field :texto2fto1, required: true, class: "form-control" %></p>
+      </div>
+    </div>
+    
+    <div class="card card-custom mx-2 mb-3">
+      <%if not @carousel.id.nil?%>
+        <%= image_tag url_for(Carousel.first.imageB) , class: "card-img-top" %>
+      <%end%>
+      <div class="card-body">
+        <h5 class="card-title"><%= p.label "Segunda imagen" %></h5>
+        <p class="card-text"><%= p.file_field :imageB, multiple: false, class: "form-control" %></p>
+        <h5 class="card-title"><%= p.label "Texto principal" %></h5>
+        <p class="card-text"><%= p.text_field :texto1fto2, required: true, class: "form-control" %></p>
+        <h5 class="card-title"><%= p.label "Texto secundario" %></h5>
+        <p class="card-text"><%= p.text_field :texto2fto2, required: true, class: "form-control" %></p>
+      </div>
+    </div>
+
+    <div class="card card-custom mx-2 mb-3">
+      <%if not @carousel.id.nil?%>
+        <%= image_tag url_for(Carousel.first.imageC) , class: "card-img-top" %>
+      <%end%>
+      <div class="card-body">
+        <h5 class="card-title"><%= p.label "Tercer imagen" %></h5>
+        <p class="card-text"><%= p.file_field :imageC, multiple: false, class: "form-control" %></p>
+        <h5 class="card-title"><%= p.label "Texto principal" %></h5>
+        <p class="card-text"><%= p.text_field :texto1fto3, required: true, class: "form-control" %></p>
+        <h5 class="card-title"><%= p.label "Texto secundario" %></h5>
+        <p class="card-text"><%= p.text_field :texto2fto3, required: true, class: "form-control" %></p>
+      </div>
+  </div>
+
+  </div>  
+  <div class="form-group">
+    <%= p.submit "Guardar", class: "form-control btn btn-primary" %>
+  </div>
+  
+  
+<% end %>
+

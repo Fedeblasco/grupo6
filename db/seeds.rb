@@ -7,7 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 puts 'Reestableciendo la base de datos'
 Prop.destroy_all
-# Usuario.destroy_all
 Reserva.destroy_all
 Sub.destroy_all
 

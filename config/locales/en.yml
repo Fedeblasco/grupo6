@@ -30,6 +30,18 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  activerecord:
+    attributes:
+      prop:
+        nombre: Name
+        ubicacion: Location
+        imgprincipal: Main image
+        images: Secondary images
+        oculto: Hidden
+  forbidden: "You don't have access to this section"
+  main:
+    prohibido:
+      home: "Home"
   layouts:
     header:
       add: "Add"
@@ -52,10 +64,12 @@ en:
   props:
     index:
       title: "Properties List"
+      cant_semanas: "Number of weeks: "
     edit:
       title: "Edit property"
     new:
       title: "Add a property"
+      no_imgprincioal: "You must enter a main image"
     form:
       hidded: "Hidded"
       save: "Save property"
@@ -72,6 +86,10 @@ en:
     show:
       title: "Property:"
       edit: "Edit property"
+      nueva_subasta: "New Auction"
+      reservas: "Bookings"
+      subastas: "Auctions"
+
   reservas:
     index:
       title: "Bookings list"
@@ -88,17 +106,36 @@ en:
       title: "Auctions list"
       fecha_inicio: "Start date"
       fecha_fin: "End date"
+      ver_subasta: "Show auction"
       propriedad: "Property"
     new:
       title: "New auction"
+      fecha_inicio: "Start date"
     form:
       save: "Save auction"
       fecha_inicio: "Start date"
-      fecha_fin: "End date"
+      ver_subasta: "Show auction"
       propriedad: "Property"
+      fecha_fin: "End date"
+    show:
+      pujar: "Make a bid"
   usuarios:
     index:
       title: "Users list"
       show: "Show"
     usuario:
       show: "show >>"
+  pujas:
+    show:
+      usuario: "User"
+      valor: "Value"
+      propiedad: "Property"
+      subasta: "Auction"
+      pujar: "Make a bid"
+  hotsale:
+    errors:
+      reserva_posterior: "The booking week must be after the Hot Sale date"
+      already_reserva: "Week already booked"
+      already_auction: "This week has an auction"
+      already_hotsale: "This week has a Hot Sale"
+      hotsale_posterior: "The Hot Sale date must be after today's date"

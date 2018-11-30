@@ -4,7 +4,7 @@ class SubsController < ApplicationController
     if admin_signed_in?
       @sub = Sub.new
     else
-      flash[:alert] = "Usted no tiene permiso para ver esta seccion"
+      flash[:alert] = t('forbidden')
       redirect_to prohibido_path
     end
   end
@@ -44,22 +44,32 @@ class SubsController < ApplicationController
   end
 
   def show
-    # Obtiene la lista de pujas
-    @sub = Sub.find(params[:id])
-    @pujas = Sub.find(params[:id]).puja.order("valor desc")
+    if admin_signed_in? || usuario_signed_in?
+      # Obtiene la lista de pujas
+      @sub = Sub.find(params[:id])
+      @pujas = Sub.find(params[:id]).puja.order("valor desc")
 
-    # Se fija si la subasta esta disponible ahora
-    if (@sub.fecha_inicio <= Date.today) && ( Date.today <= @sub.fecha_fin)
-      flash.now[:notice] = "Esta subasta se encuentra disponible hasta " + "#{@sub.fecha_fin}"
-    elsif (@sub.fecha_inicio > Date.today)
-      flash.now[:alert] = "Esta subasta estara disponible el " + "#{@sub.fecha_inicio}"
-    elsif (Date.today > @sub.fecha_fin)
-      flash.now[:alert] = "Esta subasta termino. Los ganadores se conoceran a la brevedad"
+      # Se fija si la subasta esta disponible ahora
+      if (@sub.fecha_inicio <= Date.today) && ( Date.today <= @sub.fecha_fin)
+        flash.now[:notice] = "Esta subasta se encuentra disponible hasta " + "#{@sub.fecha_fin}"
+      elsif (@sub.fecha_inicio > Date.today)
+        flash.now[:alert] = "Esta subasta estara disponible el " + "#{@sub.fecha_inicio}"
+      elsif (Date.today > @sub.fecha_fin)
+        flash.now[:alert] = "Esta subasta termino. Los ganadores se conoceran a la brevedad"
+      end
+    else
+      flash[:alert] = t('forbidden')
+      redirect_to prohibido_path
     end
   end
 
   def index
-    @subs = Sub.all
+    if admin_signed_in? || usuario_signed_in?
+      @subs = Sub.all
+    else
+      flash[:alert] = t('forbidden')
+      redirect_to prohibido_path
+    end
   end
 
 end

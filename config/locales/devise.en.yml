@@ -1,7 +1,7 @@
 en:
   activerecord:
     attributes:
-      user:
+      usuario:
         confirmation_sent_at: Confirmation sent at
         confirmation_token: Confirmation token
         confirmed_at: Confirmed at
@@ -25,8 +25,15 @@ en:
         unconfirmed_email: Unconfirmed email
         unlock_token: Unlock token
         updated_at: Updated at
+        nombre: Name
+        apellido: Lastname
+        tarjeta_numero: Credit card number
+        tarjeta_cvv: CVV
+        tarjeta_mes: Month
+        tarjeta_ano: Year
+
     models:
-      user:
+      usuario:
         one: User
         other: Users
   devise:
@@ -97,10 +104,11 @@ en:
         cancel_my_account: Cancel my account
         currently_waiting_confirmation_for_email: 'Currently waiting confirmation for: %{email}'
         leave_blank_if_you_don_t_want_to_change_it: leave blank if you don't want to change it
-        title: Edit %{resource}
+        title: Edit
         unhappy: Unhappy?
         update: Update
         we_need_your_current_password_to_confirm_your_changes: we need your current password to confirm your changes
+        expiration: Expiration date
       new:
         sign_up: Sign up
       signed_up: Welcome! You have signed up successfully.

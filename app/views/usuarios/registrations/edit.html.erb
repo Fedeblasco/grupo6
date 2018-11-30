@@ -1,4 +1,4 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2><%= t('devise.registrations.edit.title') %> <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -27,19 +27,19 @@
 
   <div class="form-row">
     <div class="form-group col-md-6">
-      <%= f.label "Contraseña" %> <i>(dejar en blanco si no desea cambiarla)</i><br />
+      <%= f.label :password %> <i>(<%= t('devise.registrations.edit.leave_blank_if_you_don_t_want_to_change_it') %>)</i><br />
       <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
     </div>
 
     <div class="form-group col-md-6">
-      <%= f.label "Confirmación de Contraseña" %><br />
+      <%= f.label :password_confirmation %><br />
       <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
     </div>
   </div>
 
   <div class="form-row">
     <div class="form-group col-md-6">
-      <%= f.label "Numero de tarjeta" %><br />
+      <%= f.label :tarjeta_numero %><br />
       <%= f.text_field :tarjeta_numero, placeholder: "WWWWXXXXYYYYZZZZ", class: "form-control", :"maxlength" => 16  %>
     </div>
     
@@ -49,7 +49,7 @@
     </div>
     
     <div class="form-group col-md-2">
-      <%= f.label "Vencimiento" %>
+      <%= f.label t('devise.registrations.edit.expiration') %>
 
       <div class="input-group">
         <%= f.text_field :tarjeta_mes, placeholder:"XX", class: "form-control", :"maxlength" => 2 %>
@@ -62,17 +62,17 @@
   <div class="form-row">
     
     <div class="form-group col-md-6">
-      <%= f.label "Contraseña actual" %> <i>(necesitamos tu contraseña actual para realizar los cambios)</i>
+      <%= f.label :current_password %> <i>(<%= t('devise.registrations.edit.we_need_your_current_password_to_confirm_your_changes') %>)</i>
       <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
     </div>
 
     <div class="form-group col-md-6">
       <%= f.label "-", style: "color: white" %>
-      <%= f.submit "Update", class: "form-control btn btn-primary" %>
+      <%= f.submit t('devise.registrations.edit.update'), class: "form-control btn btn-primary" %>
     </div>
   </div>
 
 <% end %>
 
 
-<%= link_to "Volver", :back, class: "btn btn-link" %>
+<%= link_to t('devise.shared.links.back'), :back, class: "btn btn-link" %>
