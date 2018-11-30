@@ -18,16 +18,8 @@
       <ul class="navbar-nav mr-auto">
         
         <%if admin_signed_in?%>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= t('layouts.header.add') %>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-
-              <%= link_to t('layouts.header.add_prop'), new_prop_path, { :class=>"dropdown-item" } %>
-
-            </div>
-          </li>
+              <%= link_to t('layouts.header.add_prop'), new_prop_path, { :class=>"nav-link" } %>
+              <%= link_to "Editar carousel", edit_carousel_path(1), :class=>"nav-link" %>
         <%end%>
 
         <%if usuario_signed_in? || admin_signed_in?%>
@@ -61,29 +53,11 @@
             <%= link_to "Español", { :locale=>'es' }, :class=>"dropdown-item" %>
             <%= link_to "English", { :locale=>'en' }, :class=>"dropdown-item" %>
             <%= link_to "Français", { :locale=>'fr' }, :class=>"dropdown-item" %>
-            <%= link_to "Agregar carousel xD", new_carousel_path, :class=>"dropdown-item" %>
 
           </div>
         </li>
-
-
-        <%if admin_signed_in?%>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <%= "Carousel" %>
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <%if Carousel.count == 0%>
-                <%= link_to "Agregar carousel", new_carousel_path, :class=>"dropdown-item" %>
-              <%else%>
-                <%= link_to "Editar carousel", edit_carousel_path(1), :class=>"dropdown-item" %>
-              <%end%>
-
-            </div>
-          </li>
-        <%end%>
-        
       </ul>
+    </div>
 
 
       <span class="nav-item">
