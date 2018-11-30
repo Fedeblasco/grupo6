@@ -5,7 +5,7 @@ class ReservasController < ApplicationController
     if admin_signed_in?
       @reservas = Reserva.all
     else
-      flash[:alert] = "Usted no tiene permiso para ver esta seccion"
+      flash[:alert] = t('forbidden')
       redirect_to prohibido_path
     end
       
@@ -23,7 +23,7 @@ class ReservasController < ApplicationController
       @reserva.prop_id = params[:prop_id]
       @reserva.usuario_id = current_usuario.id
     else
-      flash[:alert] = "Usted no tiene permiso para ver esta seccion"
+      flash[:alert] = t('forbidden')
       redirect_to prohibido_path
     end
   end
@@ -92,7 +92,7 @@ class ReservasController < ApplicationController
       Reserva.find(params[:id]).destroy
       redirect_to usuario_path(usuario_id)
     else
-      flash[:alert] = "Usted no tiene permiso para ver esta seccion"
+      flash[:alert] = t('forbidden')
       redirect_to prohibido_path
     end
   end

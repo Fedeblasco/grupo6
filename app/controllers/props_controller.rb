@@ -4,7 +4,7 @@ class PropsController < ApplicationController
     if admin_signed_in?
       @prop = Prop.new
     else
-      flash[:alert] = "Usted no tiene permiso para ver esta seccion"
+      flash[:alert] = t('forbidden')
       redirect_to prohibido_path
     end
   end
@@ -21,7 +21,7 @@ class PropsController < ApplicationController
     end
     
     if !params[:prop][:imgprincipal].present?
-      flash[:alert] = "Debe ingresar una imagen principal"
+      flash[:alert] = t("props.new.no_imgprincipal")
       redirect_to new_prop_path
     elsif @prop.save
       @prop.imgprincipal.attach(params[:prop][:imgprincipal])
@@ -36,7 +36,7 @@ class PropsController < ApplicationController
     if admin_signed_in?
       @prop = Prop.find(params[:id])
     else
-      flash[:alert] = "Usted no tiene permiso para ver esta seccion"
+      flash[:alert] = t('forbidden')
       redirect_to prohibido_path
     end
   end
@@ -118,9 +118,9 @@ class PropsController < ApplicationController
           # Para la ultima semana se indica el sabado que se deberia dejar la propiedad
           params[:hasta] = hasta 
 
-          flash.now[:notice] = "Cantidad de semanas a buscar: " + "#{diff}"
+          flash.now[:notice] = t('.cant_semanas') + "#{diff}"
         else
-          flash.now[:alert] = "El intervalo es mayor a 8 semanas"
+          flash.now[:alert] = t('.error_intervalo')
         end
       else
         # Avisa que las semanas no tienen sentido

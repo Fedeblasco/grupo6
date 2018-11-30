@@ -8,7 +8,7 @@ class HotSalesController < ApplicationController
         @hotsale.prop_id = params[:prop_id]
       end
     else
-      flash[:alert] = "Usted no tiene permiso para ver esta seccion"
+      flash[:alert] = t('forbidden')
       redirect_to prohibido_path
     end
   end
@@ -22,27 +22,27 @@ class HotSalesController < ApplicationController
     
     # Verifica que la fecha de reserva sea posterior a la del hot sale
     if (@hotsale.fecha_hotsale > @hotsale.fecha_reserva)
-      flash[:alert] = "La fecha de reserva debe ser posterior a la fecha del hotsale"
+      flash[:alert] = t("hotsale.errors.posterior")
       redirect_to new_hot_sale_path(:prop_id => @hotsale.prop_id)
 
     # Verifica que la propiedad no tenga una reserva ese dia
     elsif (@hotsale.prop.reserva.where(fecha: @hotsale.fecha_reserva).any?)
-      flash[:alert] = "Ya hay una reserva en esa fecha"
+      flash[:alert] = t("hotsale.errors.already_reserva")
       redirect_to new_hot_sale_path(:prop_id => @hotsale.prop_id)
 
     # Verifica que no hay subasta en esa fecha
     elsif (@hotsale.prop.sub.where(fecha_reserva: @hotsale.fecha_reserva).any?)
-      flash[:alert] = "Ya hay una subasta en esa fecha"
+      flash[:alert] = t("hotsale.errors.already_auction")
       redirect_to new_hot_sale_path(:prop_id => @hotsale.prop_id)
 
     # Verifica que no hay hot sale en esa fecha
     elsif (@hotsale.prop.hot_sale.where(fecha_reserva: @hotsale.fecha_reserva).any?)
-      flash[:alert] = "Ya hay un Hot Sale en esa fecha"
+      flash[:alert] = t("hotsale.errors.already_hotsale")
       redirect_to new_hot_sale_path(:prop_id => @hotsale.prop_id)
 
     # Verifica que la fecha del hot sale sea posterior a hoy
     elsif (Date.today > @hotsale.fecha_hotsale)
-      flash[:alert] = "La fecha de Hot Sale debe ser posterior a la fecha actual"
+      flash[:alert] = t("hotsale.errors.hotsale_posterior")
       redirect_to new_hot_sale_path(:prop_id => @hotsale.prop_id)
 
     elsif @hotsale.save
@@ -98,7 +98,7 @@ class HotSalesController < ApplicationController
         redirect_to usuario_path(current_usuario)
       end
     else
-      flash[:alert] = "Usted no tiene permiso para ver esta seccion"
+      flash[:alert] = t('forbidden')
       redirect_to prohibido_path
     end
   end

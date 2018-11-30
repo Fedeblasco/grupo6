@@ -6,7 +6,7 @@ class Admins::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/sign_up
   def new
-    flash[:alert] = "Usted no tiene permiso para ver esta seccion"
+    flash[:alert] = t('forbidden')
     redirect_to prohibido_path
   end
   #end
