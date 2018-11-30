@@ -13,7 +13,7 @@ class PropsController < ApplicationController
 
 
     @prop = Prop.new(
-      params.require(:prop).permit(:nombre, :ubicacion, :oculto)
+      params.require(:prop).permit(:nombre, :ubicacion, :oculto, :precio)
       )
 
     if params[:prop][:images].present?
