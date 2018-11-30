@@ -108,7 +108,7 @@ en:
       fecha_inicio: "Start date"
       fecha_fin: "End date"
       ver_subasta: "Show auction"
-      propriedad: "Property"
+      propiedad: "Property"
     new:
       title: "New auction"
       fecha_inicio: "Start date"
@@ -116,7 +116,7 @@ en:
       save: "Save auction"
       fecha_inicio: "Start date"
       ver_subasta: "Show auction"
-      propriedad: "Property"
+      propiedad: "Property"
       fecha_fin: "End date"
     show:
       pujar: "Make a bid"

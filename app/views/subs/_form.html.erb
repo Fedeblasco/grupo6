@@ -4,7 +4,7 @@
 	<%= d.date_field :fecha_inicio, required: true%><br><br>
 	<span>Semana a subastar: </span>
 	<%= d.date_field :fecha_reserva, required: true %><br><br>
-	<span><%=t('.propriedad')%>: </span>
+	<span><%=t('.propiedad')%>: </span>
 	<%= d.select :prop_id, lista_prop, required:true%><br><br>
 	<span>Precio minimo: </span>
 	<%= d.number_field :precio_min, required:true%><br><br>

@@ -87,7 +87,7 @@ fr:
       title: "Liste des enchères"
       fecha_inicio: "Date de début"
       fecha_fin: "Date de fin"
-      propriedad: "Propriété"
+      propiedad: "Propriété"
     new:
       title: "Nouvelle enchère"
       fecha_inicio: "Date de début"
@@ -95,7 +95,7 @@ fr:
       save: "Enregister l'enchère"
       fecha_inicio: "Date de début"
       fecha_fin: "Date de fin"
-      propriedad: "Propriété"
+      propiedad: "Propriété"
   usuarios:
     index:
       title: "Liste des utilisateurs"
