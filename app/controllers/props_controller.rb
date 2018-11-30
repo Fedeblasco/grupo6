@@ -69,11 +69,12 @@ class PropsController < ApplicationController
   def index
 
     # Carga las propiedades a mostrar, si se pasaron opciones de busqueda filtra, si no devuelve todo
-    @props = params[:busq] ? Prop.where('(ubicacion LIKE ?) OR (nombre LIKE ?)', "%#{params[:busq]}%", "%#{params[:busq]}%") : Prop.all
+    @props = params[:busq] ? Prop.includes(:hot_sale).order('hot_sales.fecha_hotsale ASC, nombre').where('(ubicacion LIKE ?) OR (nombre LIKE ?)', "%#{params[:busq]}%", "%#{params[:busq]}%") : Prop.includes(:hot_sale).order('hot_sales.fecha_hotsale ASC, nombre').all
 
     # Archivo donde guarda temporalmente las propiedades que tiene que eliminar
     remove = []
 
+  
     # Si no soy admin y la propiedad esta oculta, no la tengo en cuenta
     @props.each do |p|
         if not admin_signed_in?

@@ -1,7 +1,7 @@
 class HotSalesController < ApplicationController
 
   def new
-    if admin_signed_on?
+    if admin_signed_in?
       @hotsale = HotSale.new
 
       if params[:prop_id]
