@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h2><%= t('devise.registrations.new.sign_up') %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
@@ -69,7 +69,7 @@
   <div class="form-row">
     <div class="form-group col-md-4"></div>
     <div class="form-group col-md-4">
-      <%= f.submit "Sign up", class: "form-control btn btn-primary" %>
+      <%= f.submit t('devise.registrations.new.sign_up'), class: "form-control btn btn-primary" %>
     </div>
     <div class="form-group col-md-4"></div>
     
@@ -78,7 +78,7 @@
   <div class="form-row">
     <div class="form-group col-md-4"></div>
     <div class="form-group col-md-4">
-      <%= link_to "Iniciar sesion", new_usuario_session_path, class: "form-control btn btn-light" %>
+      <%= link_to t('devise.sessions.new.sign_in'), new_usuario_session_path, class: "form-control btn btn-light" %>
     </div>
     <div class="form-group col-md-4"></div>
   </div>
