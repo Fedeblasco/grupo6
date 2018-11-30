@@ -16,6 +16,7 @@
             <li class="list-group-item text-muted">Actividad <i class="fa fa-dashboard fa-1x"></i></li>
             <li class="list-group-item text-right"><span class="pull-left"><strong>Reservas</strong></span> <%=@usuario.reserva.count%></li>
             <li class="list-group-item text-right"><span class="pull-left"><strong>Subastas ganando</strong></span> <%=@subastas.count%></li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>VIP</strong></span> <%= @usuario.vip ? "Si" : "No" %></li>
           </ul> 
           
         </div><!--/col-3-->
@@ -66,7 +67,6 @@
                       <div class="form-group">
                            <div class="col-sm-12">
                                 <br>
-                              	<%= link_to "Editar mis datos", edit_usuario_registration_path, class: 'btn btn-lg btn-success' %>
                             </div>
                       </div>
               	</form>
@@ -138,6 +138,7 @@
             <li class="list-group-item text-muted"><%=t('.actividad')%><i class="fa fa-dashboard fa-1x"></i></li>
             <li class="list-group-item text-right"><span class="pull-left"><strong><%=t('.reservas')%></strong></span> <%=current_usuario.reserva.count%></li>
             <li class="list-group-item text-right"><span class="pull-left"><strong><%=t('.subastas')%></strong></span> <%=@subastas.count%></li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>VIP</strong></span> <%= current_usuario.vip ? "Si" : "No" %></li>
           </ul> 
           
         </div><!--/col-3-->
