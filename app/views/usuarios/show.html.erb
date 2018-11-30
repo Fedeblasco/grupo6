@@ -14,8 +14,8 @@
           <ul class="list-group">
             <br>
             <li class="list-group-item text-muted">Actividad <i class="fa fa-dashboard fa-1x"></i></li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Reservas comunes</strong></span> <%= Usuario.find(:id).reserva.where("normal IS TRUE").count%></li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Reservas Hot Sale</strong></span> <%= Usuario.find(:id).reserva.where("normal IS FALSE").count%></li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Reservas comunes</strong></span> <%= Usuario.find(params[:id]).reserva.where("normal IS TRUE").count%></li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong>Reservas Hot Sale</strong></span> <%= Usuario.find(params[:id]).reserva.where("normal IS FALSE").count%></li>
             <li class="list-group-item text-right"><span class="pull-left"><strong>Subastas ganando</strong></span> <%=@subastas.count%></li>
             <li class="list-group-item text-right"><span class="pull-left"><strong>VIP</strong></span> <%= @usuario.vip ? "Si" : "No" %></li>
           </ul> 
