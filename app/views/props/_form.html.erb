@@ -1,7 +1,7 @@
 <%= form_for @prop do |p| %>
 
   <%if not @prop.id.nil?%>
-    <h4>Imagen Principal</h4>
+    <h4><%= Prop.human_attribute_name("imgprincipal") %></h4>
     <%= image_tag url_for(@prop.imgprincipal), :alt=>@prop.nombre, class: "img-thumbnail", style: "height: 200px" %>
   <% end %>
   
@@ -22,12 +22,12 @@
 
   <div class="form-row">
     <div class="form-group col-md-6">
-      <%= p.label "Imagen Principal" %>
+      <%= p.label :imgprincipal %>
       <%= p.file_field :imgprincipal, multiple: false, class: "form-control" %>
     </div>
     
     <div class="form-group col-md-6">
-      <%= p.label "Imagenes Secundarias" %>
+      <%= p.label :images %>
       <%= p.file_field :images, multiple: true, class: "form-control" %>
     </div>
   </div>
@@ -44,7 +44,7 @@
       <%= p.label "Destruir fotos anteriores", class: "form-check-label" %>
     </div>
 
-    <h4>Fotos Secundarias</h4>
+    <h4><%= t('activerecord.attributes.prop.images') %></h4>
     <% @prop.images.each do |i| %>
       <%= image_tag i, class: "img-thumbnail", style: "height: 200px; margin-right: 10px"  %>
     <% end %>

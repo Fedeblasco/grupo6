@@ -30,6 +30,14 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  activerecord:
+    attributes:
+      prop:
+        nombre: Name
+        ubicacion: Location
+        imgprincipal: Main image
+        images: Secondary images
+        oculto: Hidden
   forbidden: "You don't have access to this section"
   main:
     prohibido:
