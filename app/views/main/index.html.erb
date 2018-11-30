@@ -5,22 +5,19 @@
       <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
     </ol>
     <div class="carousel-inner">
-      <div class="carousel-item active">
-        <%= image_tag url_for(Carousel.first.imageA), class: "d-block" %>
+      <div class="carousel-item active" style="background-image: url( <%= '"' + url_for(Carousel.first.imageA) + '"' %> ); background-position: center; background-repeat: no-repeat; background-size: cover" >
         <div class="carousel-caption d-none d-md-block">
           <h3><%=Carousel.first.texto1fto1%></h3>
           <p><%=Carousel.first.texto2fto1%></p>
         </div>
       </div>
-      <div class="carousel-item">
-        <%= image_tag url_for(Carousel.first.imageB), class: "d-block" %>
+      <div class="carousel-item" style="background-image: url( <%= '"' + url_for(Carousel.first.imageB) + '"' %> ); background-position: center; background-repeat: no-repeat; background-size: cover" >
         <div class="carousel-caption d-none d-md-block">
           <h3><%=Carousel.first.texto1fto2%></h3>
           <p><%=Carousel.first.texto2fto2%></p>
         </div>
       </div>
-      <div class="carousel-item">
-        <%= image_tag url_for(Carousel.first.imageC), class: "d-block" %>
+      <div class="carousel-item" style="background-image: url( <%= '"' + url_for(Carousel.first.imageC) + '"' %> ); background-position: center; background-repeat: no-repeat; background-size: cover" >
         <div class="carousel-caption d-none d-md-block">
           <h3><%=Carousel.first.texto1fto3%></h3>
           <p><%=Carousel.first.texto2fto3%></p>
