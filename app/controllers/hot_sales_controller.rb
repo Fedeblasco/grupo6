@@ -54,14 +54,19 @@ class HotSalesController < ApplicationController
   end
 
   def show
-    # Obtiene la lista de pujas
-    @hotsale = HotSale.find(params[:id])
+    if admin_signed_in? || usuario_signed_in?
+      # Obtiene la lista de pujas
+      @hotsale = HotSale.find(params[:id])
 
-    # Se fija si el hot sale esta disponible ahora
-    if (@hotsale.fecha_hotsale <= Date.today)
-      flash.now[:notice] = "Este Hot Sale se encuentra disponible"
-    elsif (@hotsale.fecha_hotsale > Date.today)
-      flash.now[:alert] = "Este Hot Sale estara disponible el " + "#{@hotsale.fecha_hotsale}"
+      # Se fija si el hot sale esta disponible ahora
+      if (@hotsale.fecha_hotsale <= Date.today)
+        flash.now[:notice] = "Este Hot Sale se encuentra disponible"
+      elsif (@hotsale.fecha_hotsale > Date.today)
+        flash.now[:alert] = "Este Hot Sale estara disponible el " + "#{@hotsale.fecha_hotsale}"
+      end
+    else
+      flash[:alert] = t('forbidden')
+      redirect_to prohibido_path
     end
   end
 
@@ -104,6 +109,10 @@ class HotSalesController < ApplicationController
   end
 
   def index
-    @hotsale = HotSale.all
+    if admin_signed_in? || usuario_signed_in?
+      @hotsale = HotSale.all
+    else
+      flash[:alert] = t('forbidden')
+      redirect_to prohibido_path
   end
 end
