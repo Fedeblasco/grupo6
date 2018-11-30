@@ -1,11 +1,16 @@
-<h1><%= t('.title')  %></h1>
+<h1><%= t('.title')  %> para la propiedad: <%=Prop.find(@reserva.prop_id).nombre%></h1>
 
-<%= form_for @reserva do |r| %>
-	
-	<%= hidden_field_tag "reserva[usuario_id]", @reserva.usuario_id %>
-	<%= hidden_field_tag "reserva[prop_id]", @reserva.prop_id %>
-	<%= r.date_field :fecha, required: true %> <br>
-
-	<%= r.submit t('.save')%>
-
-<% end %>
+<br><br>
+	<%= form_for @reserva do |r| %>
+		
+		<%= hidden_field_tag "reserva[usuario_id]", @reserva.usuario_id %>
+		<%= hidden_field_tag "reserva[prop_id]", @reserva.prop_id %>
+		<div class="form-row">
+			<div class="form-group col-md-6">
+				<%= r.date_field :fecha, required: true, class: "form-control" %> <br>
+			</div>
+			<div class="form-group col-md-6">
+				<%= r.submit t('.save'), class: "form-control btn btn-primary"%>
+			</div>
+		</div>
+	<% end %>
