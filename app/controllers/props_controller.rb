@@ -10,7 +10,7 @@ class PropsController < ApplicationController
   end
 
   def create
- 
+
 
     @prop = Prop.new(
       params.require(:prop).permit(:nombre, :ubicacion, :oculto)
@@ -27,7 +27,7 @@ class PropsController < ApplicationController
       @prop.imgprincipal.attach(params[:prop][:imgprincipal])
       redirect_to @prop
     else
-      flash[:alert] = @prop.errors.full_messages.to_sentence
+      flash.now[:alert] = @prop.errors.full_messages.to_sentence
       redirect_to new_prop_path
     end
   end
@@ -43,7 +43,7 @@ class PropsController < ApplicationController
 
   def update
     @prop=Prop.find(params[:id]);
-    if Prop.find(params[:id]).update(params.require(:prop).permit(:nombre, :ubicacion, :oculto))
+    if @prop.update(params.require(:prop).permit(:nombre, :ubicacion, :oculto, :precio))
       
       # Si hay una imagen principal nueva, la carga
       if params[:prop][:imgprincipal].present?
@@ -58,6 +58,7 @@ class PropsController < ApplicationController
       end
       redirect_to prop_path
     else
+      flash.now[:alert] = @prop.errors.full_messages.to_sentence
       render :edit
     end
   end
