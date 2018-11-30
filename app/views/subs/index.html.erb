@@ -6,8 +6,10 @@
 		<th scope="col"><%= t('.fecha_inicio') %></th>
 		<th scope="col"><%= t('.fecha_fin') %></th>
 		<th scope="col"><%= t('.fecha_reserva') %></th>
-		<th scope="col"><%= t('.propriedad') %></th>
-		<th scope="col"><%= 'Precio minimo (no va)' %></th>
+		<th scope="col"><%= t('.propiedad') %></th>
+		<% if admin_signed_in? %>
+			<th scope="col"><%= 'Precio minimo' %></th>
+		<% end %>
 		<th scope="col"><%= t('.ver_subasta') %></th>
 	</thead>
 

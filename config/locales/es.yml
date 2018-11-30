@@ -111,7 +111,7 @@ es:
       fecha_inicio: "Fecha inicio"
       fecha_fin: "Fecha fin"
       ver_subasta: "Ver subasta"
-      propriedad: "Propriedad"
+      propiedad: "propiedad"
     new:
       title: "Nueva subasta"
       fecha_inicio: "Fecha inicio"
@@ -119,7 +119,7 @@ es:
       save: "Agregar subasta"
       fecha_inicio: "Fecha inicio"
       ver_subasta: "Ver subasta"
-      propriedad: "Propiedad"
+      propiedad: "Propiedad"
       fecha_fin: "Fecha fin"
     show:
       pujar: "Pujar"

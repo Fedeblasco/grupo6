@@ -1,9 +1,11 @@
 <tr>
-	<th scope="col"><%= sub.id %></th>
-	<th><%= sub.fecha_inicio %></th>
-	<th><%= sub.fecha_fin %></th>
-	<th><%= sub.fecha_reserva %></th>
-	<th><%= link_to sub.prop.nombre, sub.prop %></th>
-	<th><%= sub.precio_min %></th>
-	<th><%= link_to "Ver subasta", sub %></th>
+	<td scope="col"><%= sub.id %></td>
+	<td><%= sub.fecha_inicio %></td>
+	<td><%= sub.fecha_fin %></td>
+	<td><%= sub.fecha_reserva %></td>
+	<td><%= link_to sub.prop.nombre, sub.prop %></td>
+	<% if admin_signed_in? %>
+		<td><%= sub.precio_min %></td>
+	<% end %>
+	<td><%= link_to "Ver subasta", sub %></td>
 </tr>
