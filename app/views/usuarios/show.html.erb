@@ -51,7 +51,7 @@
 <hr>
 <div class="container bootstrap snippet">
     <div class="row">
-  		<div class="col-sm-10"><h1>Informacion personal</h1></div>
+  		<div class="col-sm-10"><h1><%=t('.info')%></h1></div>
     </div>
     <div class="row">
   		<div class="col-sm-3"><!--left col-->
@@ -59,9 +59,9 @@
           
           <ul class="list-group">
             <br>
-            <li class="list-group-item text-muted">Actividad <i class="fa fa-dashboard fa-1x"></i></li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Reservas</strong></span> <%=current_usuario.reserva.count%></li>
-            <li class="list-group-item text-right"><span class="pull-left"><strong>Subastas ganando</strong></span> <%=@subastas.count%></li>
+            <li class="list-group-item text-muted"><%=t('.actividad')%><i class="fa fa-dashboard fa-1x"></i></li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong><%=t('.reservas')%></strong></span> <%=current_usuario.reserva.count%></li>
+            <li class="list-group-item text-right"><span class="pull-left"><strong><%=t('.subastas')%></strong></span> <%=@subastas.count%></li>
           </ul> 
           
         </div><!--/col-3-->
@@ -72,13 +72,13 @@
                   <form class="form" action="##" method="post" id="registrationForm">
                       <div class="row">
                           <div class="col-sm-6">
-                              <label for="first_name"><h4>Nombre</h4></label>
+                              <label for="first_name"><h4><%=t('.nombre')%></h4></label>
                               <p style="margin-left: 30px; border: 1px solid #BBB; border-radius: 4px;padding: 10px;"><%=current_usuario.nombre%></p>
                           </div>
                       
                           
                           <div class="col-sm-6">
-                            <label for="last_name"><h4>Apellido</h4></label>
+                            <label for="last_name"><h4><%=t('.apellido')%></h4></label>
                             <p style="margin-left: 30px; border: 1px solid #BBB; border-radius: 4px;padding: 10px;"><%=current_usuario.apellido%></p>
                           </div>
                        </div>
@@ -87,14 +87,14 @@
                       <div class="form-group">
                           
                           <div class="col-xs-6">
-                              <label for="last_name"><h4>Email</h4></label>
+                              <label for="last_name"><h4><%=t('.email')%></h4></label>
                               <p style="margin-left: 30px; border: 1px solid #BBB; border-radius: 4px;padding: 10px;"><%=current_usuario.email%></p>
                           </div>
                       </div>
           
                       <div class="form-row">
                           <div class="col-sm-4">
-                             <label for="last_name"><h4>Numero de tarjeta</h4></label>
+                             <label for="last_name"><h4><%=t('.numtarj')%></h4></label>
                               <p style="margin-left: 30px; border: 1px solid #BBB; border-radius: 4px;padding: 10px;"><%=current_usuario.tarjeta_numero%></p>
                           </div>
 
@@ -104,7 +104,7 @@
                           </div>
 
                           <div class="col-sm-4">
-                             <label for="last_name"><h4>Vencimiento</h4></label>
+                             <label for="last_name"><h4><%=t('.venc')%></h4></label>
                               <p style="margin-left: 30px; border: 1px solid #BBB; border-radius: 4px;padding: 10px;"><%=current_usuario.tarjeta_mes%>/<%=current_usuario.tarjeta_ano%></p>
                           </div>
                       </div>
@@ -112,7 +112,7 @@
                       <div class="form-group">
                            <div class="col-sm-12">
                                 <br>
-                              	<%= link_to "Editar mis datos", edit_usuario_registration_path, class: 'btn btn-lg btn-success' %>
+                              	<%= link_to t('.editar'), edit_usuario_registration_path, class: 'btn btn-lg btn-success' %>
                             </div>
                       </div>
               	</form>
@@ -126,7 +126,7 @@
     </div><!--/row-->
 
 
-	<h3 class="text-center">Reservas:</h2>
+	<h3 class="text-center"><%=t('.reservas')%>:</h2>
 
 	<table class="table">
 		<thead>

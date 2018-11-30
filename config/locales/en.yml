@@ -126,6 +126,17 @@ en:
       show: "Show"
     usuario:
       show: "show >>"
+    show:
+      nombre: "Name"
+      apellido: "Last name"
+      email: "Email"
+      numtarj: "Card number"
+      venc: "Expiration date"
+      editar: "Edit information"
+      info: "Information"
+      actividad: "Activity"
+      reservas: "Reservations"
+      subastas: "Auctions"
   pujas:
     show:
       usuario: "User"

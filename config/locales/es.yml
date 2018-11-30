@@ -126,6 +126,17 @@ es:
       show: "ver"
     usuario:
       show: "ver >>"
+    show:
+      nombre: "Nombre"
+      apellido: "Apellido"
+      email: "Email"
+      numtarj: "Numero de tarjeta"
+      venc: "Vencimiento"
+      editar: "Modificar mi informacion"
+      info: "Informacion"
+      actividad: "Actividad"
+      reservas: "Reservas"
+      subastas: "Subastas ganando"
   pujas:
     show:
       usuario: "Usuario"
