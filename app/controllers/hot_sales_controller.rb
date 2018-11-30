@@ -114,5 +114,6 @@ class HotSalesController < ApplicationController
     else
       flash[:alert] = t('forbidden')
       redirect_to prohibido_path
+    end
   end
 end
