@@ -14,6 +14,8 @@ class Prop < ApplicationRecord
 	validates :nombre, presence: true, length: {minimum: 3, maximum: 255}
 
 	validates :ubicacion, presence: true, length: {minimum: 3, maximum: 255}
+
+	validates :precio, presence: true, numericality: { only_integer: true }
 	
 	validates :oculto, inclusion: { in: [ true, false ] }
 end

@@ -38,6 +38,7 @@ es:
         imgprincipal: Imagen Principal
         images: Imagen Secundaria
         oculto: Oculto
+        precio: Precio
   forbidden: "Usted no tiene acceso a esta sección"
   main:
     prohibido:

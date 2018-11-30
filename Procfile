@@ -1,1 +1,1 @@
-web: rake assets:precompile & rake db:seed & bundle exec puma
+web: rake assets:precompile & bundle exec puma
