@@ -102,3 +102,14 @@ fr:
       show: "Afficher"
     usuario:
       show: "afficher >>"
+    show:
+      nombre: "Nom"
+      apellido: "Le nom"
+      email: "Email"
+      numtarj: "Numéro de carte"
+      venc: "Expiration"
+      editar: "Modifier mes informations"
+      info: "Les informations"
+      actividad: "Activité"
+      reservas: "Les réserves"
+      subastas: "Enchères gagnantes"
