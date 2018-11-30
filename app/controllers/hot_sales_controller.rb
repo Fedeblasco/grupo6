@@ -77,13 +77,9 @@ class HotSalesController < ApplicationController
       # Obtiene el hot sale que esta tratando de reservar
       hotsale = HotSale.find(params[:id])
 
-      # Chequea si el usuario tiene semanas libres 
-      if (current_usuario.reserva.count >= 2)
-        flash[:alert] = "Usted no tiene semanas libres"
-        redirect_to root_path
 
       # Chequea si el usuario ya tiene esa semana ocupada
-      elsif (current_usuario.reserva.where(fecha: hotsale.fecha_reserva).any?)
+      if (current_usuario.reserva.where(fecha: hotsale.fecha_reserva).any?)
         flash[:alert] = "Ustes ya tiene una reserva para esta semana"
         redirect_to root_path
 
@@ -95,6 +91,7 @@ class HotSalesController < ApplicationController
         reserva_nueva.fecha = hotsale.fecha_reserva
         reserva_nueva.usuario_id = current_usuario.id
         reserva_nueva.prop_id = hotsale.prop_id
+        reserva_nueva.normal=false
         reserva_nueva.save
 
         # Elimina la publicacion de Hot Sale

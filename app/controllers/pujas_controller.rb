@@ -15,9 +15,9 @@ class PujasController < ApplicationController
     puja_mas_fuerte = Sub.find(@puja.sub_id).puja.order("valor desc").first
     
     # Verifica que el usuario tenga menos de dos semanas reservadas. Esto incluye las subastas que va gaanando
-    if (@puja.usuario.reserva.count >= 2)
-      flash[:alert] = "#{@puja.usuario.email}" + " no tiene semanas libres"
-      redirect_to sub_path(@puja.sub_id)
+    if (Usuario.find(current_usuario.id).reserva.where("normal IS TRUE").count >= 2)
+      flash[:alert] = "Usted no dispone de semanas libres"
+      redirect_to new_sub_path
 
     # Verifica que no tenga reservas esa semana.
     elsif (@puja.usuario.reserva.where(fecha: @puja.sub.fecha_reserva).count != 0)

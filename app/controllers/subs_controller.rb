@@ -27,6 +27,10 @@ class SubsController < ApplicationController
       flash[:alert] = "Ya hay una subasta en esa fecha"
       redirect_to new_sub_path
 
+    elsif (Prop.find(@sub.prop_id).hot_sale.where(fecha_reserva: @sub.fecha_reserva).any?)
+      flash[:alert] = "Ya hay un hot sale en esa fecha"
+      redirect_to new_sub_path
+
     elsif ((@sub.fecha_fin + 6.months) > @sub.fecha_reserva)
       flash[:alert] = "La fecha de reserva es antes de los 6 meses despues que termine la subasta"
       redirect_to new_sub_path

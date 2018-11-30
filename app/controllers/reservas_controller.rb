@@ -26,7 +26,7 @@ class ReservasController < ApplicationController
       flash[:alert] = t('forbidden')
       redirect_to prohibido_path
     end
-  end
+  end 
 
   def create
 
@@ -35,6 +35,7 @@ class ReservasController < ApplicationController
 
     	@reserva = Reserva.new(params.require(:reserva).permit(:fecha, :usuario_id, :prop_id))
 
+      @reserva.normal=true      
       # La fecha guardada va a ser el principio de la semana, domingo
     	@reserva.fecha = @reserva.fecha - @reserva.fecha.wday
 
@@ -53,6 +54,11 @@ class ReservasController < ApplicationController
         flash[:alert] = "Ya hay una subasta en esta fecha"
         redirect_to new_reserva_path(params[:reserva][:prop_id])
 
+      # Si hay un hot sale en esa fecha, da un error
+      elsif @reserva.prop.hot_sale.where(fecha_reserva: @reserva.fecha).any?
+        flash[:alert] = "Ya hay un hot sale en esta fecha"
+        redirect_to new_reserva_path(params[:reserva][:prop_id])
+
       # Si la propiedad esta oculta, tiro un mensaje de error
       elsif @reserva.prop.oculto
         flash[:alert] = "Esta propiedad no puede ser reservada en este momento"
@@ -61,8 +67,8 @@ class ReservasController < ApplicationController
       # Verificaciones del usuario
 
       # Verifica que no tenga mas de dos reservas
-      elsif @reserva.usuario.reserva.all.count >= 2
-        flash[:alert] = "Usted no tiene mas semanas disponibles"
+      elsif (Usuario.find(current_usuario.id).reserva.where("normal IS TRUE").count >= 2)
+        flash[:alert] = "Usted no dispone de semanas libres"
         redirect_to new_reserva_path(params[:reserva][:prop_id])
 
       # Verifica que no tenga una reserva en esa fecha
